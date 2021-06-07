@@ -1,0 +1,248 @@
+.logo{
+    width: 150px;
+    height: 100px;
+}
+
+body{
+	
+    background-image: url("images/logo_principal.jpg");
+    
+}
+
+.container {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+
+.espaco {
+    padding-top: 10px;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.search {
+  background-image: url('/icons/search.svg'); /* Add a search icon to input */
+  background-position: 10px 15px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 30%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+  margin-left: 2.5%;
+}
+
+.button-add-user {
+  background-image: url('/icons/addperson.svg');
+  background-position: 12px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  background-size: 25px;
+  background-color: #080808;
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+  margin-left: 53%;
+}
+
+.button-add-user:hover {
+  background-image: url('/icons/addperson.svg');
+  background-position: 12px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  background-size: 25px;
+  background-color: #0a0a0a;
+  opacity: 0.7;
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+  margin-left: 53%;
+}
+
+.button-edit-remove {
+  background-color: #d91e3e;
+  border: 1px solid #ddd; /* Add a grey border */
+  
+}
+
+.button-edit-remove:hover {
+  background-color: #d91e3e;
+  opacity: 0.7;
+  border: 1px solid #ddd; /* Add a grey border */
+  
+}
+
+.button-trash {
+  background-image: url('/icons/trash.svg');
+  background-repeat: no-repeat; 
+  background-position: 2,5px 2px;
+  background-size: 24.5px;
+  padding: 15px 15px;
+  background-color: #d91e3e;
+  border: 1px solid #ddd; 
+}
+
+.button-trash:hover {
+  background-image: url('/icons/trash.svg');
+  background-repeat: no-repeat; 
+  background-position: 2,5px 2px;
+  background-size: 25px;
+  padding: 15px 15px;
+  background-color: #d91e3e;
+  border: 1px solid #ddd; 
+  opacity: 0.7;
+}
+
+.button-pencil:hover {
+  background-image: url('/icons/pencil-square.svg');
+  background-repeat: no-repeat; 
+  background-position: 2,5px 2px;
+  background-size: 25px;
+  padding: 15px 15px;
+  background-color: #d91e3e;
+  border: 1px solid #ddd;
+  opacity: 0.7;
+}
+
+.button-pencil {
+  background-image: url('/icons/pencil-square.svg');
+  background-repeat: no-repeat; 
+  background-position: 2,5px 2px;
+  background-size: 24.5px;
+  padding: 15px 15px;
+  background-color: #d91e3e;
+  border: 1px solid #ddd;
+}
+
+.borda-form {
+  border-color: #080808;
+  border-style: solid;
+}
+
+.label-form {
+  padding-left: 20px;
+}
+
+.div-form{
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;;
+}
+
+.tab {
+  display: none;
+}
+
+
+
+.input-form {
+  padding: 6px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+
+button {
+  background-color: #a17d07;
+  color: #000000;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-family: bold Raleway;
+  cursor: pointer;
+}
+
+input.invalid {
+  background-color: #ffdddd;
+}
+
+body {
+  background-color: #f1f1f1;
+}
+
+.input-end {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: none;
+}
+
+.input-tatuagem {
+  padding: 10px;
+  width: 50%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+
+input[type='radio']:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #d1d3d1;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #a17d07;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+input[type='']:after {
+  width: 15px;
+  height: 15px;
+
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #d1d3d1;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+input[type='']:checked:after {
+  width: 15px;
+  height: 15px;
+
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #a17d07;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}

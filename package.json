@@ -1,0 +1,24 @@
+{
+  "name": "dgsc",
+  "description": "Software destinado para delegacia de São Carlos - SP",
+  "version": "1.0.0",
+  "main": "main.js",
+  "authors": [
+    "Breno Donato Veronezi"
+  ],
+  "license": "GPL-3.0",
+  "private": true,
+  "scripts": {
+    "start": ".\\node_modules\\node\\bin\\node.exe start-electron.js"
+  },
+  "dependencies": {
+    "consign": "^0.1.6",
+    "electron": "11.2.0",
+    "jquery": "^3.5.1",
+    "lodash": "^4.17.20",
+    "node": "^15.4.0",
+    "pg": "^8.6.0",
+    "request": "^2.88.2",
+    "strip": "^3.0.0"
+  }
+}

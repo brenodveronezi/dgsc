@@ -1,0 +1,519 @@
+<HTML>
+    <head>
+        <meta charset="UTF-8">
+
+        <title>Cadastro</title>
+
+        <a href="/"><input class="" type="button" value="Página Inicial"></a>
+
+        <script src="js/jquery-3.5.1.js"></script>
+    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.css" integrity="sha512-jO9KUHlvIF4MH/OTiio0aaueQrD38zlvFde9JoEA+AQaCNxIJoX4Kjse3sO2kqly84wc6aCtdm9BIUpYdvFYoA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.js" integrity="sha512-1bpfZkKJ+WlmJN/I2KLm79dSiuOos0ymwL5IovsUVARyzcaf9rSXsVO2Cdg4qlKNOQXh8fd1d0vKeY9Ru3bQDw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/jquerymask.js"></script>
+
+    </head>
+
+    <body>  
+        <form id="regForm" action="/cadastro/salvar" method="POST">
+            <div class="">
+                <div style="width: 80%; position: center; padding-top: 8%;" class="container-fluid">
+                    <a>Cadastrar Identificado</a>
+
+                <div class="form-control">
+
+                    <div class="tab">
+                        <div class="row div-form">
+                            <div style="width: 50%;">
+                                <p><input name="nome" class="input-form"  placeholder="Nome Completo" ></p>
+                            </div>
+                            <div style="width: 50%; padding-left: 35px;">
+                                <p><input name="apelido" class="input-form" placeholder="Apelido" ></p>
+                            </div>
+                        </div>
+
+                        <div class="row div-form">
+                            <div style="width: 50%;">
+                                <p><input name="cpf"  class="input-form" placeholder="CPF" ></p>
+                            </div>
+                            <div style="width: 50%; padding-left: 35px;">
+                                <p><input name="rg" class="input-form" placeholder="RG" ></p>
+                            </div>
+                        </div>
+
+                        <div class="row div-form">
+                            <div style="width: 50%;">
+                                <p><labelstyle="padding-right: 15px;">Data Nascimento:</label><input  name="dt_nascimento"  class="input-form" style="width: 61%;" type="date"></p>
+                            </div>
+                            <div style="width: 50%; padding-left: 35px;">
+                                <p><input name="naturalidade" class="input-form" placeholder="Naturalidade" ></p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div style="width: 100%; padding-left: 15px; padding-right: 15px;">
+                                <p><input class="input-form" placeholder="Email" ></p>
+                            </div>
+                        </div>
+
+                        <div class="row div-form">
+                            <div style="width: 50%;">
+                                <p><input name="nome_mae" class="input-form" placeholder="Nome mãe" ></p>
+                            </div>
+                            <div style="width: 50%; padding-left: 35px;">
+                                <p><input name="nome_pai" class="input-form" placeholder="Nome pai" ></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab">
+                        <div class="row div-form">
+                            <div class="form-control">
+                                <label class="">Estado Civil:</label>
+                                <label class="label-form">
+                                  <input name="civil" class="" type="radio" value="Solteiro(a)"/>
+                                  Solteiro(a)
+                                </label>
+                                  
+                                
+                                <label class="label-form">
+                                  <input  name="civil" class="" type="radio" value="Casado(a)"/>
+                                  Casado(a)
+                                </label> 
+    
+    
+                                <label class="label-form">
+                                  <input name="civil" class="" type="radio" value="Separado(a)"/> 
+                                  Separado(a)
+                                </label> 
+    
+    
+                                <label class="label-form">
+                                  <input  name="civil" class="" type="radio" value="Divorciado(a)"/> 
+                                  Divorciado(a)
+                                </label> 
+    
+    
+                                <label class="label-form">
+                                  <input name="civil" class="" type="radio" value="Viúvo(a)"/> 
+                                  Viúvo(a)
+                                </label> 
+                            </div>
+                        </div>
+
+                        <div class="row div-form">
+                            <div class="form-control">
+                                <label class="">Cor da pele:</label>
+                                <label class="label-form">
+                                    <input name="corpele" class="" type="radio" value="Amarelo"/>
+                                    Amarelo
+                                </label>
+                                  
+                                
+                                <label class="label-form">
+                                    <input name="corpele" class="" type="radio" value="Branco"/>
+                                    Branco
+                                </label> 
+    
+    
+                                <label class="label-form">
+                                    <input name="corpele" class="" type="radio" value="Pardo"/> 
+                                    Pardo
+                                </label> 
+    
+    
+                                <label class="label-form">
+                                    <input name="corpele" class="" type="radio" value="Negro"/> 
+                                    Negro
+                                </label> 
+    
+    
+                                <label class="label-form">
+                                    <input name="corpele" class="" type="radio" value="Vermelho"/> 
+                                    Vermelho
+                                </label> 
+                            </div>
+                        </div>
+
+                        <div class="row div-form">
+                            <div class="form-control">
+                                <label class="">Cor dos olhos:</label>
+                                <label class="label-form">
+                                    <input name="corolhos" class="" type="radio" value="Azul"/>
+                                    Azul
+                                </label>
+                                  
+                                
+                                <label class="label-form">
+                                    <input name="corolhos" class="" type="radio" value="Verde"/>
+                                    Verde
+                                </label> 
+    
+    
+                                <label class="label-form">
+                                    <input name="corolhos" class="" type="radio" value="Castanho"/> 
+                                    Castanho
+                                </label> 
+    
+    
+                                <label class="label-form">
+                                    <input name="corolhos" class="" type="radio" value="Preto"/> 
+                                    Preto
+                                </label> 
+                            </div>
+                        </div>
+
+                        <div class="row div-form">
+                            <div class="form-control">
+                                <label class="">Tipo de Cabelo:</label>
+                                <label class="label-form">
+                                    <input name="tipocabelo" class="" type="radio" value="Calvo"/>
+                                    Calvo
+                                </label>
+                                  
+                                
+                                <label class="label-form">
+                                    <input name="tipocabelo" class="" type="radio" value="Ondulado"/>
+                                    Ondulado
+                                </label> 
+    
+    
+                                <label class="label-form">
+                                    <input name="tipocabelo" class="" type="radio" value="Encaracolado"/> 
+                                    Encaracolado
+                                </label> 
+    
+    
+                                <label class="label-form">
+                                    <input name="tipocabelo" class="" type="radio" value="Liso"/> 
+                                    Liso
+                                </label> 
+
+                                <label class="label-form">
+                                    <input name="tipocabelo" class="" type="radio" value="Carapinha"/> 
+                                    Carapinha
+                                </label> 
+                            </div>
+                        </div>
+
+                        <div class="row div-form">
+                            <div class="form-control">
+                                <label class="">Cor do Cabelo:</label>
+                                <label class="label-form">
+                                    <input name="corcabelo" class="" type="radio" value="Ruivo"/>
+                                    Ruivo
+                                </label>
+                                  
+                                
+                                <label class="label-form">
+                                    <input name="corcabelo" class="" type="radio" value="Loiro"/>
+                                    Loiro
+                                </label> 
+    
+    
+                                <label class="label-form">
+                                    <input name="corcabelo" class="" type="radio" value="Castanho"/> 
+                                    Castanho
+                                </label> 
+    
+    
+                                <label class="label-form">
+                                    <input name="corcabelo" class="" type="radio" value="Preto"/> 
+                                    Preto
+                                </label> 
+
+                                <label class="label-form">
+                                    <input name="corcabelo" class="" type="radio" value="Grisalio"/> 
+                                    Grisalio
+                                </label> 
+                            </div>
+                        </div>
+                        
+                        <div class="row div-form">
+                            <div style="width: 50%;">
+                                <p><input name="peso" class="input-form" style="width: 72%;" placeholder="Peso" type="number" ></p>
+                            </div>
+                            <div style="width: 50%; padding-left: 35px;">
+                                <p><input name="altura" class="input-form"  type="Peso" placeholder="Altura em centimetros" ></p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="tab">
+                        <div class="row div-form"><input class="end" readonly type="text" value="Endereço 1">
+                            <div style="width: 100%;">
+                                <p><input name="rua1" class="input-form" placeholder="Rua" ></p>
+                            </div>
+
+                            <div style="width: 100%;">
+                                <p><input name="cidade1" class="input-form" placeholder="Cidade" ></p>
+                            </div>
+
+                            <div style="width: 100%;">
+                                <p><input name="estado1" class="input-form" placeholder="Estado" ></p>
+                            </div>
+                        </div>
+
+                        <div class="row div-form">
+                            <div style="width: 50%;">
+                                <p><input name="numero1" class="input-form" placeholder="Número" type="number" ></p>
+                            </div>
+                            <div style="width: 50%; padding-left: 35px;">
+                                <p><input name="complemento1" class="input-form" placeholder="Complemento" ></p>
+                            </div>
+                        </div>
+                        
+
+                        <div id="content">
+
+                        </div>
+                        <input class="input-form" type="button" value="+" onclick="addRow()">
+
+                    </div>
+
+                    <div id="tatuagens" class="tab">
+                        <div class="row div-form">
+                            <div style="width: 50%;">
+                                <input onclick="EnableDisabletxtrosto(this)" id="ckrosto" name="ckrosto"  type="checkbox"><input disabled="disabled" id="txtrosto" name="txtrosto" type="text" placeholder="Rosto">
+                            </div>
+                        </div>
+
+                        <div class="row div-form">
+                            <div style="width: 50%;">
+                                <input onclick="EnableDisabletxtcostase(this)" id="ckcostase" name="ckcostase"  type="checkbox"><input disabled="disabled" id="txtcostase" name="txtcostase" type="text" placeholder="Costas (Esquerda)">
+                            </div>
+                            <div style="width: 50%; padding-left: 35px;">
+                                <input onclick="EnableDisabletxtcostasd(this)" id="ckcostasd" name="ckcostasd" type="checkbox"><input disabled="disabled" id="txtcostasd" name="txtcostasd" type="text" placeholder="Costas (Direita)">
+                            </div>
+                        </div>
+                        <div class="row div-form">
+                            <div style="width: 50%;">
+                                <p><input onclick="EnableDisabletxtpeitoe(this)" id="ckpeitoe" name="ckpeitoe"  type="checkbox"><input disabled="disabled" id="txtpeitoe" name="txtpeitoe" type="text" placeholder="Peito (Esquerda)"></p>
+                            </div>
+                            <div style="width: 50%; padding-left: 35px;">
+                                <p><input onclick="EnableDisabletxtpeitod(this)" id="ckpeitod" name="ckpeitod" type="checkbox"><input disabled="disabled" id="txtpeitod" name="txtpeitod" type="text" placeholder="Peito (Direita)"></p>
+                            </div>
+                        </div>
+
+                        <div class="row div-form">
+                            <div style="width: 50%;">
+                                <p><input onclick="EnableDisabletxtbarrigae(this)" id="ckbarrigae" name="ckbarrigae"  type="checkbox"><input disabled="disabled" id="txtbarrigae" name="txtbarrigae" type="text" placeholder="Barriga (Esquerda)"></p>
+                            </div>
+                            <div style="width: 50%; padding-left: 35px;">
+                                <p><input onclick="EnableDisabletxtbarrigad(this)" id="ckbarrigad" name="ckbarrigad" type="checkbox"><input disabled="disabled" id="txtbarrigad" name="txtbarrigad" type="text" placeholder="Barriga (Direita)"></p>
+                            </div>
+                        </div>
+
+                        <div class="row div-form">
+                            <div style="width: 50%;">
+                                <p><input onclick="EnableDisabletxtpernae(this)" id="ckpernae" name="ckpernae"  type="checkbox"><input disabled="disabled" id="txtpernae" name="txtpernae" type="text" placeholder="Perna (Esquerda)"></p>
+                            </div>
+                            <div style="width: 50%; padding-left: 35px;">
+                                <p><input onclick="EnableDisabletxtpernad(this)" id="ckpernad" name="ckpernad" type="checkbox"><input disabled="disabled" id="txtpernad" name="txtpernad" type="text" placeholder="Perna (Direita)"></p>
+                            </div>
+                        </div>
+
+                        <div class="row div-form">
+                            <div style="width: 50%;">
+                                <p><input onclick="EnableDisabletxtpee(this)" id="ckpee" name="ckpee"  type="checkbox"><input disabled="disabled" id="txtpee" name="txtpee" type="text" placeholder="Pé (Esquerda)"></p>
+                            </div>
+                            <div style="width: 50%; padding-left: 35px;">
+                                <p><input onclick="EnableDisabletxtped(this)" id="ckped" name="ckped" type="checkbox" ><input disabled="disabled" id="txtped" name="txtped" type="text" placeholder="Pé (Direita)"></p>
+                            </div>
+                        </div>
+
+                        <div class="row div-form">
+                            <div style="width: 50%;">
+                                <p><input onclick="EnableDisabletxtbracoe(this)" id="ckbracoe" name="ckbracoe"  type="checkbox"><input disabled="disabled" id="txtbracoe" name="txtbracoe" type="text" placeholder="Braço (Esquerda)"></p>
+                            </div>
+                            <div style="width: 50%; padding-left: 35px;">
+                                <p><input onclick="EnableDisabletxtbracod(this)" id="ckbracod" name="ckbracod" type="checkbox" ><input disabled="disabled" id="txtbracod" name="txtbracod" type="text" placeholder="Braço (Direita)"></p>
+                            </div>
+                        </div>
+
+                        <div class="row div-form">
+                            <div style="width: 50%;">
+                                <p><input onclick="EnableDisabletxtantebracoe(this)" id="ckbantebracoe" name="ckantebracoe"  type="checkbox"><input disabled="disabled" id="txtantebracoe" name="txtantebraco-e" type="text" placeholder="AnteBraço (Esquerda)"></p>
+                            </div>
+                            <div style="width: 50%; padding-left: 35px;">
+                                <p><input onclick="EnableDisabletxtantebracod(this)" id="ckantebracod" name="ckantebracod" type="checkbox" ><input disabled="disabled" id="txtantebracod" name="txtantebraco-d" type="text" placeholder="AnteBraço (Direita)"></p>
+                            </div>
+                        </div>
+
+                        <div class="row div-form">
+                            <div style="width: 50%;">
+                                <p><input onclick="EnableDisabletxtmaoe(this)" id="ckmaoe" name="ckmaoe"  type="checkbox"><input disabled="disabled" id="txtmaoe" name="txtmaoe" type="text" placeholder="Mão (Esquerda)"></p>
+                            </div>
+                            <div style="width: 50%; padding-left: 35px;">
+                                <p><input onclick="EnableDisabletxtmaod(this)" id="ckmaod" name="ckmaod" type="checkbox" ><input disabled="disabled" id="txtmaod" name="txtmaod" type="text" placeholder="Mão (Direita)"></p>
+                            </div>
+                        </div>
+
+                        <div class="row div-form">
+                            <div style="width: 50%;">
+                                <p><input onclick="EnableDisabletxtpescocoe(this)" id="ckpescocoe" name="ckpescocoe"  type="checkbox"><input disabled="disabled" id="txtpescocoe" name="txtpescocoe" type="text" placeholder="Pescoço (Esquerda)"></p>
+                            </div>
+                            <div style="width: 50%; padding-left: 35px;">
+                                <p><input onclick="EnableDisabletxtpescocod(this)" id="ckpescocod" name="ckpescocod" type="checkbox" ><input disabled="disabled" id="txtpescocod" name="txtpescocod" type="text" placeholder="Pescoço (Direita)"></p>
+                            </div>
+                        </div>
+
+                        <div class="row div-form">
+                            <div style="width: 100%;">
+                                <p><input onclick="EnableDisabletxtcicatriz(this)" id="ckcicatriz" name="ckcicatriz"  type="checkbox"><input disabled="disabled" id="txtcicatriz" name="txtcicatriz" type="text" placeholder="Cicatriz"></p>
+                            </div>
+                        </div>
+
+                        <div class="row div-form">
+                            <div style="width: 100%">
+                                <p><input onclick="EnableDisabletxtdeformidade(this)" id="ckdeformidade" name="ckdeformidade" type="checkbox" ><input disabled="disabled" id="txtdeformidade" name="txtdeformidade" type="text" placeholder="Deformidade"></p>
+                            </div>
+                        </div>                        
+                    </div>
+
+
+                    <div class="tab">
+                        <div class="row div-form"><input class="oc" readonly type="text" value="Ocorrência 1">
+                            <div style="width: 100%;">
+                                <p><input name="date1" class="input-form" type="date"></p>
+                            </div>
+
+                            <div style="width: 100%;">
+                                <p><input name="procedimento1" class="input-form" placeholder="Procedimento" ></p>
+                            </div>
+
+                            <div style="width: 100%;">
+                                <p><input name="procedimento1" class="input-form" placeholder="Artigo" ></p>
+                            </div>
+
+                            <div style="width: 100%;">
+                                <p><input name="lei1" class="input-form" placeholder="Lei" ></p>
+                            </div>
+
+                            <div style="width: 100%;">
+                                <p><input name="historico1" class="input-form" type="textarea" placeholder="Histórico" ></p>
+                            </div>
+                        </div>
+
+                        <div id="ocorrencia">
+
+                        </div>
+                        <input class="input-form" type="button" value="+" onclick="addOcorrencia()">
+                    </div>
+
+
+                    <div class="tab">
+                        <div class="container-fluid">
+                            <label class="label" data-toggle="tooltip" title="" data-original-title="Imagem 1">
+                                <img class="rounded" id="avatar" name="avatar" src="https://avatars0.githubusercontent.com/u/3456749?s=160" alt="avatar">
+                                <input type="file" class="sr-only" id="input" name="image" accept="image/*">
+                            </label>
+                            <input name="img_value" id="img_value" type="hidden" value="">
+                    
+                            <label class="label" data-toggle="tooltip" title="" data-original-title="Imagem 2">
+                                <img class="rounded" id="avatar2" name="avatar2" src="https://avatars0.githubusercontent.com/u/3456749?s=160" alt="avatar">
+                                <input onClick="change()" type="file" class="sr-only" id="input2" name="image2" accept="image/*">
+                            </label>
+                            <input name="img_value2" id="img_value2" type="hidden" value="">
+
+                            <label class="label" data-toggle="tooltip" title="" data-original-title="Imagem 3">
+                                <img class="rounded" id="avatar3" name="avatar3" src="https://avatars0.githubusercontent.com/u/3456749?s=160" alt="avatar">
+                                <input onClick="change()" type="file" class="sr-only" id="input3" name="image3" accept="image/*">
+                            </label>
+                            <input name="img_value3" id="img_value3" type="hidden" value="">  
+                            
+                            <label class="label" data-toggle="tooltip" title="" data-original-title="Imagem 4">
+                                <img class="rounded" id="avatar4" name="avatar4" src="https://avatars0.githubusercontent.com/u/3456749?s=160" alt="avatar">
+                                <input onClick="change()" type="file" class="sr-only" id="input4" name="image4" accept="image/*">
+                              </label>
+                            <input name="img_value4" id="img_value4" type="hidden" value="">
+                            
+                            <div class="progress" style="display: none;">
+                              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">100%</div>
+                            </div>
+                            <div class="alert alert-success" role="alert" style="display: block;">Upload success</div>
+                            <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" style="display: none;" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">×</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <div class="container">
+                                      <img style="width: 100%;" id="image" src="" class=""> 
+                                    </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-primary" id="crop">Crop</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                    
+                            <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="modalLabel" style="display: none;" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+                                    <button type="button" class="close" data-dismiss="modal2" aria-label="Close">
+                                      <span aria-hidden="true">×</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <div class="container">
+                                      <img style="width: 100%;" id="image2" src="" class="">
+                                    </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal2">Cancel</button>
+                                    <button type="button" class="btn btn-primary" id="crop2">Crop</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+
+
+                <div style="overflow:auto;">
+                    <div style="float:right;">
+                      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
+                      <button type="button" id="nextBtn" onclick="nextPrev(1)">Próximo</button>
+                    </div>
+                </div>  
+            </div>    
+        
+            
+            <div style="text-align:center;margin-top:40px;">
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+            </div>
+            
+        </form>
+ 
+    
+        <script src="js/tab.js"></script>
+
+        <script src="js/end.js"></script>  
+
+        <script src="js/ocorrencia.js"></script>
+
+        <script src="js/tattoock.js"></script>
+
+        <script src="js/cropper.js"></script>
+
+    </body>
+</HTML>
