@@ -1,7 +1,7 @@
     //ROSTO
     function EnableDisabletxtrosto(ckrosto) {
         var txtrosto = document.getElementById("txtrosto");
-        txtrosto.disabled = txtrosto.checked ? false : true;
+        txtrosto.disabled = ckrosto.checked ? false : true;
         if (!txtrosto.disabled) {
             txtrosto.focus();
         }else{
@@ -10,21 +10,21 @@
     }
 
     // COSTAS
-    function EnableDisabletxtcostase(ckcostase) {
-        var txtcostase = document.getElementById("txtcostase");
-        txtcostase.disabled = ckcostase.checked ? false : true;
-        if (!txtcostase.disabled) {
-            txtcostase.focus();
+    function EnableDisabletxtcostase(ckcostas_e) {
+        var txtcostas_e = document.getElementById("txtcostas_e");
+        txtcostas_e.disabled = ckcostas_e.checked ? false : true;
+        if (!txtcostas_e.disabled) {
+            txtcostas_e.focus();
         }else{
-          txtcostase.value = '';
+          txtcostas_e.value = '';
         }
     }
 
-    function EnableDisabletxtcostasd(ckcostasd) {
-        var txtcostasd = document.getElementById("txtcostasd");
-        txtcostasd.disabled = ckcostasd.checked ? false : true;
-        if (!txtcostasd.disabled) {
-            txtcostasd.focus();
+    function EnableDisabletxtcostasd(ckcostas_d) {
+        var txtcostas_d = document.getElementById("txtcostas_d");
+        txtcostas_d.disabled = ckcostas_d.checked ? false : true;
+        if (!txtcostas_d.disabled) {
+            txtcostas_d.focus();
         }else{
           txtcostasd.value = '';
         }
@@ -32,9 +32,9 @@
 
 
     //PEITO
-    function EnableDisabletxtpeitoe(ckpeitoe) {
-        var txtpeitoe = document.getElementById("txtpeitoe");
-        txtpeitoe.disabled = ckpeitoe.checked ? false : true;
+    function EnableDisabletxtpeitoe(ckpeito_e) {
+        var txtpeitoe = document.getElementById("txtpeito_e");
+        txtpeitoe.disabled = ckpeito_e.checked ? false : true;
         if (!txtpeitoe.disabled) {
             txtpeitoe.focus();
         }else{
@@ -42,160 +42,160 @@
         }
     }
 
-    function EnableDisabletxtpeitod(ckpeitod) {
-        var txtpeitod = document.getElementById("txtpeitod");
-        txtpeitod.disabled = ckpeitod.checked ? false : true;
-        if (!txtpeitod.disabled) {
-            txtpeitod.focus();
+    function EnableDisabletxtpeitod(ckpeito_d) {
+        var txtpeito_d = document.getElementById("txtpeito_d");
+        txtpeito_d.disabled = ckpeito_d.checked ? false : true;
+        if (!txtpeito_d.disabled) {
+            txtpeito_d.focus();
         }else{
-            txtpeitod.value = '';
+            txtpeito_d.value = '';
         }
     }
 
     //BARRIGA
-    function EnableDisabletxtbarrigae(ckbarrigae) {
-        var txtbarrigae = document.getElementById("txtbarrigae");
-        txtbarrigae.disabled = ckbarrigae.checked ? false : true;
-        if (!txtbarrigae.disabled) {
-            txtbarrigae.focus();
+    function EnableDisabletxtbarrigae(ckbarriga_e) {
+        var txtbarriga_e = document.getElementById("txtbarriga_e");
+        txtbarriga_e.disabled = ckbarriga_e.checked ? false : true;
+        if (!txtbarriga_e.disabled) {
+            txtbarriga_e.focus();
         }else{
-            txtbarrigae.value = '';
+            txtbarriga_e.value = '';
         }
     }
 
-    function EnableDisabletxtbarrigad(ckbarrigad) {
-        var txtbarrigad = document.getElementById("txtbarrigad");
-        txtbarrigad.disabled = ckbarrigad.checked ? false : true;
-        if (!txtbarrigad.disabled) {
-            txtbarrigad.focus();
+    function EnableDisabletxtbarrigad(ckbarriga_d) {
+        var txtbarriga_d = document.getElementById("txtbarriga_d");
+        txtbarriga_d.disabled = ckbarriga_d.checked ? false : true;
+        if (!txtbarriga_d.disabled) {
+            txtbarriga_d.focus();
         }else{
-            txtbarrigad.value = '';
+            txtbarriga_d.value = '';
         }
     }
 
     //PERNA
-    function EnableDisabletxtpernae(ckpernae) {
-        var txtpernae = document.getElementById("txtpernae");
-        txtpernae.disabled = ckpernae.checked ? false : true;
-        if (!txtpernae.disabled) {
-            txtpernae.focus();
+    function EnableDisabletxtpernae(ckperna_e) {
+        var txtperna_e = document.getElementById("txtperna_e");
+        txtperna_e.disabled = ckperna_e.checked ? false : true;
+        if (!txtperna_e.disabled) {
+            txtperna_e.focus();
         }else{
-            txtpernae.value = '';
+            txtperna_e.value = '';
         }
     }
 
-    function EnableDisabletxtpernad(ckpernad) {
-        var txtpernad = document.getElementById("txtpernad");
-        txtpernad.disabled = ckpernad.checked ? false : true;
-        if (!txtpernad.disabled) {
-            txtpernad.focus();
+    function EnableDisabletxtpernad(ckperna_d) {
+        var txtperna_d = document.getElementById("txtperna_d");
+        txtperna_d.disabled = ckperna_d.checked ? false : true;
+        if (!txtperna_d.disabled) {
+            txtperna_d.focus();
         }else{
-            txtpernad.value = '';
+            txtperna_d.value = '';
         }
     }
 
     //PE
-    function EnableDisabletxtpee(ckpee) {
-        var txtpee = document.getElementById("txtpee");
-        txtpee.disabled = ckpee.checked ? false : true;
-        if (!txtpee.disabled) {
-            txtpee.focus();
+    function EnableDisabletxtpee(ckpe_e) {
+        var txtpe_e = document.getElementById("txtpe_e");
+        txtpe_e.disabled = ckpe_e.checked ? false : true;
+        if (!txtpe_e.disabled) {
+            txtpe_e.focus();
         }else{
-            txtpee.value = '';
+            txtpe_e.value = '';
         }
     }
 
-    function EnableDisabletxtped(ckped) {
-        var txtped = document.getElementById("txtped");
-        txtped.disabled = ckped.checked ? false : true;
-        if (!txtped.disabled) {
-            txtped.focus();
+    function EnableDisabletxtped(ckpe_d) {
+        var txtpe_d = document.getElementById("txtpe_d");
+        txtpe_d.disabled = ckpe_d.checked ? false : true;
+        if (!txtpe_d.disabled) {
+            txtpe_d.focus();
         }else{
-            txtped.value = '';
+            txtpe_d.value = '';
         }
     }
 
     //BRAÇO
-    function EnableDisabletxtbracoe(ckbracoe) {
-        var txtbracoe = document.getElementById("txtbracoe");
-        txtbracoe.disabled = ckbracoe.checked ? false : true;
-        if (!txtbracoe.disabled) {
-            txtbracoe.focus();
+    function EnableDisabletxtbracoe(ckbraco_e) {
+        var txtbraco_e = document.getElementById("txtbraco_e");
+        txtbraco_e.disabled = ckbraco_e.checked ? false : true;
+        if (!txtbraco_e.disabled) {
+            txtbraco_e.focus();
         }else{
-            txtbracoe.value = '';
+            txtbraco_e.value = '';
         }
     }
 
-    function EnableDisabletxtbracod(ckbracod) {
-        var txtbracod = document.getElementById("txtbracod");
-        txtbracod.disabled = ckbracod.checked ? false : true;
-        if (!txtbracod.disabled) {
-            txtbracod.focus();
+    function EnableDisabletxtbracod(ckbraco_d) {
+        var txtbraco_d = document.getElementById("txtbraco_d");
+        txtbraco_d.disabled = ckbraco_d.checked ? false : true;
+        if (!txtbraco_d.disabled) {
+            txtbraco_d.focus();
         }else{
-            txtbracod.value = '';
+            txtbraco_d.value = '';
         }
     }
 
     //ANTEBRAÇO
-    function EnableDisabletxtantebracoe(ckantebracoe) {
-        var txtantebracoe = document.getElementById("txtantebracoe");
-        txtantebracoe.disabled = ckantebracoe.checked ? false : true;
-        if (!txtantebracoe.disabled) {
-            txtantebracoe.focus();
+    function EnableDisabletxtantebracoe(ckantebraco_e) {
+        var txtantebraco_e = document.getElementById("txtantebraco_e");
+        txtantebraco_e.disabled = ckantebraco_e.checked ? false : true;
+        if (!txtantebraco_e.disabled) {
+            txtantebraco_e.focus();
         }else{
-            txtantebracoe.value = '';
+            txtantebraco_e.value = '';
         }
     }
 
-    function EnableDisabletxtantebracod(ckantebracod) {
-        var txtantebracod = document.getElementById("txtantebracod");
-        txtantebracod.disabled = ckantebracod.checked ? false : true;
-        if (!txtantebracod.disabled) {
-            txtantebracod.focus();
+    function EnableDisabletxtantebracod(ckantebraco_d) {
+        var txtantebraco_d = document.getElementById("txtantebraco_d");
+        txtantebraco_d.disabled = ckantebraco_d.checked ? false : true;
+        if (!txtantebraco_d.disabled) {
+            txtantebraco_d.focus();
         }else{
-            txtantebracod.value = '';
+            txtantebraco_d.value = '';
         }
     }
 
     //MAO
-    function EnableDisabletxtmaoe(ckmaoe) {
-        var txtmaoe = document.getElementById("txtmaoe");
-        txtmaoe.disabled = ckmaoe.checked ? false : true;
-        if (!txtmaoe.disabled) {
-            txtmaoe.focus();
+    function EnableDisabletxtmaoe(ckmao_e) {
+        var txtmao_e = document.getElementById("txtmao_e");
+        txtmao_e.disabled = ckmao_e.checked ? false : true;
+        if (!txtmao_e.disabled) {
+            txtmao_e.focus();
         }else{
-            txtmaoe.value = '';
+            txtmao_e.value = '';
         }
     }
 
-    function EnableDisabletxtmaod(ckmaod) {
-        var txtmaod = document.getElementById("txtmaod");
-        txtmaod.disabled = ckmaod.checked ? false : true;
-        if (!txtmaod.disabled) {
-            txtmaod.focus();
+    function EnableDisabletxtmaod(ckmao_d) {
+        var txtmao_d = document.getElementById("txtmao_d");
+        txtmao_d.disabled = ckmao_d.checked ? false : true;
+        if (!txtmao_d.disabled) {
+            txtmao_d.focus();
         }else{
-            txtmaod.value = '';
+            txtmao_d.value = '';
         }
     }
 
     //PESCOCO
-    function EnableDisabletxtpescocoe(ckpescocoe) {
-        var txtpescocoe = document.getElementById("txtpescocoe");
-        txtpescocoe.disabled = ckpescocoe.checked ? false : true;
-        if (!txtpescocoe.disabled) {
-            txtpescocoe.focus();
+    function EnableDisabletxtpescocoe(ckpescoco_e) {
+        var txtpescoco_e = document.getElementById("txtpescoco_e");
+        txtpescoco_e.disabled = ckpescoco_e.checked ? false : true;
+        if (!txtpescoco_e.disabled) {
+            txtpescoco_e.focus();
         }else{
-            txtpescocoe.value = '';
+            txtpescoco_e.value = '';
         }
     }
 
-    function EnableDisabletxtpescocod(ckpescocod) {
-        var txtpescocod = document.getElementById("txtpescocod");
-        txtpescocod.disabled = ckpescocod.checked ? false : true;
-        if (!txtpescocod.disabled) {
-            txtpescocod.focus();
+    function EnableDisabletxtpescocod(ckpescoco_d) {
+        var txtpescoco_d = document.getElementById("txtpescoco_d");
+        txtpescoco_d.disabled = ckpescoco_d.checked ? false : true;
+        if (!txtpescoco_d.disabled) {
+            txtpescoco_d.focus();
         }else{
-            txtpescocod.value = '';
+            txtpescoc_od.value = '';
         }
     }
 
