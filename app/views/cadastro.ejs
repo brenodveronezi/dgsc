@@ -286,10 +286,10 @@
 
                         <div class="row div-form">
                             <div style="width: 50%;">
-                                <input onclick="EnableDisabletxtcostase(this)" id="ckcostas_e" name="ckcostas_e"  type="checkbox"><input disabled="disabled" id="txtcostas_e" name="txtcostase" type="text" placeholder="Costas (Esquerda)">
+                                <input onclick="EnableDisabletxtcostase(this)" id="ckcostas_e" name="ckcostas_e"  type="checkbox"><input disabled="disabled" id="txtcostas_e" name="txtcostas_e" type="text" placeholder="Costas (Esquerda)">
                             </div>
                             <div style="width: 50%; padding-left: 35px;">
-                                <input onclick="EnableDisabletxtcostasd(this)" id="ckcostas_d" name="ckcostas_d" type="checkbox"><input disabled="disabled" id="txtcostas_d" name="txtcostasd" type="text" placeholder="Costas (Direita)">
+                                <input onclick="EnableDisabletxtcostasd(this)" id="ckcostas_d" name="ckcostas_d" type="checkbox"><input disabled="disabled" id="txtcostas_d" name="txtcostas_d" type="text" placeholder="Costas (Direita)">
                             </div>
                         </div>
                         <div class="row div-form">
@@ -381,7 +381,7 @@
                     <div class="tab">
                         <div class="row div-form"><input class="oc" readonly type="text" value="Ocorrência 1">
                             <div style="width: 100%;">
-                                <p><input name="date1" class="input-form" type="date"></p>
+                                <p><input name="data1" class="input-form" type="date"></p>
                             </div>
 
                             <div style="width: 100%;">
@@ -407,71 +407,43 @@
                         <input class="input-form" type="button" value="+" onclick="addOcorrencia()">
                     </div>
 
-<!--
-                    <div class="tab">
-                        <div class="container-fluid">
-                            <label class="label" data-toggle="tooltip" title="" data-original-title="Imagem 1">
-                                <img class="rounded" id="avatar" name="avatar" src="https://avatars0.githubusercontent.com/u/3456749?s=160" alt="avatar">
-                                <input type="file" class="sr-only" id="input" name="image" accept="image/*">
-                            </label>
-                            <input name="img_value" id="img_value" type="hidden" value="">
-                    
-                            <label class="label" data-toggle="tooltip" title="" data-original-title="Imagem 2">
-                                <img class="rounded" id="avatar2" name="avatar2" src="https://avatars0.githubusercontent.com/u/3456749?s=160" alt="avatar">
-                                <input onClick="change()" type="file" class="sr-only" id="input2" name="image2" accept="image/*">
-                            </label>
-                            <input name="img_value2" id="img_value2" type="hidden" value="">
-                            
-                            <div class="progress" style="display: none;">
-                              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">100%</div>
-                            </div>
-                            <div class="alert alert-success" role="alert" style="display: block;">Upload success</div>
-                            <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" style="display: none;" aria-hidden="true">
-                              <div class="modal-dialog" role="document">
+
+                <div id="images" class="tab">      
+                    <div class="container-fluid">
+                        <label class="label" data-toggle="tooltip" title="" data-original-title="Imagem 1">
+                            <img class="rounded" id="avatar" name="avatar" src="https://avatars0.githubusercontent.com/u/3456749?s=160" alt="avatar">
+                            <input type="file" class="sr-only" id="input" name="image" accept="image/*">
+                        </label>
+                        <input name="img_value" id="img_value" type="hidden" value="">
+                        <div class="progress" style="display: none;">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">100%</div>
+                        </div>
+                        <div class="alert alert-success" role="alert" style="display: block;">Upload success</div>
+                        <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" style="display: none;" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
                                 <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h5 class="modal-title" id="modalLabel">Crop the image</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                      <span aria-hidden="true">×</span>
-                                    </button>
-                                  </div>
-                                  <div class="modal-body">
-                                    <div class="container">
-                                      <img style="width: 100%;" id="image" src="" class=""> 
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                        </button>
                                     </div>
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                    <button type="button" class="btn btn-primary" id="crop">Crop</button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                    
-                            <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="modalLabel" style="display: none;" aria-hidden="true">
-                              <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h5 class="modal-title" id="modalLabel">Crop the image</h5>
-                                    <button type="button" class="close" data-dismiss="modal2" aria-label="Close">
-                                      <span aria-hidden="true">×</span>
-                                    </button>
-                                  </div>
-                                  <div class="modal-body">
-                                    <div class="container">
-                                      <img style="width: 100%;" id="image2" src="" class="">
+                                    <div class="modal-body">
+                                        <div class="container">
+                                            <img style="width: 100%;" id="image" src="" class=""> 
+                                        </div>
                                     </div>
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal2">Cancel</button>
-                                    <button type="button" class="btn btn-primary" id="crop2">Crop</button>
-                                  </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                        <button type="button" class="btn btn-primary" id="crop">Crop</button>
+                                    </div>
                                 </div>
-                              </div>
                             </div>
-                          </div>
+                        </div>
                     </div>
--->
+                </div>
+
+
 
                 <div style="overflow:auto;">
                     <div style="float:right;">
@@ -488,11 +460,14 @@
                 <span class="step"></span>
                 <span class="step"></span>
                 <span class="step"></span>
-                <span class="steep"></span>
+                <span class="step"></span>
+                <span class="step"></span>
             </div>
             
         </form>
  
+        <script src="https://unpkg.com/jquery@3/dist/jquery.min.js" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/bootstrap@4/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     
         <script src="js/tab.js"></script>
 

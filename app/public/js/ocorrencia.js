@@ -8,7 +8,7 @@ function addOcorrencia() {
 
         <div class="row div-form">
             <div style="width: 100%;"><input class="oc" readonly type="text" value="Ocorrência 2">
-                <p><input name="date2" type="date"></p>
+                <p><input name="data2" type="date"></p>
             </div>
 
             <div style="width: 100%;">
@@ -37,7 +37,7 @@ function addOcorrencia() {
 
         <div class="row div-form">
             <div style="width: 100%;"><input class="oc" readonly type="text" value="Ocorrência 3">
-                <p><input name="date3" type="date"></p>
+                <p><input name="data3" type="date"></p>
             </div>
 
             <div style="width: 100%;">
@@ -66,7 +66,7 @@ function addOcorrencia() {
 
         <div class="row div-form">
             <div style="width: 100%;"><input class="oc" readonly type="text" value="Ocorrência 4">
-                <p><input name="date4" type="date"></p>
+                <p><input name="data4" type="date"></p>
             </div>
 
             <div style="width: 100%;">

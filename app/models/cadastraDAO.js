@@ -35,8 +35,10 @@ cadastraDAO.prototype.insertUsuarios = function(dados, req, res){
 		})
 	})
 
+	
+
 	Object.entries(dados).forEach(([key, value]) => {
-		if(value == 'on'){
+		if(key == 'on'){
 			const tattoos = {
 				text: 'INSERT INTO tatuagem_local(id_suspeito,' + key + ') VALUES ((SELECT MAX(id) FROM suspeitos), $1) ON CONFLICT (id_suspeito) DO UPDATE SET ' + key + '= $1',
 				values: [1],
@@ -49,13 +51,13 @@ cadastraDAO.prototype.insertUsuarios = function(dados, req, res){
 				client.query(tattoos, (err, resultTattoos) => {
 					release();
 					if(err){
-						return console.log('Não conseguiu inserir no BD:', err);
+						return console.log('Não conseguiu inserir no BD tattoos:', err);
 					}
 				})
 			})
 		}
 
-		if( key.match(/'rua1.*'/) || key.match(/'cidade1.*'/) || key.match(/'estado1.*'/) || key.match(/'numero1.*'/) || key.match(/'complemento1.*'/)){
+		if( key.match(/rua.*/) || key.match(/cidade.*/) || key.match(/estado.*/) || key.match(/numero.*/) || key.match(/complemento.*/)){
 			const enderecos = {
 				text: 'INSERT INTO enderecos_suspeito(id_suspeito,' + key + ') VALUES ((SELECT MAX(id) FROM suspeitos), $1) ON CONFLICT (id_suspeito) DO UPDATE SET ' + key + '= $1',
 				values:[value],
@@ -84,18 +86,36 @@ cadastraDAO.prototype.insertUsuarios = function(dados, req, res){
 				if(err){
 					return console.log('Erro ao conectar-se no BD:', err);
 				}
-				client.query(caracteristicas_tatuagem, (err, resultEnderecos) => {
+				client.query(caracteristicas_tatuagem, (err, resultTatuagens) => {
 					release();
 					if(err){
-						return console.log('Erro ao inserir no BD, enderecos:', err);
+						return console.log('Erro ao inserir no BD, tatuagens:', err);
 					}
 				})
 			})
 		}
 
-	})
+		if(key.match(/data.*/) || key.match(/procedimento.*/) || key.match(/artigo.*/) || key.match(/lei.*/) || key.match(/historico.*/) ){
+			const passagens_suspeito = {
+				text: 'INSERT INTO passagens_suspeito(id_suspeito,' + key + ') VALUES ((SELECT MAX(id) FROM suspeitos), $1) ON CONFLICT (id_suspeito) DO UPDATE SET ' + key + '= $1',
+				values:[value],
+			}
 
-	
+			this._connection.connect((err, client, release) => {
+				if(err){
+					return console.log('Erro ao conectar-se no BD:', err);
+				}
+				client.query(passagens_suspeito, (err, resultPassagens) => {
+					release();
+					if(err){
+						return console.log('Erro ao inserir no BD, passagens:', err);
+					}
+				})
+			})
+		}
+
+
+	})
 }
 
 module.exports = function(){

@@ -12,4 +12,9 @@ module.exports = function(application, req, res){
     application.get('/', (req, res) => {
         res.render('index');
     })
+
+    application.post('/uploads', (req,res) =>{
+        //
+        res.send('ok');
+    })
 }
