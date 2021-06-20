@@ -1,0 +1,127 @@
+<HTML>
+    <head>
+        <meta charset="UTF-8">
+        <a href="/"><input class="" type="button" value="Página Inicial"></a>
+    </head>
+
+    <body>
+        <%if(dados.length > 0){%>
+            <%for(var i = 0; dados.length > i; i ++){%>
+                <div>
+                    <h4>Informações pessoais:</h4>
+                    <label><%=dados[i].nome%></label>
+                    <label><%=dados[i].cpf%></label>
+                    <label><%=dados[i].rg%></label>
+                    <label><%=dados[i].dt_nascimento%></label>
+                    <label><%=dados[i].nome_pai%></label>
+                    <label><%=dados[i].nome_mãe%></label>
+                    <label><%=dados[i].naturalidade%></label>
+                </div>
+            <%}%>
+        <%}%>
+
+        <%if(caracteristicas.length > 0){%>
+            <%for(var i = 0; caracteristicas.length > i; i++){%>
+                <div>
+                    <h4>Caracteristicas:</h4>
+                    <label><%=caracteristicas[i].estado_civil%></label>
+                    <label><%=caracteristicas[i].cor_pele%></label>
+                    <label><%=caracteristicas[i].cor_olhos%></label>
+                    <label><%=caracteristicas[i].tipo_cabelo%></label>
+                    <label><%=caracteristicas[i].cor_cabelo%></label>
+                    <label><%=caracteristicas[i].peso%></label>
+                    <label><%=caracteristicas[i].altura%></label>
+                </div>
+            <%}%>
+        <%}%>
+
+        <%if(endereco.length > 0){%>
+            <%for(var i = 0; endereco.length > i; i++){%>
+                <div>
+                    <h4>Endereços:</h4>
+                    <div>
+                        <label><%=endereco[i].rua1%></label>
+                        <label><%=endereco[i].cidade1%></label>
+                        <label><%=endereco[i].estado1%></label>
+                        <label><%=endereco[i].numero1%></label>
+                        <label><%=endereco[i].complemento1%></label>
+                    </div>
+
+                    <div>
+                        <label><%=endereco[i].rua2%></label>
+                        <label><%=endereco[i].cidade2%></label>
+                        <label><%=endereco[i].estado2%></label>
+                        <label><%=endereco[i].numero2%></label>
+                        <label><%=endereco[i].complemento2%></label>
+                    </div>
+
+                    <div>
+                        <label><%=endereco[i].rua3%></label>
+                        <label><%=endereco[i].cidade3%></label>
+                        <label><%=endereco[i].estado3%></label>
+                        <label><%=endereco[i].numero3%></label>
+                        <label><%=endereco[i].complemento3%></label>
+                    </div>
+
+                    <div>
+                        <label><%=endereco[i].rua4%></label>
+                        <label><%=endereco[i].cidade4%></label>
+                        <label><%=endereco[i].estado4%></label>
+                        <label><%=endereco[i].numero4%></label>
+                        <label><%=endereco[i].complemento4%></label>
+                    </div>
+                </div>
+
+            <%}%>
+        <%}%>
+
+        <%if(passagem.length > 0){%>
+            <%for(var i = 0; passagem.length > i; i++){%>
+                <div>
+                    <h4>Passagens:</h4>
+                    <div>
+                        <label><%=passagem[i].data1%></label>
+                        <label><%=passagem[i].procedimento1%></label>
+                        <label><%=passagem[i].artigo1%></label>
+                        <label><%=passagem[i].lei1%></label>
+                        <label><%=passagem[i].historico1%></label>
+                    </div>
+
+                    <div>
+                        <label><%=passagem[i].data2%></label>
+                        <label><%=passagem[i].procedimento2%></label>
+                        <label><%=passagem[i].artigo2%></label>
+                        <label><%=passagem[i].lei2%></label>
+                        <label><%=passagem[i].historico2%></label>
+                    </div>
+
+                    <div>
+                        <label><%=passagem[i].data3%></label>
+                        <label><%=passagem[i].procedimento3%></label>
+                        <label><%=passagem[i].artigo3%></label>
+                        <label><%=passagem[i].lei3%></label>
+                        <label><%=passagem[i].historico3%></label>
+                    </div>
+
+                    <div>
+                        <label><%=passagem[i].data4%></label>
+                        <label><%=passagem[i].procedimento4%></label>
+                        <label><%=passagem[i].artigo4%></label>
+                        <label><%=passagem[i].lei4%></label>
+                        <label><%=passagem[i].historico4%></label>
+                    </div>
+                </div>
+
+            <%}%>
+        <%}%>
+
+        <%if(tatuagem_local.length > 0){%>
+            <%for(var i = 0; tatuagem_local.length > i; i++){%>
+                <div>
+                    <h4>Tatuagens:</h4>
+                    <label><%=tatuagem_local[i]%></label>
+                </div>
+            <%}%>
+        <%}%>
+    </body>
+</HTML>

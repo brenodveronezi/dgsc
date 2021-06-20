@@ -1,0 +1,39 @@
+<HTML>
+    <head>
+        <meta charset="UTF-8">
+        <a href="/"><input class="" type="button" value="Página Inicial"></a>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.css" integrity="sha512-jO9KUHlvIF4MH/OTiio0aaueQrD38zlvFde9JoEA+AQaCNxIJoX4Kjse3sO2kqly84wc6aCtdm9BIUpYdvFYoA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.js" integrity="sha512-1bpfZkKJ+WlmJN/I2KLm79dSiuOos0ymwL5IovsUVARyzcaf9rSXsVO2Cdg4qlKNOQXh8fd1d0vKeY9Ru3bQDw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ 
+    </head>
+    <body>
+        <h1>Consulta Suspeitos</h1>
+
+        <%if(suspeito.length > 0){%>
+            <%for(var i = 0; suspeito.length > i; i++){%>
+                <div id="suspeito_"<%=suspeito[i].id%>>
+                    <form action=<%="/cadastro?id="+suspeito[i].id%> method="POST">
+                        <label id="nome_"<%=suspeito[i].nome%>><%=suspeito[i].nome%></label>
+                        <label id="cpf"<%=suspeito[i].cpf%>><%=suspeito[i].cpf%></label>
+                        <button type="submit">Visualizar Cadastro</button>
+                    </form>
+                </div>
+            <%}%>
+        <%}%>
+
+        <script>
+            function visualizaSuspeito(){
+               var div = document.getElementsByTagName('div');
+               for(var i = 0; div.length > i; i++){
+                   div[i].style.display = "none";
+               }
+
+            }
+        </script>
+    </body>
+</HTML>
