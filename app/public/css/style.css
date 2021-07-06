@@ -246,3 +246,22 @@ input[type='']:checked:after {
   visibility: visible;
   border: 2px solid white;
 }
+
+#DivLateral{
+  position:relative;
+  border-width:2px;
+  width:50%;
+  height: 100px;
+  background-color: peachpuff;
+  float: left;
+}
+
+#DivA{
+  position: relative;
+  border-width:2px;
+  width: 100px;
+  height: 100px;
+  left:0px;
+  background-color: red;
+  float: left;
+}

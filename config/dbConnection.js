@@ -6,6 +6,8 @@ const pool = new Pool({
   database: 'dgsc',
   password: '123@qwe',
   port: 5432,
+  connectionTimeoutMillis : 60000,
+  idleTimeoutMillis : 60000,
 })
 
 

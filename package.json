@@ -14,9 +14,11 @@
   "dependencies": {
     "consign": "^0.1.6",
     "electron": "11.2.0",
+    "ftp": "^0.3.10",
     "jquery": "^3.5.1",
     "lodash": "^4.17.20",
     "node": "^15.4.0",
+    "pdfkit": "^0.12.1",
     "pg": "^8.6.0",
     "request": "^2.88.2",
     "strip": "^3.0.0"
