@@ -17,11 +17,11 @@
         <%if(suspeito.length > 0){%>
             <%for(var i = 0; suspeito.length > i; i++){%>
                 <div id="suspeito_"<%=suspeito[i].id%>>
-                    <form id="edita" action=<%="/edita?id="+suspeito[i].id%> method="POST"></form>
-                    <form id="consulta" action=<%="/consulta?id="+suspeito[i].id%> method="POST"></form>
+                    <form id=<%="edita"+suspeito[i].id%> action=<%="/edita?id="+suspeito[i].id%> method="POST">
                         <label id="nome_"<%=suspeito[i].nome%>><%=suspeito[i].nome%></label>
                         <label id="cpf"<%=suspeito[i].cpf%>><%=suspeito[i].cpf%></label>
-                        <button form="consulta" type="submit">Visualizar Cadastro</button>
+                        <button form=<%="edita"+suspeito[i].id%> type="submit">Visualizar Cadastro</button>
+                    </form>
                 </div>
             <%}%>
         <%}%>

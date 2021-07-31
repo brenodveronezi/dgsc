@@ -1,6 +1,12 @@
 module.exports.editaSuspeitoPessoais = function(application, req, res){
-    dados = req.body;
+
+    var dados = req.body;
     console.log(dados);
+
+    var connection = application.config.dbConnection;
+	var editaModel = new application.app.models.editaDAO(connection);
+
+    editaModel.editaPessoais(dados, req, res);
 }
 
 module.exports.editaCaracteristicas = function(application, req, res){

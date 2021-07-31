@@ -1,4 +1,4 @@
-module.exports = function(application, req, res){
+module.exports = function(application){
 
     application.get('/cadastro', (req, res) => {
         application.app.controllers.cadastro.user(application, req, res);
@@ -12,11 +12,11 @@ module.exports = function(application, req, res){
         application.app.controllers.consulta.consultaSuspeitos(application, req, res);
     })
 
-    application.post('/consulta', (req, res) => {
+    application.post('/edita', (req, res) => {
         application.app.controllers.consulta.cadastroSuspeito(application, req, res);
     })
-
-    application.post('/editaPessoais', (req, res)=> {
+    
+    application.post('/editaPessoais', (req, res) => {
         application.app.controllers.edita.editaSuspeitoPessoais(application, req, res);
     })
 

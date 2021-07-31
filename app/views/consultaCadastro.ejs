@@ -10,6 +10,7 @@
             <%for(var i = 0; dados.length > i; i ++){%>
                 <div>
                     <h4>Informações pessoais:</h4>
+                    <input id="id" name="id" value="<%=dados[i].id%>">
                     <div>
                         <label>Nome:</label>
                         <input id="nome" name="nome" value="<%=dados[i].nome%>"></input>
@@ -52,8 +53,9 @@
                 var nome_mae = document.getElementById('nome_mae').value;
                 var naturalidade = document.getElementById('naturalidade').value;
                 var nome = document.getElementById('nome').value;
-                $.post('/editaPessoais', {nome : nome, cpf : cpf, rg: rg, dt_nascimento : dt_nascimento, nome_pai : nome_pai, nome_mae : nome_mae, naturalidade : naturalidade})
-                alert('Alterações salvas!')
+                var id = document.getElementById('id').value;
+                $.post('/editaPessoais', {id : id, nome : nome});
+                alert('Alterações salvas!');
             }
         </script>
 
