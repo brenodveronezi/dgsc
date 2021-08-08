@@ -56,6 +56,10 @@ module.exports = function(application){
         application.app.controllers.edita.editaPassagem1(application, req, res);
     })
 
+    application.post('/consultaPersonalizada', (req, res) => {
+        application.app.controllers.consulta.consultaPersonalizada(application, req, res);
+    })
+
 
 
 

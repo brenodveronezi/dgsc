@@ -14,6 +14,23 @@
     <body>
         <h1>Consulta Suspeitos</h1>
 
+        <form action="/consultaPersonalizada" method="POST">
+            <div>
+                <input id="nome" name="nome" placeholder="nome">
+                <input id="ckrosto" name="ckrosto" type="checkbox" value="1"> <label for="ckrosto">Tatuagem no rosto</label>
+                <input id="ckcostas_d" name="ckcostas_d" type="checkbox" value="1"> <label for="ckcostas_d">Tatuagem nas costas (Direita)</label>
+                <input id="ckpeito_d" name="ckpeito_d" type="checkbox" value="1"> <label for="ckpeito_d">Tatuagem no peito (Direita)</label>
+                <input id="ckbarriga_d" name="ckbarriga_d" type="checkbox" value="1"> <label for="ckbarriga_d">Tatuagem na barriga (Direita)</label>
+                <input id="ckperna_d" name="ckperna_d" type="checkbox" value="1"> <label for="ckperna_d">Tatuagem perna (Direita)</label>
+
+                <div>
+                    <button type="submit">Buscar</button>
+                </div>
+
+            </div>
+        </form>
+
+
         <%if(suspeito.length > 0){%>
             <%for(var i = 0; suspeito.length > i; i++){%>
                 <div id="suspeito_"<%=suspeito[i].id%>>

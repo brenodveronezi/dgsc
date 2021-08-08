@@ -13,3 +13,12 @@ module.exports.cadastroSuspeito = function(application, req, res){
 	cadastroSuspeitoModel.cadastroSuspeito(id, req, res);
 
 }
+
+module.exports.consultaPersonalizada = function(application, req, res){
+    const dados = req.body;
+    var connection = application.config.dbConnection;
+	var consultaPersonalizadaModel = new application.app.models.consultaPersonalizadaDAO(connection);
+
+	consultaPersonalizadaModel.consultaPersonalizadaSuspeito(dados, req, res);
+
+}

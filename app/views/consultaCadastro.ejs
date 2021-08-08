@@ -1,7 +1,7 @@
 <HTML>
     <head>
         <meta charset="UTF-8">
-        <a href="/"><input class="" type="button" value="Página Inicial"></a>
+        <a href="/consulta"><input class="" type="button" value="voltar"></a>
         <script src="js/jquery-3.5.1.js"></script>
     </head>
 
@@ -16,6 +16,10 @@
                         <input id="nome" name="nome" value="<%=dados[i].nome%>"></input>
                     </div>
                     <div>
+                        <label>Apelido:</label>
+                        <input id="apelido" name="apelido" value="<%=dados[i].nome%>"></input>
+                    </div>
+                    <div>
                         <label>CPF:</label>
                         <input id="cpf" name="cpf" value="<%=dados[i].cpf%>"></input>
                     </div>
@@ -25,10 +29,11 @@
                     </div>
                     <div>
                         <label>Data de Nascimento:</label>
-                        <input id="dt_nascimento" name="dt_nascimento" value="<%=dados[i].dt_nascimento%>"></input>
+                        <input type="date" id="dt_nascimento" name="dt_nascimento" value="<%=dados[i].dt_nascimento%>"></input>
                     </div>
                     <div>
                         <label>Nome pai:</label>
+                        <!-- para trazer a data tem q ser em YYYY-DD-MM -->
                         <input id="nome_pai" name="nome_pai" value="<%=dados[i].nome_pai%>"></input>
                     </div>
                     <div>
@@ -54,7 +59,8 @@
                 var naturalidade = document.getElementById('naturalidade').value;
                 var nome = document.getElementById('nome').value;
                 var id = document.getElementById('id').value;
-                $.post('/editaPessoais', {id : id, nome : nome});
+                var apelido = document.getElementById('apelido').value;
+                $.post('/editaPessoais', {id : id, nome : nome, apelido : apelido, cpf : cpf, rg : rg, dt_nascimento : dt_nascimento, nome_pai : nome_pai, nome_mae : nome_mae, naturalidade : naturalidade});
                 alert('Alterações salvas!');
             }
         </script>
@@ -98,6 +104,7 @@
 
         <script>
             function salvaCaracteristicas(){
+                var id = document.getElementById('id').value;
                 var cor_pele = document.getElementById('cor_pele').value;
                 var cor_olhos = document.getElementById('cor_olhos').value;
                 var tipo_cabelo = document.getElementById('tipo_cabelo').value;
@@ -105,7 +112,7 @@
                 var peso = document.getElementById('peso').value;
                 var altura = document.getElementById('altura').value;
 
-                $.post('/editaCaracteristicas', {cor_pele : cor_pele, cor_olhos : cor_olhos, tipo_cabelo : tipo_cabelo, cor_cabelo : cor_cabelo, peso : peso, altura : altura})
+                $.post('/editaCaracteristicas', {id : id, cor_pele : cor_pele, cor_olhos : cor_olhos, tipo_cabelo : tipo_cabelo, cor_cabelo : cor_cabelo, peso : peso, altura : altura})
                 alert('Alterações salvas!')
             }
         </script>
@@ -142,13 +149,14 @@
 
                     <script>
                         function editaEndereco1(){
+                            var id = document.getElementById('id').value;
                             var rua1 = document.getElementById('rua1').value;
                             var cidade1 = document.getElementById('cidade1').value;
                             var estado1 = document.getElementById('estado1').value;
                             var numero1 = document.getElementById('numero1').value;
                             var complemento1 = document.getElementById('complemento1').value;
 
-                            $.post('/editaEndereco1', {rua1 : rua1, cidade1 : cidade1, estado1 : estado1, numero1 : numero1, complemento1 : complemento1});
+                            $.post('/editaEndereco1', {id: id, rua1 : rua1, cidade1 : cidade1, estado1 : estado1, numero1 : numero1, complemento1 : complemento1});
                             alert('Alterações salvas!')
                         }
                     </script>
@@ -182,13 +190,14 @@
 
                     <script>
                         function editaEndereco2(){
+                            var id = document.getElementById('id').value;
                             var rua2 = document.getElementById('rua2').value;
                             var cidade2 = document.getElementById('cidade2').value;
                             var estado2 = document.getElementById('estado2').value;
                             var numero2 = document.getElementById('numero2').value;
                             var complemento2 = document.getElementById('complemento2').value;
 
-                            $.post('/editaEndereco2', {rua2 : rua2, cidade2 : cidade2, estado2 : estado2, numero2 : numero2, complemento2 : complemento2});
+                            $.post('/editaEndereco2', {id : id, rua2 : rua2, cidade2 : cidade2, estado2 : estado2, numero2 : numero2, complemento2 : complemento2});
                             alert('Alterações salvas!')
                         }
                     </script>
@@ -221,13 +230,14 @@
 
                     <script>
                         function editaEndereco3(){
+                            var id = document.getElementById('id').value;
                             var rua3 = document.getElementById('rua3').value;
                             var cidade3 = document.getElementById('cidade3').value;
                             var estado3 = document.getElementById('estado3').value;
                             var numero3 = document.getElementById('numero3').value;
                             var complemento3 = document.getElementById('complemento3').value;
 
-                            $.post('/editaEndereco3', {rua3 : rua3, cidade3 : cidade3, estado3 : estado3, numero3 : numero3, complemento3 : complemento3});
+                            $.post('/editaEndereco3', {id : id, rua3 : rua3, cidade3 : cidade3, estado3 : estado3, numero3 : numero3, complemento3 : complemento3});
                             alert('Alterações salvas!')
                         }
                     </script>
@@ -306,13 +316,14 @@
 
                     <script>
                         function editaPassagem1(){
+                            var id = document.getElementById('id').value;
                             var data1 = document.getElementById('data1').value;
                             var procedimento1 = document.getElementById('procedimento1').value;
                             var artigo1 = document.getElementById('artigo1').value;
                             var lei1 = document.getElementById('lei1').value;
                             var historico1 = document.getElementById('historico1').value;
 
-                            $.post('/editaPassagem1', {data1 : data1, procedimento1 : procedimento1, artigo1 : artigo1, lei1 : lei1, historico1 : historico1})
+                            $.post('/editaPassagem1', {id : id, data1 : data1, procedimento1 : procedimento1, artigo1 : artigo1, lei1 : lei1, historico1 : historico1})
                             alert('Alteraçõe salvas!')
                         }
                     </script>
@@ -346,13 +357,14 @@
 
                     <script>
                         function editaPassagem2(){
+                            var id = document.getElementById('id').value;
                             var data2 = document.getElementById('data2').value;
                             var procedimento2 = document.getElementById('procedimento2').value;
                             var artigo2 = document.getElementById('artigo2').value;
                             var lei2 = document.getElementById('lei2').value;
                             var historico2 = document.getElementById('historico2').value;
 
-                            $.post('/editaPassagem2', {data2 : data2, procedimento2 : procedimento2, artigo2 : artigo2, lei2 : lei2, historico2 : historico2})
+                            $.post('/editaPassagem2', {id : id, data2 : data2, procedimento2 : procedimento2, artigo2 : artigo2, lei2 : lei2, historico2 : historico2})
                             alert('Alteraçõe salvas!')
                         }
                     </script>
@@ -384,13 +396,14 @@
 
                     <script>
                         function editaPassagem3(){
+                            var id = document.getElementById('id').value;
                             var data3 = document.getElementById('data3').value;
                             var procedimento3 = document.getElementById('procedimento3').value;
                             var artigo3 = document.getElementById('artigo3').value;
                             var lei3 = document.getElementById('lei3').value;
                             var historico3 = document.getElementById('historico3').value;
 
-                            $.post('/editaPassagem3', {data3 : data3, procedimento3 : procedimento3, artigo3 : artigo3, lei3 : lei3, historico3 : historico3})
+                            $.post('/editaPassagem3', {id : id, data3 : data3, procedimento3 : procedimento3, artigo3 : artigo3, lei3 : lei3, historico3 : historico3})
                             alert('Alteraçõe salvas!')
                         }
                     </script>
@@ -423,13 +436,14 @@
                 
                 <script>
                     function editaPassagem4(){
+                        var id = document.getElementById('id').value;
                         var data4 = document.getElementById('data4').value;
                         var procedimento4 = document.getElementById('procedimento4').value;
                         var artigo4 = document.getElementById('artigo4').value;
                         var lei4 = document.getElementById('lei4').value;
                         var historico4 = document.getElementById('historico4').value;
 
-                        $.post('/editaPassagem4', {data4 : data4, procedimento4 : procedimento4, artigo4 : artigo4, lei4 : lei4, historico4: historico4})
+                        $.post('/editaPassagem4', {id : id, data4 : data4, procedimento4 : procedimento4, artigo4 : artigo4, lei4 : lei4, historico4: historico4})
                         alert('Alteraçõe salvas!')
                     }
                 </script>
@@ -439,11 +453,421 @@
 
         <%if(tatuagem_local.length > 0){%>
             <%for(var i = 0; tatuagem_local.length > i; i++){%>
+                <%for(var x = 0; tatuagem_caracteristicas.length > x; x++){%>
                 <div>
                     <h4>Tatuagens:</h4>
-                    <input><%=tatuagem_local[i]%></input>
+                    <label>Rosto:</label>
+                    <input id="ckrosto" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckrosto%>"></input>
+                    <input id="txtrosto" type="input" class="caracteristicas_tatuagem" value="<%=tatuagem_caracteristicas[x].txtrosto%>">
                 </div>
+
+                <div>
+                    <label>Costas (Direita):</label>
+                    <input id="ckcostas_d" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckcostas_d%>">
+                    <input id="txtcostas_d" type="input" class="caracteristicas_tatuagem" value="<%=tatuagem_caracteristicas[x].txtcostas_d%>">
+                </div>
+
+                <div>
+                    <label>Peito (Direita):</label>
+                    <input id="ckpeito_d" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckpeito_d%>">
+                    <input id="txtpeito_d" type="input" class="caracteristicas_tatuagem" value="<%=tatuagem_caracteristicas[x].txtpeito_d%>">
+                </div>
+
+                <div>
+                    <label>Barriga (Direita):</label>
+                    <input id="ckbarriga_d" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckbarriga_d%>">
+                    <input id="txtbarriga_d" type="input" class="caracteristicas_tatuagem" value="<%=tatuagem_caracteristicas[x].txtbarriga_d%>">
+                </div>
+
+                <div>
+                    <label>Perna (Direita):</label>
+                    <input id="ckperna_d" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckperna_d%>">
+                    <input id="txtperna_d" type="input" value="<%=tatuagem_caracteristicas[x].txtperna_d%>">
+                </div>
+
+                <div>
+                    <label>Pé (Direita):</label>
+                    <input id="ckpe_d" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckpe_d%>">
+                    <input id="txtpe_d" type="input" value="<%=tatuagem_caracteristicas[x].txtpe_d%>">
+                </div>
+
+                <div>
+                    <label>Braço (Direita):</label>
+                    <input id="ckbraco_d" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckbraco_d%>">
+                    <input id="txtbraco_d" type="input" value="<%=tatuagem_caracteristicas[x].txtbraco_d%>">
+                </div>
+
+                <div>
+                    <label>AnteBraço (Direita):</label>
+                    <input id="ckantebraco_d" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckantebraco_d%>">
+                    <input id="txtantebraco_d" type="input" value="<%=tatuagem_caracteristicas[x].txtantebraco_d%>">
+                </div>
+
+                <div>
+                    <label>Mão (Direita):</label>
+                    <input id="ckmao_d" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckmao_d%>">
+                    <input id="txtmao_d" type="input" value="<%=tatuagem_caracteristicas[x].txtmao_d%>">
+                </div>
+
+                <div>
+                    <label>Pescoço (Direita):</label>
+                    <input id="ckpescoco_d" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckpescoco_d%>">
+                    <input id="txtpescoco_d" type="input" value="<%=tatuagem_caracteristicas[x].txtpescoco_d%>">
+                </div>
+
+                <!-- INICIO ESQUERDDA-->
+
+                <div>
+                    <label>Costas (Esquerda):</label>
+                    <input id="ckcostas_e" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckcostas_e%>">
+                    <input id="txtcostas_e" type="input" value="<%=tatuagem_caracteristicas[x].txtcostas_e%>">
+                </div>
+
+                <div>
+                    <label>Peito (Esquerda):</label>
+                    <input id="ckpeito_e" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckpeito_e%>">
+                    <input id="txtpeito_e" type="input" value="<%=tatuagem_caracteristicas[x].txtpeito_e%>">
+                </div>
+
+                <div>
+                    <label>Barriga (Esquerda):</label>
+                    <input id="ckbarriga_e" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckbarriga_e%>">
+                    <input id="txtbarriga_e" type="input" value="<%=tatuagem_caracteristicas[x].txtbarriga_e%>">
+                </div>
+
+                <div>
+                    <label>Perna (Esquerda):</label>
+                    <input id="ckperna_e" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckperna_e%>">
+                    <input id="txtperna_e" type="input" value="<%=tatuagem_caracteristicas[x].txtperna_e%>"> 
+                </div>
+
+                <div>
+                    <label>Pé (Esquerda):</label>
+                    <input id="ckpe_e" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckpe_e%>">
+                    <input id="txtpe_e" type="input" value="<%=tatuagem_caracteristicas[x].txtpe_e%>">
+                </div>
+
+                <div>
+                    <label>Braço (Esquerda):</label>
+                    <input id="ckbraco_e" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckbraco_e%>">
+                    <input id="txtbraco_e" type="input" value="<%=tatuagem_caracteristicas[x].txtbraco_e%>">
+                </div>
+
+                <div>
+                    <label>AnteBraço (Esquerda):</label>
+                    <input id="ckantebraco_e" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckantebraco_e%>">
+                    <input id="txtantebraco_e" type="input" value="<%=tatuagem_caracteristicas[x].txtantebraco_e%>">
+                </div>
+
+                <div>
+                    <label>Mão (Esquerda):</label>
+                    <input id="ckmao_e" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckmao_e%>">
+                    <input id="txtmao_e" type="input" value="<%=tatuagem_caracteristicas[x].txtmao_e%>">
+                </div>
+
+                <div>
+                    <label>Pescoço (Esquerda):</label>
+                    <input id="ckpescoco_e" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckpescoco_e%>">
+                    <input id="txtpescoco_e" type="input" value="<%=tatuagem_caracteristicas[x].txtpescoco_e%>">
+                </div>
+
+                <div>
+                    <label>Cicatriz:</label>
+                    <input id="ckcicatriz" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckcicatriz%>">
+                    <input id="txtcicatriz" type="input" value="<%=tatuagem_caracteristicas[x].txtcicatriz%>">
+                </div>
+
+                <div>
+                    <label>Deformidade:</label>
+                    <input id="ckdeformidade" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckdeformidade%>">
+                    <input id="txtdeformidade" type="input" value="<%=tatuagem_caracteristicas[x].txtdeformidade%>">
+                </div>
+
+                <%}%>
             <%}%>
         <%}%>
+
+        <script>
+            $('.local_tatuagem').each(function(e){
+                if($(this).val() == 1){
+                    $(this).attr("checked", "checked");
+                }
+            });
+
+            //COSTAS DIREITA
+            function costasDireita(){
+                var ckcostas_d = document.getElementById('ckcostas_d');
+                console.log(ckcostas_d.value);
+                if(ckcostas_d.value == 0){
+                    var txtcostas_d = document.getElementById('txtcostas_d').setAttribute("disabled","disabled");
+                }
+
+                //ckcostas_d.onchange = function() {
+                //txtcostas_d.disabled = !this.checked;
+            //};
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+
+                //ROSTO
+
+                var ckcostas_d = document.getElementById('ckrosto');
+                console.log(ckcostas_d.value);
+                if(ckcostas_d.value == 0){
+                    var txtcostas_d = document.getElementById('txtrosto').setAttribute("disabled","disabled");
+                }
+
+                ckcostas_d.onchange = function() {
+                document.getElementById('txtrosto').disabled = !this.checked;
+                };
+
+
+                //COSTAS DIREITA
+
+                var ckcostas_d = document.getElementById('ckcostas_d');
+                console.log(ckcostas_d.value);
+                if(ckcostas_d.value == 0){
+                    var txtcostas_d = document.getElementById('txtcostas_d').setAttribute("disabled","disabled");
+                }
+
+                ckcostas_d.onchange = function() {
+                document.getElementById('txtcostas_d').disabled = !this.checked;
+                };
+
+                //PEITO DIREITA
+
+                var ckcostas_d = document.getElementById('ckpeito_d');
+                console.log(ckcostas_d.value);
+                if(ckcostas_d.value == 0){
+                    var txtcostas_d = document.getElementById('txtpeito_d').setAttribute("disabled","disabled");
+                }
+
+                ckcostas_d.onchange = function() {
+                document.getElementById('txtpeito_d').disabled = !this.checked;
+                };
+
+                //BARRIGA DIREITA
+
+                var ckcostas_d = document.getElementById('ckbarriga_d');
+                console.log(ckcostas_d.value);
+                if(ckcostas_d.value == 0){
+                    var txtcostas_d = document.getElementById('txtbarriga_d').setAttribute("disabled","disabled");
+                }
+
+                ckcostas_d.onchange = function() {
+                document.getElementById('txtbarriga_d').disabled = !this.checked;
+                };
+
+                //PERNA DIREITA
+
+                var ckcostas_d = document.getElementById('ckperna_d');
+                console.log(ckcostas_d.value);
+                if(ckcostas_d.value == 0){
+                    var txtcostas_d = document.getElementById('txtperna_d').setAttribute("disabled","disabled");
+                }
+
+                ckcostas_d.onchange = function() {
+                document.getElementById('txtperna_d').disabled = !this.checked;
+                };
+
+                //PÉ DIREITA
+
+                var ckcostas_d = document.getElementById('ckpe_d');
+                console.log(ckcostas_d.value);
+                if(ckcostas_d.value == 0){
+                    var txtcostas_d = document.getElementById('txtpe_d').setAttribute("disabled","disabled");
+                }
+
+                ckcostas_d.onchange = function() {
+                document.getElementById('txtpe_d').disabled = !this.checked;
+                };
+
+                //BRAÇO DIREITA
+
+                var ckcostas_d = document.getElementById('ckbraco_d');
+                console.log(ckcostas_d.value);
+                if(ckcostas_d.value == 0){
+                    var txtcostas_d = document.getElementById('txtbraco_d').setAttribute("disabled","disabled");
+                }
+
+                ckcostas_d.onchange = function() {
+                document.getElementById('txtbraco_d').disabled = !this.checked;
+                };
+
+                //ANTEBRAÇO DIREITA
+
+                var ckcostas_d = document.getElementById('ckantebraco_d');
+                console.log(ckcostas_d.value);
+                if(ckcostas_d.value == 0){
+                    var txtcostas_d = document.getElementById('txtantebraco_d').setAttribute("disabled","disabled");
+                }
+
+                ckcostas_d.onchange = function() {
+                document.getElementById('txtantebraco_d').disabled = !this.checked;
+                };
+
+                //MÃO DIREITA
+
+                var ckcostas_d = document.getElementById('ckmao_d');
+                console.log(ckcostas_d.value);
+                if(ckcostas_d.value == 0){
+                    var txtcostas_d = document.getElementById('txtmao_d').setAttribute("disabled","disabled");
+                }
+
+                ckcostas_d.onchange = function() {
+                document.getElementById('txtmao_d').disabled = !this.checked;
+                };
+
+                //PESCOÇO DIREITA
+
+                var ckcostas_d = document.getElementById('ckpescoco_d');
+                console.log(ckcostas_d.value);
+                if(ckcostas_d.value == 0){
+                    var txtcostas_d = document.getElementById('txtpescoco_d').setAttribute("disabled","disabled");
+                }
+
+                ckcostas_d.onchange = function() {
+                document.getElementById('txtpescoco_d').disabled = !this.checked;
+                };
+
+                //COSTAS ESQUERDA
+
+                var ckcostas_d = document.getElementById('ckcostas_e');
+                console.log(ckcostas_d.value);
+                if(ckcostas_d.value == 0){
+                    var txtcostas_d = document.getElementById('txtcostas_e').setAttribute("disabled","disabled");
+                }
+
+                ckcostas_d.onchange = function() {
+                document.getElementById('txtcostas_e').disabled = !this.checked;
+                };
+
+                //PEITO ESQUERDA
+
+                var ckcostas_d = document.getElementById('ckpeito_e');
+                console.log(ckcostas_d.value);
+                if(ckcostas_d.value == 0){
+                    var txtcostas_d = document.getElementById('txtpeito_e').setAttribute("disabled","disabled");
+                }
+
+                ckcostas_d.onchange = function() {
+                document.getElementById('txtpeito_e').disabled = !this.checked;
+                };
+
+                //BARRIGA ESQUERDA
+
+                var ckcostas_d = document.getElementById('ckbarriga_e');
+                console.log(ckcostas_d.value);
+                if(ckcostas_d.value == 0){
+                    var txtcostas_d = document.getElementById('txtbarriga_e').setAttribute("disabled","disabled");
+                }
+
+                ckcostas_d.onchange = function() {
+                document.getElementById('txtbarriga_e').disabled = !this.checked;
+                };
+
+                //PERNA ESQUERDA
+
+                var ckcostas_d = document.getElementById('ckperna_e');
+                console.log(ckcostas_d.value);
+                if(ckcostas_d.value == 0){
+                    var txtcostas_d = document.getElementById('txtperna_e').setAttribute("disabled","disabled");
+                }
+
+                ckcostas_d.onchange = function() {
+                document.getElementById('txtperna_e').disabled = !this.checked;
+                };
+
+                //PÉ ESQUERDA
+
+                var ckcostas_d = document.getElementById('ckpe_e');
+                console.log(ckcostas_d.value);
+                if(ckcostas_d.value == 0){
+                    var txtcostas_d = document.getElementById('txtpe_e').setAttribute("disabled","disabled");
+                }
+
+                ckcostas_d.onchange = function() {
+                document.getElementById('txtpe_e').disabled = !this.checked;
+                };
+
+                //BRAÇO ESQUERDA
+
+                var ckcostas_d = document.getElementById('ckbraco_e');
+                console.log(ckcostas_d.value);
+                if(ckcostas_d.value == 0){
+                    var txtcostas_d = document.getElementById('txtbraco_e').setAttribute("disabled","disabled");
+                }
+
+                ckcostas_d.onchange = function() {
+                document.getElementById('txtbraco_e').disabled = !this.checked;
+                };
+
+                //ANTEBRAÇO ESQUERDA
+
+                var ckcostas_d = document.getElementById('ckantebraco_e');
+                console.log(ckcostas_d.value);
+                if(ckcostas_d.value == 0){
+                    var txtcostas_d = document.getElementById('txtantebraco_e').setAttribute("disabled","disabled");
+                }
+
+                ckcostas_d.onchange = function() {
+                document.getElementById('txtantebraco_e').disabled = !this.checked;
+                };
+
+                //MÃO ESQUERDA
+
+                var ckcostas_d = document.getElementById('ckmao_e');
+                console.log(ckcostas_d.value);
+                if(ckcostas_d.value == 0){
+                    var txtcostas_d = document.getElementById('txtmao_e').setAttribute("disabled","disabled");
+                }
+
+                ckcostas_d.onchange = function() {
+                document.getElementById('txtmao_e').disabled = !this.checked;
+                };
+
+                //PESCOÇO ESQUERDA
+
+                var ckcostas_d = document.getElementById('ckpescoco_e');
+                console.log(ckcostas_d.value);
+                if(ckcostas_d.value == 0){
+                    var txtcostas_d = document.getElementById('txtpescoco_e').setAttribute("disabled","disabled");
+                }
+
+                ckcostas_d.onchange = function() {
+                document.getElementById('txtpescoco_e').disabled = !this.checked;
+                };
+
+                //CICATRIZ
+
+                var ckcostas_d = document.getElementById('ckcicatriz');
+                console.log(ckcostas_d.value);
+                if(ckcostas_d.value == 0){
+                    var txtcostas_d = document.getElementById('txtcicatriz').setAttribute("disabled","disabled");
+                }
+
+                ckcostas_d.onchange = function() {
+                document.getElementById('txtcicatriz').disabled = !this.checked;
+                };
+
+                //DEFORMIDADE
+
+                var ckcostas_d = document.getElementById('ckdeformidade');
+                console.log(ckcostas_d.value);
+                if(ckcostas_d.value == 0){
+                    var txtcostas_d = document.getElementById('txtdeformidade').setAttribute("disabled","disabled");
+                }
+
+                ckcostas_d.onchange = function() {
+                document.getElementById('txtdeformidade').disabled = !this.checked;
+                };
+
+
+
+            }, false)
+
+
+        </script>
+
     </body>
 </HTML>
