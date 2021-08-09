@@ -39,8 +39,9 @@ consultaPersonalizadaDAO.prototype.consultaPersonalizadaSuspeito = function(dado
 
                 const suspeitos = {
                     rowMode: 'array',
-                    text: 'SELECT * FROM suspeitos WHERE id = ANY($1::int[])',
-                    values: [id_suspeitos]
+                    //text: 'SELECT * FROM suspeitos WHERE id = ANY($1::int[])',
+                    text: 'SELECT s.id,s.nome,s.cpf,t.ckrosto,t.ckcostas_d,t.ckpeito_d,t.ckbarriga_d,t.ckperna_d,t.ckperna_d,t.ckpe_d,t.ckbraco_d,t.ckantebraco_d,t.ckmao_d,t.ckpescoco_d,t.ckcostas_e,t.ckpeito_e,t.ckbarriga_e,t.ckperna_e,t.ckpe_e,t.ckbraco_e,t.ckantebraco_e,t.ckmao_e,t.ckpescoco_e,t.ckcicatriz,t.ckdeformidade FROM suspeitos s, tatuagem_local t ORDER BY s.nome ASC;'
+                    //values: [id_suspeitos]
                 }
 
                 client.query(suspeitos, (err, resultSuspeitos) => {
