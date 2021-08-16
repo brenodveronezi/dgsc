@@ -15,12 +15,6 @@
     <body>
         <h1>Consulta Suspeitos</h1>
 
-                <form action="/consultaPersonalizada" method="POST">
-                    <input onchange="this.form.submit()" id="teste" name="teste" type="checkbox" value="teste"> <label for="teste">Teste</label>
-                    <input onchange="this.form.submit()" id="teste2" name="teste2" type="checkbox" value="teste2"> <label for="teste2">Teste 2</label>
-                    <input onchange="this.form.submit()" id="teste3" name="teste3" type="checkbox" value="teste3"> <label for="teste3">Teste 3</label>
-                </form>
-
 
               <label style="font-size:12px;">
                 <input type="checkbox" name="fl-colour" value="red" id="red" /> Red</label>
@@ -53,7 +47,7 @@
                 <input id="ckpescoco_e" name="ckpescoco_e" type="checkbox" value="ckpescoco_e"> <label for="ckpescoco_e">Tatuagem Pescoço (Esquerda)</label>
             </div>
 
-            <form action="/consultaPersonalizada" method="POST">
+            <form action="/consultaPersonalizada?local_tatuagem=" method="POST">
                 <div>
                     <label for="local_tatuagem">Selecione o local da tatuagem:</label>
 
@@ -64,7 +58,7 @@
                         <option name="txtbarriga_d" value="txtbarriga_d">Barriga (Direita)</option>
                         <option name="txtperna_d" value="txtperna_d">Perna (Direita)</option>
                         <option name="txtpe_d" value="txtpe_d">Pé (Direita)</option>
-                        <option name="txtbraço_d" value="txtbraço_d">Braço (Direita)</option>
+                        <option name="txtbraco_d" value="txtbraco_d">Braço (Direita)</option>
                         <option name="txtantebraco_d" value="txtantebraco_d">Antebraço (Direita)</option>
                         <option name="txtmao_d" value="txtmao_d">Mão (Direita)</option>
                         <option name="txtpescoco_e" value="txtpescoco_e">Pescoço (Direita)</option>
@@ -78,7 +72,7 @@
                         <option name="txtmao_e" value="txtmao_e">Mão (Esquerda)</option>
                         <option name="txtpescoco_e" value="txtpescoco_e">Pescoço (Esquerda)</option>
                     </select>
-                    <input required id="descricaoTatuagem" name="descricaoTatuagem" placeholder="descrição tatuagem" type="text">
+                    <input required id="descricaoTatuagem" name="descricaoTatuagem" placeholder="descrição tatuagem" type="text" value="<%descricaoTatuagem%>">
                     <button>Buscar</button>
                 </div>
             </form>
@@ -102,6 +96,8 @@
 
         <%if(suspeito.length > 0){%>
             <%for(var i = 0; suspeito.length > i; i++){%>
+
+                <a>Resultado da pesquisa:</a>
                 <div class="suspeito" data-category="<%if(suspeito[i].ckrosto == 1){%>ckrosto<%}%> <%if(suspeito[i].ckcostas_d == 1){%>ckcostas_d<%}%> <%if(suspeito[i].ckbarriga_d == 1){%>ckbarriga_d<%}%> <%if(suspeito[i].ckperna_d == 1){%>ckperna_d<%}%> <%if(suspeito[i].ckpe_d == 1){%>ckpe_d<%}%> <%if(suspeito[i].ckbraco_d == 1){%>ckbraco_d<%}%> <%if(suspeito[i].ckantebraco_d == 1){%>ckantebraco_d<%}%> <%if(suspeito[i].ckmao_d == 1){%>ckmao_d<%}%> <%if(suspeito[i].ckpescoco_d == 1){%>ckpescoco_d<%}%> <%if(suspeito[i].ckcostas_e == 1){%>ckcostas_e<%}%> <%if(suspeito[i].ckbarriga_e == 1){%>ckbarriga_e<%}%> <%if(suspeito[i].ckperna_e == 1){%>ckperna_e<%}%> <%if(suspeito[i].ckpe_e == 1){%>ckpe_e<%}%> <%if(suspeito[i].ckbraco_e == 1){%>ckbraco_e<%}%> <%if(suspeito[i].ckantebraco_e == 1){%>ckantebraco_e<%}%> <%if(suspeito[i].ckmao_e == 1){%>ckmao_e<%}%> <%if(suspeito[i].ckpescoco_e == 1){%>ckpescoco_e<%}%>" 
                     id="suspeito_"<%=suspeito[i].id%>>
                     <form id=<%="edita"+suspeito[i].id%> action=<%="/edita?id="+suspeito[i].id%> method="POST">

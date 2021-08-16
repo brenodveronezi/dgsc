@@ -5,16 +5,35 @@ function consultaPersonalizadaDAO(connection){
 consultaPersonalizadaDAO.prototype.consultaPersonalizadaSuspeito = function(dados, req, res){
 
     const id_suspeitos = {
-        rowMode: 'array',
-        text: 'SELECT id_suspeito FROM tatuagem_local WHERE ckrosto = $1',
-        values: [1],
-        types: {
-            getTypeParser: () => val => val,
-          }
-    
+        //rowMode: 'array',
+        text: 'SELECT s.id,s.nome,s.cpf,c. ' + dados.local_tatuagem + ' FROM suspeitos s, caracteristicas_tatuagem c WHERE s.id = c.id_suspeito AND c.' + dados.local_tatuagem + ' LIKE $1',
+        values: ['%' + dados.descricaoTatuagem + '%'],
     }
 
+        //console.log(dados);
 
+        var consulta = [];
+        Object.entries(dados).forEach(([key, value]) => {
+            console.log('SELECT' + value + 'FROM tatuagem_local');
+            consulta.push(value);
+        })
+
+        var consultaTatuagem = '';
+        if(consulta.length >= 0){
+            for(var i = 0; consulta.length > i; i++){
+                if(i == consulta.length -1){
+                    console.log(consulta[i]);
+                    consultaTatuagem += consulta[i] + " = '1'";
+                }else{
+                    console.log(consulta[i] + ',');
+                    consultaTatuagem += consulta[i] + " = '1' " + 'AND' + ' ';
+                }
+
+            }
+        }
+        console.log(consultaTatuagem);
+        console.log('SELECT id_suspeito FROM tatuagem_local WHERE ' + consultaTatuagem)
+        /*
         this._connection.connect((err, client, release) => {
             if(err){
                 return console.log('Não conseguiu conectar-se ao BD:', err);
@@ -24,7 +43,8 @@ consultaPersonalizadaDAO.prototype.consultaPersonalizadaSuspeito = function(dado
                     return console.log('Não conseguiu realizar consulta no banco:', err)
                 }
                 console.log(result.rows);
-                var id_suspeitos = result.rows;
+                res.render('consultaPersonalizada', {suspeito: result.rows, localTatuagem: dados.local_tatuagem, descricaoTatuagem : dados.descricaoTatuagem});
+                */
                 /*
                for(i = 0; result.rows.length > i; i++){
                     console.log(result.rows[i][0]);
@@ -35,8 +55,8 @@ consultaPersonalizadaDAO.prototype.consultaPersonalizadaSuspeito = function(dado
                     }
                 }
                 */
-                console.log(id_suspeitos)
-
+                
+                /*
                 const suspeitos = {
                     rowMode: 'array',
                     //text: 'SELECT * FROM suspeitos WHERE id = ANY($1::int[])',
@@ -50,8 +70,10 @@ consultaPersonalizadaDAO.prototype.consultaPersonalizadaSuspeito = function(dado
                     }
                     console.log(resultSuspeitos.rows);
                 })
+                
             })
         })
+        */
     }
 
 module.exports = function(){
