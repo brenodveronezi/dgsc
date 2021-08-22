@@ -2,26 +2,72 @@ function consultaDAO(connection){
 	this._connection = connection;
 }
 
-consultaDAO.prototype.exibeSuspeitos = function(req, res){
-    const exibe = {
-        //text: 'SELECT id,nome,cpf FROM suspeitos ORDER BY nome ASC;'
-        text: 'SELECT s.id,s.nome,s.cpf,t.ckrosto,t.ckcostas_d,t.ckpeito_d,t.ckbarriga_d,t.ckperna_d,t.ckperna_d,t.ckpe_d,t.ckbraco_d,t.ckantebraco_d,t.ckmao_d,t.ckpescoco_d,t.ckcostas_e,t.ckpeito_e,t.ckbarriga_e,t.ckperna_e,t.ckpe_e,t.ckbraco_e,t.ckantebraco_e,t.ckmao_e,t.ckpescoco_e,t.ckcicatriz,t.ckdeformidade FROM suspeitos s, tatuagem_local t WHERE s.id = t.id_suspeito ORDER BY s.nome ASC;'
-    }
+consultaDAO.prototype.exibeSuspeitos = function(params, req, res){
+    console.log('o param', params.value);
 
-    this._connection.connect((err, client, release) => {
-        if(err){
-            return console.log('Erro ao conectar-se ao BD:', err)
+    if(Object.keys(params).length === 0){
+        const exibe = {
+            text: 'SELECT id,nome,cpf FROM suspeitos ORDER BY nome ASC;'
+            //text: 'SELECT s.id,s.nome,s.cpf,t.ckrosto,t.ckcostas_d,t.ckpeito_d,t.ckbarriga_d,t.ckperna_d,t.ckperna_d,t.ckpe_d,t.ckbraco_d,t.ckantebraco_d,t.ckmao_d,t.ckpescoco_d,t.ckcostas_e,t.ckpeito_e,t.ckbarriga_e,t.ckperna_e,t.ckpe_e,t.ckbraco_e,t.ckantebraco_e,t.ckmao_e,t.ckpescoco_e,t.ckcicatriz,t.ckdeformidade FROM suspeitos s, tatuagem_local t WHERE s.id = t.id_suspeito ORDER BY s.nome ASC;'
         }
-        client.query(exibe, (err, result) => {
+
+        this._connection.connect((err, client, release) => {
             if(err){
-                return console.log('Erro ao consultar BD:', err)
-            }else{
-                //console.log(result.rows);
-                res.render('consulta', {suspeito: result.rows});
+                return console.log('Erro ao conectar-se ao BD:', err)
             }
+            client.query(exibe, (err, result) => {
+                if(err){
+                    return console.log('Erro ao consultar BD:', err)
+                }else{
+                    console.log(result.rows);
+                    res.render('consulta', {suspeito: result.rows, params: {}});
+                }
+            })
         })
-    })
+
+    }else{
+        var consulta = [];
+        Object.entries(params).forEach(([key, value]) => {
+            if(value == 'on'){
+                consulta.push(key);
+                console.log(consulta);
+            }
+
+        })
+
+        var consultaTatuagem = '';
+        if(consulta.length >= 0){
+            for(var i = 0; consulta.length > i; i++){
+                if(i == consulta.length -1){
+                    console.log(consulta[i]);
+                    consultaTatuagem += consulta[i] + " = '1'";
+                }else{
+                    console.log(consulta[i] + ',');
+                    consultaTatuagem += consulta[i] + " = '1' " + 'AND' + ' ';
+                }
+
+            }
+        }
+
+        consultaTatuagem = 'SELECT s.id,s.nome,s.cpf FROM suspeitos s, tatuagem_local t WHERE s.id = t.id_suspeito AND ' + consultaTatuagem;
+
+        this._connection.connect((err, client, release) => {
+            if(err){
+                return console.log('Erro ao conectar-se ao BD:', err)
+            }
+            client.query(consultaTatuagem, (err, result) => {
+                if(err){
+                    return console.log('Erro ao consultar BD:', err)
+                }else{
+                        res.render('consulta', {suspeito: result.rows, params:params});
+                }
+            })
+        })
+    }
 }
+
+
+
 
 consultaDAO.prototype.cadastroSuspeito = function(id, req, res){
     const consulta = {

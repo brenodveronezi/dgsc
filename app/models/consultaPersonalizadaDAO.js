@@ -10,12 +10,14 @@ consultaPersonalizadaDAO.prototype.consultaPersonalizadaSuspeito = function(dado
         values: ['%' + dados.descricaoTatuagem + '%'],
     }
 
-        //console.log(dados);
+        console.log(dados);
 
         var consulta = [];
         Object.entries(dados).forEach(([key, value]) => {
-            console.log('SELECT' + value + 'FROM tatuagem_local');
-            consulta.push(value);
+            if(value == 'on'){
+                consulta.push(key);
+            }
+
         })
 
         var consultaTatuagem = '';
@@ -31,8 +33,25 @@ consultaPersonalizadaDAO.prototype.consultaPersonalizadaSuspeito = function(dado
 
             }
         }
+        //console.log(consultaTatuagem);
+        //console.log('SELECT id_suspeito FROM tatuagem_local WHERE ' + consultaTatuagem)
+        //consultaTatuagem = 'SELECT id_suspeito FROM tatuagem_local WHERE ' + consultaTatuagem;
+        consultaTatuagem = 'SELECT s.id,s.nome,s.cpf FROM suspeitos s, tatuagem_local t WHERE s.id = t.id_suspeito AND ' + consultaTatuagem;
+
         console.log(consultaTatuagem);
-        console.log('SELECT id_suspeito FROM tatuagem_local WHERE ' + consultaTatuagem)
+
+        this._connection.connect((err, client, release) => {
+            if(err){
+                return console.log('Não conseguiu conectar-se ao BD:', err)
+            }
+            client.query(consultaTatuagem, (err, result) => {
+                if(err){
+                    return console.log('Não conseguiu realizar consulta no banco:', err)
+                }
+                console.log(result.rows);
+                res.render('consultaPersonalizada', {suspeito: result.rows, localTatuagem: {}, descricaoTatuagem: {}, ckrosto: dados.ckrosto, ckcostas_d : dados.ckcostas_d, ckpeito_d : dados.ckpeito_d, ckbarriga_d : dados.ckbarriga_d})
+            })
+        })
         /*
         this._connection.connect((err, client, release) => {
             if(err){

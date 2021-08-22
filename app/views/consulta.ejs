@@ -14,45 +14,288 @@
     </head>
     <body>
         <h1>Consulta Suspeitos</h1>
+                    <%console.log('o params é' , params)%>
+                    <%console.log(Object.keys(params).length)%>
 
-                <form action="/consultaPersonalizada" method="POST">
-                    <input onchange="this.form.submit()" id="teste" name="teste" type="checkbox" value="teste"> <label for="teste">Teste</label>
-                    <input onchange="this.form.submit()" id="teste2" name="teste2" type="checkbox" value="teste2"> <label for="teste2">Teste 2</label>
-                    <input onchange="this.form.submit()" id="teste3" name="teste3" type="checkbox" value="teste3"> <label for="teste3">Teste 3</label>
-                </form>
+                            <div>
+                                <input value="off" class="" id="ckrosto" name="ckrosto" type="checkbox"> <label for="ckrosto">Tatuagem rosto</label>
+                                <input value="off" class="" id="ckcostas_d" name="ckcostas_d" type="checkbox"> <label for="ckcostas_d">Tatuagem nas costas (Direita)</label>
+                                <input value="off" class="" id="ckpeito_d" name="ckpeito_d" type="checkbox"> <label for="ckpeito_d">Tatuagem no peito (Direita)</label>
+                                <input value="off" class="" id="ckbarriga_d" name="ckbarriga_d" type="checkbox"> <label for="ckbarriga_d">Tatuagem na barriga (Direita)</label>
+                                <input value="off" class="" id="ckperna_d" name="ckperna_d" type="checkbox"> <label for="ckperna_d">Tatuagem perna (Direita)</label>
+                                <input value="off" class="" id="ckpe_d" name="ckpe_d" type="checkbox"> <label for="ckpe_d">Tatuagem pé (Direita)</label>
+                                <input value="off" class="" id="ckbraco_d" name="ckbraco_d" type="checkbox"> <label for="ckbraço_d">Tatuagem braço (Direita)</label>
+                                <input value="off" class="" id="ckantebraco_d" name="ckantebraco_d" type="checkbox"> <label for="ckantebraco_d">Tatuagem antebraço (Direita)</label>
+                                <input value="off" class="" id="ckmao_d" name="ckmao_d" type="checkbox"> <label for="ckmao_d">Tatuagem Mão (Direita)</label>
+                                <input value="off" class="" id="ckpescoco_d" name="ckpescoco_d" type="checkbox"> <label for="ckpescoco_d">Tatuagem Pescoço (Direita)</label>
+                            </div>
+
+                            <div>
+                                <input value="off" class="" id="ckcostas_e" name="ckcostas_e" type="checkbox"> <label for="ckcostas_e">Tatuagem nas costas (Esquerda)</label>
+                                <input value="off" class="" id="ckpeito_e" name="ckpeito_e" type="checkbox"> <label for="ckpeito_e">Tatuagem no peito (Esquerda)</label>
+                                <input value="off" class="" id="ckbarriga_e" name="ckbarriga_e" type="checkbox"> <label for="ckbarriga_e">Tatuagem na barriga (Esquerda)</label>
+                                <input value="off" class="" id="ckperna_e" name="ckperna_e" type="checkbox"> <label for="ckperna_e">Tatuagem perna (Esquerda)</label>
+                                <input value="off" class="" id="ckpe_e" name="ckpe_e" type="checkbox"> <label for="ckpe_e">Tatuagem pé (Esquerda)</label>
+                                <input value="off" class="" id="ckbraco_e" name="ckbraco_e" type="checkbox"> <label for="ckbraço_e">Tatuagem braço (Esquerda)</label>
+                                <input value="off" class="" id="ckantebraco_e" name="ckantebraco_e" type="checkbox"> <label for="ckantebraco_e">Tatuagem antebraço (Esquerda)</label>
+                                <input value="off" class="" id="ckmao_e" name="ckmao_e" type="checkbox"> <label for="ckmao_e">Tatuagem Mão (Esquerda)</label>
+                                <input value="off" class="" id="ckpescoco_e" name="ckpescoco_e" type="checkbox"> <label for="ckpescoco_e">Tatuagem Pescoço (Esquerda)</label>
+                            </div>
+
+
+
+                                <script>
+
+                                    //DIREITA
+
+                                    function ckrostoChecked(){
+                                        var ckrosto = document.getElementById("ckrosto");
+                                        ckrosto.setAttribute('value','on');
+                                        ckrosto.setAttribute('checked','checked');
+                                    }
+
+
+                                    function ckcostas_dChecked(){
+                                        var ckcostas_d = document.getElementById("ckcostas_d");
+                                        ckcostas_d.setAttribute('value','on');
+                                        ckcostas_d.setAttribute('checked','checked');
+                                    }
+
+                                    function ckpeito_dChecked(){
+                                        var ckpeito_d = document.getElementById("ckpeito_d");
+                                        ckpeito_d.setAttribute('value','on');
+                                        ckpeito_d.setAttribute('checked','checked');
+                                    }
+
+                                    function ckbarriga_dChecked(){
+                                        var ckbarriga_d = document.getElementById("ckbarriga_d");
+                                        ckbarriga_d.setAttribute('value','on');
+                                        ckbarriga_d.setAttribute('checked','checked');
+                                    }
+
+                                    function ckperna_dChecked(){
+                                        var ckperna_d = document.getElementById("ckperna_d");
+                                        ckperna_d.setAttribute('value','on');
+                                        ckperna_d.setAttribute('checked','checked');
+                                    }
+
+                                    function ckpe_dChecked(){
+                                        var ckpe_d = document.getElementById("ckpe_d");
+                                        ckpe_d.setAttribute('value','on');
+                                        ckpe_d.setAttribute('checked','checked');
+                                    }
+
+                                    function ckbraco_dChecked(){
+                                        var ckbraco_d = document.getElementById("ckbraco_d");
+                                        ckbraco_d.setAttribute('value','on');
+                                        ckbraco_d.setAttribute('checked','checked');
+                                    }
+
+                                    function ckantebraco_dChecked(){
+                                        var ckantebraco_d = document.getElementById("ckantebraco_d");
+                                        ckantebraco_d.setAttribute('value','on');
+                                        ckantebraco_d.setAttribute('checked','checked');
+                                    }
+
+                                    function ckmao_dChecked(){
+                                        var ckmao_d = document.getElementById("ckmao_d");
+                                        ckmao_d.setAttribute('value','on');
+                                        ckmao_d.setAttribute('checked','checked');
+                                    }
+
+                                    function ckpescoco_dChecked(){
+                                        var ckpescoco_d = document.getElementById("ckpescoco_d");
+                                        ckpescoco_d.setAttribute('value','on');
+                                        ckpescoco_d.setAttribute('checked','checked');
+                                    }
+
+                                    
+                                    //ESQUERDA
+
+                                    function ckcostas_eChecked(){
+                                        var ckcostas_e = document.getElementById("ckcostas_e");
+                                        ckcostas_e.setAttribute('value','on');
+                                        ckcostas_e.setAttribute('checked','checked');
+                                    }
+
+                                    function ckpeito_eChecked(){
+                                        var ckpeito_e = document.getElementById("ckpeito_e");
+                                        ckpeito_e.setAttribute('value','on');
+                                        ckpeito_e.setAttribute('checked','checked');
+                                    }
+
+                                    function ckbarriga_eChecked(){
+                                        var ckbarriga_e = document.getElementById("ckbarriga_e");
+                                        ckbarriga_e.setAttribute('value','on');
+                                        ckbarriga_e.setAttribute('checked','checked');
+                                    }
+
+                                    function ckperna_eChecked(){
+                                        var ckperna_e = document.getElementById("ckperna_e");
+                                        ckperna_e.setAttribute('value','on');
+                                        ckperna_e.setAttribute('checked','checked');
+                                    }
+
+                                    function ckpe_eChecked(){
+                                        var ckpe_e = document.getElementById("ckpe_e");
+                                        ckpe_e.setAttribute('value','on');
+                                        ckpe_e.setAttribute('checked','checked');
+                                    }
+
+                                    function ckbraco_eChecked(){
+                                        var ckbraco_e = document.getElementById("ckbraco_e");
+                                        ckbraco_e.setAttribute('value','on');
+                                        ckbraco_e.setAttribute('checked','checked');
+                                    }
+
+                                    function ckantebraco_eChecked(){
+                                        var ckantebraco_e = document.getElementById("ckantebraco_e");
+                                        ckantebraco_e.setAttribute('value','on');
+                                        ckantebraco_e.setAttribute('checked','checked');
+                                    }
+
+                                    function ckmao_eChecked(){
+                                        var ckmao_e = document.getElementById("ckmao_e");
+                                        ckmao_e.setAttribute('value','on');
+                                        ckmao_e.setAttribute('checked','checked');
+                                    }
+
+                                    function ckpescoco_eChecked(){
+                                        var ckpescoco_e = document.getElementById("ckpescoco_e");
+                                        ckpescoco_e.setAttribute('value','on');
+                                        ckpescoco_e.setAttribute('checked','checked');
+                                    }
+
+
+
+                                </script>
+
+
+                                <%Object.entries(params).forEach(([key, value]) => {%>
+
+                                    <%if(key == 'ckrosto'){%>
+                                        <script>ckrostoChecked();</script>
+                                    <%}%>
+
+                                    <%if(key == 'ckcostas_d'){%>
+                                        <script>ckcostas_dChecked();</script>
+                                    <%}%>
+
+                                    <%if(key == 'ckpeito_d'){%>
+                                        <script>ckpeito_dChecked();</script>
+                                    <%}%>
+
+                                    <%if(key == 'ckbarriga_d'){%>
+                                        <script>ckbarriga_dChecked();</script>
+                                    <%}%>
+
+                                    <%if(key == 'ckperna_d'){%>
+                                        <script>ckperna_dChecked();</script>
+                                    <%}%>
+
+                                    <%if(key == 'ckpe_d'){%>
+                                        <script>ckpe_dChecked();</script>
+                                    <%}%>
+
+                                    <%if(key == 'ckbraco_d'){%>
+                                        <script>ckbraco_dChecked();</script>
+                                    <%}%>
+
+                                    <%if(key == 'ckantebraco_d'){%>
+                                        <script>ckantebraco_dChecked();</script>
+                                    <%}%>
+
+                                    <%if(key == 'ckmao_d'){%>
+                                        <script>ckmao_dChecked();</script>
+                                    <%}%>
+
+                                    <%if(key == 'ckpescoco_d'){%>
+                                        <script>ckpescoco_dChecked();</script>
+                                    <%}%>
+
+
+
+
+
+
+                                    <%if(key == 'ckcostas_e'){%>
+                                        <script>ckcostas_eChecked();</script>
+                                    <%}%>
+
+                                    <%if(key == 'ckpeito_e'){%>
+                                        <script>ckpeito_eChecked();</script>
+                                    <%}%>
+
+                                    <%if(key == 'ckbarriga_e'){%>
+                                        <script>ckbarriga_eChecked();</script>
+                                    <%}%>
+
+                                    <%if(key == 'ckperna_e'){%>
+                                        <script>ckperna_eChecked();</script>
+                                    <%}%>
+
+                                    <%if(key == 'ckpe_e'){%>
+                                        <script>ckpe_eChecked();</script>
+                                    <%}%>
+
+                                    <%if(key == 'ckbraco_e'){%>
+                                        <script>ckbraco_eChecked();</script>
+                                    <%}%>
+
+                                    <%if(key == 'ckantebraco_e'){%>
+                                        <script>ckantebraco_eChecked();</script>
+                                    <%}%>
+
+                                    <%if(key == 'ckmao_e'){%>
+                                        <script>ckmao_eChecked();</script>
+                                    <%}%>
+
+                                    <%if(key == 'ckpescoco_e'){%>
+                                        <script>ckpescoco_eChecked();</script>
+                                    <%}%>
+
+                                <%})%>
+
+
+
+
+                <script>
+                    $('input[type="checkbox"]').on('change', function(e){
+       
+                    var loc = location.href;
+                    loc = loc.split("?")[0]; // to get the URL till
+                    loc+="?";
+                    $('input[type="checkbox"]').each(function(i){
+                    if(this.checked){
+                        loc += "&" + $(this).attr("name") + "=" + $(this).attr("value");
+                        }
+                    });
+                    location.href = loc;
+                });
+
+    
+                $('input[type="checkbox"]').click(function(){
+                if($(this).is(":checked")){
+                    //input element where you put value
+                    $(this).val("on");
+
+                    var id = $(this).value;
+                    console.log(id);
+
+                    
+                }
+                else if($(this).is(":not(:checked)")){
+                    $(this).val("");
+                    //  console.log( $("#isClicked").val());
+                }
+                });
+
+                </script>
 
 
               <label style="font-size:12px;">
                 <input type="checkbox" name="fl-colour" value="red" id="red" /> Red</label>
               <br>
-
-            <div>
-                <pre id=result> </pre>
-                <input id="ckrosto" name="ckrosto" type="checkbox" value="ckrosto"> <label for="ckrosto">Tatuagem no rosto</label>
-                <input id="ckcostas_d" name="ckcostas_d" type="checkbox" value="ckcostas_d"> <label for="ckcostas_d">Tatuagem nas costas (Direita)</label>
-                <input id="ckpeito_d" name="ckpeito_d" type="checkbox" value="ckpeito_d"> <label for="ckpeito_d">Tatuagem no peito (Direita)</label>
-                <input id="ckbarriga_d" name="ckbarriga_d" type="checkbox" value="ckbarriga_d"> <label for="ckbarriga_d">Tatuagem na barriga (Direita)</label>
-                <input id="ckperna_d" name="ckperna_d" type="checkbox" value="ckperna_d"> <label for="ckperna_d">Tatuagem perna (Direita)</label>
-                <input id="ckpe_d" name="ckpe_d" type="checkbox" value="ckpe_d"> <label for="ckpe_d">Tatuagem pé (Direita)</label>
-                <input id="ckbraco_d" name="ckbraco_d" type="checkbox" value="ckbraco_d"> <label for="ckbraço_d">Tatuagem braço (Direita)</label>
-                <input id="ckantebraco_d" name="ckantebraco_d" type="checkbox" value="ckantebraco_d"> <label for="ckantebraco_d">Tatuagem antebraço (Direita)</label>
-                <input id="ckmao_d" name="ckmao_d" type="checkbox" value="ckmao_d"> <label for="ckmao_d">Tatuagem Mão (Direita)</label>
-                <input id="ckpescoco_d" name="ckpescoco_d" type="checkbox" value="ckpescoco_d"> <label for="ckpescoco_d">Tatuagem Pescoço (Direita)</label>
-            </div>
-
-            <div>
-                <pre id=result> </pre>
-                <input id="ckcostas_e" name="ckcostas_e" type="checkbox" value="ckcostas_e"> <label for="ckcostas_e">Tatuagem nas costas (Esquerda)</label>
-                <input id="ckpeito_e" name="ckpeito_e" type="checkbox" value="ckpeito_e"> <label for="ckpeito_e">Tatuagem no peito (Esquerda)</label>
-                <input id="ckbarriga_e" name="ckbarriga_e" type="checkbox" value="ckbarriga_e"> <label for="ckbarriga_e">Tatuagem na barriga (Esquerda)</label>
-                <input id="ckperna_e" name="ckperna_e" type="checkbox" value="ckperna_e"> <label for="ckperna_e">Tatuagem perna (Esquerda)</label>
-                <input id="ckpe_e" name="ckpe_e" type="checkbox" value="ckpe_e"> <label for="ckpe_e">Tatuagem pé (Esquerda)</label>
-                <input id="ckbraco_e" name="ckbraco_e" type="checkbox" value="ckbraco_e"> <label for="ckbraço_e">Tatuagem braço (Esquerda)</label>
-                <input id="ckantebraco_e" name="ckantebraco_e" type="checkbox" value="ckantebraco_e"> <label for="ckantebraco_e">Tatuagem antebraço (Esquerda)</label>
-                <input id="ckmao_e" name="ckmao_e" type="checkbox" value="ckmao_e"> <label for="ckmao_e">Tatuagem Mão (Esquerda)</label>
-                <input id="ckpescoco_e" name="ckpescoco_e" type="checkbox" value="ckpescoco_e"> <label for="ckpescoco_e">Tatuagem Pescoço (Esquerda)</label>
-            </div>
-
             <form action="/consultaPersonalizada" method="POST">
                 <div>
                     <label for="local_tatuagem">Selecione o local da tatuagem:</label>
@@ -83,26 +326,9 @@
                 </div>
             </form>
 
-        <%for(var i = 0; suspeito.length > i; i++){%>
-            <%if(suspeito[i].ckrosto == 1){%>
-
-                <script>
-                    /*
-                    var ckrosto = 'ckrosto';
-                    var tatuagem = [];
-                    var tatuagem = tatuagem.push.ckrosto;
-                    console.log(ckrosto)
-                    var id = 'suspeito_' +suspeito[i].id;
-                    console.log(id);
-                    document.getElementsByClassName('suspeito');
-                    */
-                </script>
-            <%}%>
-        <%}%>
-
         <%if(suspeito.length > 0){%>
             <%for(var i = 0; suspeito.length > i; i++){%>
-                <div class="suspeito" data-category="<%if(suspeito[i].ckrosto == 1){%>ckrosto<%}%> <%if(suspeito[i].ckcostas_d == 1){%>ckcostas_d<%}%> <%if(suspeito[i].ckbarriga_d == 1){%>ckbarriga_d<%}%> <%if(suspeito[i].ckperna_d == 1){%>ckperna_d<%}%> <%if(suspeito[i].ckpe_d == 1){%>ckpe_d<%}%> <%if(suspeito[i].ckbraco_d == 1){%>ckbraco_d<%}%> <%if(suspeito[i].ckantebraco_d == 1){%>ckantebraco_d<%}%> <%if(suspeito[i].ckmao_d == 1){%>ckmao_d<%}%> <%if(suspeito[i].ckpescoco_d == 1){%>ckpescoco_d<%}%> <%if(suspeito[i].ckcostas_e == 1){%>ckcostas_e<%}%> <%if(suspeito[i].ckbarriga_e == 1){%>ckbarriga_e<%}%> <%if(suspeito[i].ckperna_e == 1){%>ckperna_e<%}%> <%if(suspeito[i].ckpe_e == 1){%>ckpe_e<%}%> <%if(suspeito[i].ckbraco_e == 1){%>ckbraco_e<%}%> <%if(suspeito[i].ckantebraco_e == 1){%>ckantebraco_e<%}%> <%if(suspeito[i].ckmao_e == 1){%>ckmao_e<%}%> <%if(suspeito[i].ckpescoco_e == 1){%>ckpescoco_e<%}%>" 
+                <div class="suspeito"  
                     id="suspeito_"<%=suspeito[i].id%>>
                     <form id=<%="edita"+suspeito[i].id%> action=<%="/edita?id="+suspeito[i].id%> method="POST">
                         <label id="nome_"<%=suspeito[i].nome%>><%=suspeito[i].nome%></label>
@@ -112,73 +338,5 @@
                 </div>
             <%}%>
         <%}%>
-
-
-
-        <script>
-            function visualizaSuspeito(){
-               var div = document.getElementsByTagName('div');
-               for(var i = 0; div.length > i; i++){
-                   div[i].style.display = "none";
-               }
-
-            }
-        </script>
-
-        <script>
-            var $filterCheckboxes = $('input[type="checkbox"]');
-
-            $filterCheckboxes.on('change', function() {
-
-            var selectedFilters = {};
-
-            $filterCheckboxes.filter(':checked').each(function() {
-
-                if (!selectedFilters.hasOwnProperty(this.name)) {
-                selectedFilters[this.name] = [];
-                }
-
-                selectedFilters[this.name].push(this.value);
-
-                console.log(selectedFilters);
-
-            });
-
-            // create a collection containing all of the filterable elements
-            var $filteredResults = $('.suspeito');
-
-            // loop over the selected filter name -> (array) values pairs
-            $.each(selectedFilters, function(name, filterValues) {
-
-                // filter each .flower element
-                $filteredResults = $filteredResults.filter(function() {
-
-                var matched = false,
-                    currentFilterValues = $(this).data('category').split(' ');
-                    console.log(currentFilterValues);
-
-                // loop over each category value in the current .flower's data-category
-                $.each(currentFilterValues, function(_, currentFilterValue) {
-
-                    // if the current category exists in the selected filters array
-                    // set matched to true, and stop looping. as we're ORing in each
-                    // set of filters, we only need to match once
-
-                    if ($.inArray(currentFilterValue, filterValues) != -1) {
-                    matched = true;
-                    return false;
-                    }
-                });
-
-                // if matched is true the current .flower element is returned
-                return matched;
-
-                });
-            });
-
-            $('.suspeito').hide().filter($filteredResults).show();
-
-            });
-        </script>
     </body>
 </HTML>

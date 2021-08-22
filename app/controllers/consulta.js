@@ -1,8 +1,11 @@
 module.exports.consultaSuspeitos = function(application, req, res){
+	const params = req.query;
+	console.log(params)
+
     var connection = application.config.dbConnection;
 	var consultaModel = new application.app.models.consultaDAO(connection);
 
-	consultaModel.exibeSuspeitos(req, res);
+	consultaModel.exibeSuspeitos(params, req, res);
 }
 
 module.exports.cadastroSuspeito = function(application, req, res){
@@ -15,11 +18,13 @@ module.exports.cadastroSuspeito = function(application, req, res){
 }
 
 module.exports.consultaPersonalizada = function(application, req, res){
-    const dados = req.body;
+    //const dados = req.body;
+	const params = req.params;
+	console.log(params);
 
-    var connection = application.config.dbConnection;
-	var consultaPersonalizadaModel = new application.app.models.consultaPersonalizadaDAO(connection);
+    //var connection = application.config.dbConnection;
+	//var consultaPersonalizadaModel = new application.app.models.consultaPersonalizadaDAO(connection);
 
-	consultaPersonalizadaModel.consultaPersonalizadaSuspeito(dados, req, res);
+	//consultaPersonalizadaModel.consultaPersonalizadaSuspeito(dados, req, res);
  
 }

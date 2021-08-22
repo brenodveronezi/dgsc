@@ -38,7 +38,7 @@ cadastraDAO.prototype.insertUsuarios = function(dados, req, res){
 	
 
 	Object.entries(dados).forEach(([key, value]) => {
-		if(key == 'on'){
+		if(value == 'on'){
 			const tattoos = {
 				text: 'INSERT INTO tatuagem_local(id_suspeito,' + key + ') VALUES ((SELECT MAX(id) FROM suspeitos), $1) ON CONFLICT (id_suspeito) DO UPDATE SET ' + key + '= $1',
 				values: [1],
@@ -113,6 +113,45 @@ cadastraDAO.prototype.insertUsuarios = function(dados, req, res){
 				})
 			})
 		}
+
+		const consultaID = {
+			text:' SELECT MAX(id) FROM suspeitos'
+		}
+
+		this._connection.connect((err, client, release) => {
+			if(err){
+				return console.log('Erro ao conectar-se no BD:', err)
+			}
+			client.query(consultaID, (err, resultID) => {
+				release();
+				if(err){
+					return console.log('Erro ao consultar no BD, ID:', err)
+				}
+
+				var id = resultID.rows;
+				id = id[0]; id = id.max;
+				console.log(id);
+
+				data1 = dados.img_value;
+
+				//data2 = dados.img_value2;
+			
+				var base64Data = data1.replace(/^data:image\/png;base64,/, "");
+			
+				require("fs").writeFile("app/images/img_principal_" + id + ".png", base64Data, 'base64', function(err) {
+				if(err){
+					console.log(err);
+				}else{
+					console.log('imagem 1 upada!')
+					//res.render("index");
+				}
+				});
+			})
+			})
+
+
+
+
 
 
 	})

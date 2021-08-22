@@ -16,9 +16,64 @@
         <h1>Consulta Suspeitos</h1>
 
 
-              <label style="font-size:12px;">
-                <input type="checkbox" name="fl-colour" value="red" id="red" /> Red</label>
-              <br>
+            <form id="formFiltro" action="/consultaPersonalizada?" method="POST">
+                <div>
+                    <%if(ckrosto === 'on'){%>
+                        <input checked class="tatuagem" id="tatuagem" name="ckrosto" value="<%=ckrosto%>" type="checkbox"> <label for="ckrosto">Tatuagem rosto</label>
+                    <%}else{%>
+                        <input class="tatuagem" id="tatuagem" name="ckrosto" type="checkbox"> <label for="ckrosto">Tatuagem rosto</label>
+                    <%}%>
+                </div>
+
+
+                <div>
+                    <%if(ckcostas_d === 'on'){%>
+                        <input checked class="tatuagem" id="tatuagem" name="ckcostas_d" value="<%=ckcostas_d%>" type="checkbox"> <label for="ckcostas_d">Tatuagem nas costas (Direita)</label>
+                    <%}else{%>
+                        <input class="tatuagem" id="tatuagem" name="ckcostas_d" value="" type="checkbox"> <label for="ckcostas_d">Tatuagem nas costas (Direita)</label>
+                        <%}%>
+                </div>
+
+                <div>
+                    <%if(ckpeito_d === 'on'){%>
+                        <input checked class="tatuagem" id="tatuagem" name="ckpeito_d" value="<%=ckpeito_d%>" type="checkbox"> <label for="ckpeito_d">Tatuagem no peito (Direita)</label>
+                    <%}else{%>
+                        <input class="tatuagem" id="tatuagem" name="ckpeito_d" value="<%=ckpeito_d%>" type="checkbox"> <label for="ckpeito_d">Tatuagem no peito (Direita)</label>
+                        <%}%>                   
+                </div>
+
+                <div>
+                    <%if(ckbarriga_d === 'on'){%>
+                        <input checked class="tatuagem" id="tatuagem" name="ckbarriga_d" value="<%=ckbarriga_d%>" type="checkbox"> <label for="ckbarriga_d">Tatuagem na barriga (Direita)</label>
+                    <%}else{%>
+                        <input class="tatuagem" id="tatuagem" name="ckbarriga_d" value="<%=ckbarriga_d%>" type="checkbox"> <label for="ckbarriga_d">Tatuagem na barriga (Direita)</label>
+                        <%}%>                   
+                </div>
+
+            </form>
+
+            <script>
+                $(".tatuagem").change(function(){
+                if($(this).prop('checked') == true){
+                    $("#formFiltro").submit();
+                }
+                });
+
+
+                $('input[type="checkbox"]').on('change', function(e){
+       
+                //var loc = location.href;
+                loc = loc.split("?")[0]; // to get the URL till /?s=sunglass
+                $('input[type="checkbox"]').each(function(i){
+                if(this.checked){
+                    loc += "&" + $(this).attr("name") + "=" + $(this).attr("value");
+                    }
+                });
+                //location.href = loc;
+                
+            });
+            </script>
+
 
             <div>
                 <pre id=result> </pre>
@@ -97,7 +152,6 @@
         <%if(suspeito.length > 0){%>
             <%for(var i = 0; suspeito.length > i; i++){%>
 
-                <a>Resultado da pesquisa:</a>
                 <div class="suspeito" data-category="<%if(suspeito[i].ckrosto == 1){%>ckrosto<%}%> <%if(suspeito[i].ckcostas_d == 1){%>ckcostas_d<%}%> <%if(suspeito[i].ckbarriga_d == 1){%>ckbarriga_d<%}%> <%if(suspeito[i].ckperna_d == 1){%>ckperna_d<%}%> <%if(suspeito[i].ckpe_d == 1){%>ckpe_d<%}%> <%if(suspeito[i].ckbraco_d == 1){%>ckbraco_d<%}%> <%if(suspeito[i].ckantebraco_d == 1){%>ckantebraco_d<%}%> <%if(suspeito[i].ckmao_d == 1){%>ckmao_d<%}%> <%if(suspeito[i].ckpescoco_d == 1){%>ckpescoco_d<%}%> <%if(suspeito[i].ckcostas_e == 1){%>ckcostas_e<%}%> <%if(suspeito[i].ckbarriga_e == 1){%>ckbarriga_e<%}%> <%if(suspeito[i].ckperna_e == 1){%>ckperna_e<%}%> <%if(suspeito[i].ckpe_e == 1){%>ckpe_e<%}%> <%if(suspeito[i].ckbraco_e == 1){%>ckbraco_e<%}%> <%if(suspeito[i].ckantebraco_e == 1){%>ckantebraco_e<%}%> <%if(suspeito[i].ckmao_e == 1){%>ckmao_e<%}%> <%if(suspeito[i].ckpescoco_e == 1){%>ckpescoco_e<%}%>" 
                     id="suspeito_"<%=suspeito[i].id%>>
                     <form id=<%="edita"+suspeito[i].id%> action=<%="/edita?id="+suspeito[i].id%> method="POST">
@@ -121,7 +175,9 @@
             }
         </script>
 
+
         <script>
+            /*
             var $filterCheckboxes = $('input[type="checkbox"]');
 
             $filterCheckboxes.on('change', function() {
@@ -175,6 +231,18 @@
             $('.suspeito').hide().filter($filteredResults).show();
 
             });
+            */
         </script>
+
+        <script>
+            /*
+            $('.local_tatuagem').each(function(e){
+                if($(this).val() == 'on'){
+                    $(this).attr("checked", "checked");
+                    }
+                });
+                */
+        </script>
+
     </body>
 </HTML>

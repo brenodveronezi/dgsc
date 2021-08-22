@@ -6,6 +6,8 @@ module.exports.cadastra_user = function (application, req, res){
     dados = req.body;
     console.log(dados);
 
+
+    /*
     data1 = dados.img_value;
 
     //data2 = dados.img_value2;
@@ -17,8 +19,11 @@ module.exports.cadastra_user = function (application, req, res){
         console.log(err);
     }else{
         console.log('imagem 1 upada!')
+        alert('Suspeito cadastrado!')
     }
     });
+
+    /*
 
     /*var base64Data2 = data2.replace(/^data:image\/png;base64,/, "");
 
