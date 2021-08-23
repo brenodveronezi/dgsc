@@ -132,22 +132,81 @@ cadastraDAO.prototype.insertUsuarios = function(dados, req, res){
 				id = id[0]; id = id.max;
 				console.log(id);
 
-				data1 = dados.img_value;
+				imagem_principal = dados.imagem_principal_value;
+				imagem1 = dados.imagem1_value;
+				//imagem2 = dados.imagem2_value;
+				//imagem3 = dados.imagem3_value;
 
-				//data2 = dados.img_value2;
-			
-				var base64Data = data1.replace(/^data:image\/png;base64,/, "");
-			
-				require("fs").writeFile("app/images/img_principal_" + id + ".png", base64Data, 'base64', function(err) {
-				if(err){
-					console.log(err);
-				}else{
-					console.log('imagem 1 upada!')
-					//res.render("index");
+				if(imagem_principal != ''){
+						var base64Data = imagem_principal.replace(/^data:image\/png;base64,/, "");
+				
+						require("fs").writeFile("app/images/imagem_principal_" + id + ".png", base64Data, 'base64', function(err) {
+						if(err){
+							console.log(err);
+						}else{
+							console.log('imagem principal salva!')
+							//res.render("index");
+						}
+					});
 				}
-				});
+
+				if(imagem1 != ''){
+						var base64Data = imagem1.replace(/^data:image\/png;base64,/, "");
+				
+						require("fs").writeFile("app/images/imagem1_" + id + ".png", base64Data, 'base64', function(err) {
+						if(err){
+							console.log(err);
+						}else{
+							console.log('imagem 1 salva!')
+							//res.render("index");
+						}
+					});
+				}
+
+				/*
+				if(imagem2 != ''){
+						var base64Data = imagem2.replace(/^data:image\/png;base64,/, "");
+				
+						require("fs").writeFile("app/images/imagem2_" + id + ".png", base64Data, 'base64', function(err) {
+						if(err){
+							console.log(err);
+						}else{
+							console.log('imagem 2 salva!')
+							//res.render("index");
+						}
+					});
+				}
+
+				if(imagem3 != ''){
+						var base64Data = imagem3.replace(/^data:image\/png;base64,/, "");
+					
+						require("fs").writeFile("app/images/imagem3_" + id + ".png", base64Data, 'base64', function(err) {
+						if(err){
+							console.log(err);
+						}else{
+							console.log('imagem 3 salva!')
+							//res.render("index");
+						}
+					});
+				}
+
+				if(imagem4 != ''){
+						var base64Data = imagem4.replace(/^data:image\/png;base64,/, "");
+					
+						require("fs").writeFile("app/images/imagem4_" + id + ".png", base64Data, 'base64', function(err) {
+						if(err){
+							console.log(err);
+						}else{
+							console.log('imagem 4 salva!')
+							//res.render("index");
+						}
+					});
+				}
+				*/
+
+				
 			})
-			})
+		})
 
 
 
