@@ -114,13 +114,13 @@
       });
 
       $modal1.on('shown.bs.modal', function () {
-        cropper = new Cropper(image1, {
+        cropper1 = new Cropper(image1, {
           aspectRatio: 1,
           viewMode: 3,
         });
       }).on('hidden.bs.modal', function () {
-        cropper.destroy();
-        cropper = null;
+        cropper1.destroy();
+        cropper1 = null;
       });
 
       document.getElementById('crop1').addEventListener('click', function () {
@@ -129,14 +129,86 @@
 
         $modal1.modal('hide');
 
-        if (cropper) {
-          canvas = cropper.getCroppedCanvas({
+        if (cropper1) {
+          canvas = cropper1.getCroppedCanvas({
             width: 160,
             height: 160,
           });
           initialAvatarURL = avatar1.src;
           avatar1.src = canvas.toDataURL();
-          img_value1.value = avatar.src;
+          img_value1.value = avatar1.src;
+          //$progress.show();
+          //$alert.removeClass('alert-success alert-warning');
+        }
+      });
+
+
+      //IMAGEM 2
+
+      var avatar2 = document.getElementById('avatar2');
+      var image2 = document.getElementById('imagem2');
+      var input2 = document.getElementById('input2');
+      var img_value2 = document.getElementById('imagem2_value');
+
+      var $alert2 = $('.alert');
+      var $modal2 = $('#modal2');
+      var cropper2;
+
+      $('[data-toggle="tooltip"]').tooltip();
+
+      input2.addEventListener('change', function (e) {
+        var files = e.target.files;
+        var done = function (url) {
+          input2.value = '';
+          image2.src = url;
+          $alert2.hide();
+          $modal2.modal('show');
+        };
+
+
+        var reader;
+        var file;
+        var url;
+
+        if (files && files.length > 0) {
+          file = files[0];
+
+          if (URL) {
+            done(URL.createObjectURL(file));
+          } else if (FileReader) {
+            reader = new FileReader();
+            reader.onload = function (e) {
+              done(reader.result);
+            };
+            reader.readAsDataURL(file);
+          }
+        }
+      });
+
+      $modal2.on('shown.bs.modal', function () {
+        cropper2 = new Cropper(image2, {
+          aspectRatio: 1,
+          viewMode: 3,
+        });
+      }).on('hidden.bs.modal', function () {
+        cropper2.destroy();
+        cropper2 = null;
+      });
+
+      document.getElementById('crop2').addEventListener('click', function () {
+        var initialAvatarURL;
+        var canvas;
+
+        $modal2.modal('hide');
+
+        if (cropper2) {
+          canvas = cropper2.getCroppedCanvas({
+            width: 160,
+            height: 160,
+          });
+          initialAvatarURL = avatar2.src;
+          avatar2.src = canvas.toDataURL();
+          img_value2.value = avatar2.src;
           //$progress.show();
           //$alert.removeClass('alert-success alert-warning');
         }
