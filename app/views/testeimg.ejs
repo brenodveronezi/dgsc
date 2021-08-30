@@ -1,0 +1,198 @@
+<HTML lang="PT-BR">
+    <head>
+        <meta charset='UTF-8'>
+    </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.css" integrity="sha512-jO9KUHlvIF4MH/OTiio0aaueQrD38zlvFde9JoEA+AQaCNxIJoX4Kjse3sO2kqly84wc6aCtdm9BIUpYdvFYoA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.js" integrity="sha512-1bpfZkKJ+WlmJN/I2KLm79dSiuOos0ymwL5IovsUVARyzcaf9rSXsVO2Cdg4qlKNOQXh8fd1d0vKeY9Ru3bQDw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <body>
+        <form action="/uploadimg" enctype="multipart/form-data" method="POST">
+            <div id="images" class="tab">      
+                <div class="container-fluid">
+                    <label class="label" data-toggle="tooltip" title="" data-original-title="Imagem Principal">
+                        <img class="rounded" id="avatar" name="avatar" src="https://avatars0.githubusercontent.com/u/3456749?s=160" alt="avatar">
+                        <input type="file" class="sr-only" id="input" name="fotos" accept="image/*">
+                    </label>
+                     <input name="imagem_principal_value" id="imagem_principal_value" type="hidden" value=""> 
+
+                    <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" style="display: none;" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container">
+                                        <img style="width: 100%;" id="imagem_principal" src="" class=""> 
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-primary" id="crop">Crop</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="container-fluid">
+                    <label class="label" data-toggle="tooltip" title="" data-original-title="Imagem 1">
+                        <img class="rounded" id="avatar1" name="avatar1" src="https://avatars0.githubusercontent.com/u/3456749?s=160" alt="avatar">
+                        <input type="file" class="sr-only" id="input1" name="fotos" accept="image/*">
+                    </label>
+                     <input name="imagem1_value" id="imagem1_value" type="hidden" value="">
+
+                    <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="modalLabel" style="display: none;" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+                                    <button type="button" class="close" data-dismiss="modal1" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container">
+                                        <img style="width: 100%;" id="imagem1" src="" class=""> 
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal1">Cancel</button>
+                                    <button type="button" class="btn btn-primary" id="crop1">Crop</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <label class="label" data-toggle="tooltip" title="" data-original-title="Imagem 2">
+                    <img class="rounded" id="avatar2" name="avatar2" src="https://avatars0.githubusercontent.com/u/3456749?s=160" alt="avatar">
+                    <input type="file" class="sr-only" id="input2" name="fotos" accept="image/*">
+                </label>
+                 <input name="imagem2_value" id="imagem2_value" type="hidden" value="">
+
+                <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="modalLabel" style="display: none;" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+                                <button type="button" class="close" data-dismiss="modal2" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container">
+                                    <img style="width: 100%;" id="imagem2" src="" class=""> 
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal2">Cancel</button>
+                                <button type="button" class="btn btn-primary" id="crop2">Crop</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <label class="label" data-toggle="tooltip" title="" data-original-title="Imagem 3">
+                    <img class="rounded" id="avatar3" name="avatar3" src="https://avatars0.githubusercontent.com/u/3456749?s=160" alt="avatar">
+                    <input type="file" class="sr-only" id="input3" name="fotos" accept="image/*">
+                </label>
+                 <input name="imagem3_value" id="imagem3_value" type="hidden" value="">
+
+                <div class="modal fade" id="modal3" tabindex="-1" aria-labelledby="modalLabel" style="display: none;" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+                                    <button type="button" class="close" data-dismiss="modal3" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container">
+                                        <img style="width: 100%;" id="imagem3" src="" class=""> 
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal3">Cancel</button>
+                                    <button type="button" class="btn btn-primary" id="crop3">Crop</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+            <label class="label" data-toggle="tooltip" title="" data-original-title="Imagem 4">
+                <img class="rounded" id="avatar4" name="avatar4" src="https://avatars0.githubusercontent.com/u/3456749?s=160" alt="avatar">
+                <input type="file" class="sr-only" id="input4" name="fotos" accept="image/*">
+            </label>
+             <input name="imagem4_value" id="imagem4_value" type="hidden" value="">
+
+            <div class="modal fade" id="modal4" tabindex="-1" aria-labelledby="modalLabel" style="display: none;" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+                            <button type="button" class="close" data-dismiss="modal4" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <img style="width: 100%;" id="imagem4" src="" class=""> 
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal4">Cancel</button>
+                            <button type="button" class="btn btn-primary" id="crop4">Crop</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <label class="label" data-toggle="tooltip" title="" data-original-title="Imagem 5">
+                <img class="rounded" id="avatar5" name="avatar5" src="https://avatars0.githubusercontent.com/u/3456749?s=160" alt="avatar">
+                <input type="file" class="sr-only" id="input5" name="fotos" accept="image/*">
+            </label>
+            <input name="imagem5_value" id="imagem5_value" type="hidden" value=""> 
+
+            <div class="modal fade" id="modal5" tabindex="-1" aria-labelledby="modalLabel" style="display: none;" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+                            <button type="button" class="close" data-dismiss="modal5" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <img style="width: 100%;" id="imagem5" src="" class=""> 
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal5">Cancel</button>
+                            <button type="button" class="btn btn-primary" id="crop5">Crop</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <button>Enviar</button>
+        </form>
+
+        <script src="https://unpkg.com/jquery@3/dist/jquery.min.js" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/bootstrap@4/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/cropper.js"></script>
+    </body>
+</HTML>

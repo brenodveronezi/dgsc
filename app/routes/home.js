@@ -4,8 +4,65 @@ module.exports = function(application){
         application.app.controllers.cadastro.user(application, req, res);
     })
 
+
     application.post('/cadastro/salvar', (req, res) => {
-        application.app.controllers.cadastro.cadastra_user(application, req, res);
+        console.log(req.body);
+        //application.app.controllers.cadastro.cadastra_user(application, req, res);
+    })
+
+    application.post('/salva-imagem-principal', (dados) => {
+        var dados = dados.body;
+
+        var base64Data = dados.imagem.replace(/^data:image\/png;base64,/, "");
+        const fs = require('fs')
+        fs.writeFileSync("C:/projeto_delegacia/app/images/" + dados.nome + ".png", base64Data, 'base64');
+    })
+
+
+
+    application.post('/salva-imagem1', (dados) => {
+        var dados = dados.body;
+
+        var base64Data = dados.imagem.replace(/^data:image\/png;base64,/, "");
+        const fs = require('fs')
+        fs.writeFileSync("C:/projeto_delegacia/app/images/" + dados.nome + ".png", base64Data, 'base64');
+
+    })
+
+    application.post('/salva-imagem2', (dados) => {
+        var dados = dados.body;
+
+        var base64Data = dados.imagem.replace(/^data:image\/png;base64,/, "");
+        const fs = require('fs')
+        fs.writeFileSync("C:/projeto_delegacia/app/images/" + dados.nome + ".png", base64Data, 'base64');
+
+    })
+
+    application.post('/salva-imagem3', (dados) => {
+        var dados = dados.body;
+
+        var base64Data = dados.imagem.replace(/^data:image\/png;base64,/, "");
+        const fs = require('fs')
+        fs.writeFileSync("C:/projeto_delegacia/app/images/" + dados.nome + ".png", base64Data, 'base64');
+
+    })
+
+    application.post('/salva-imagem4', (dados) => {
+        var dados = dados.body;
+
+        var base64Data = dados.imagem.replace(/^data:image\/png;base64,/, "");
+        const fs = require('fs')
+        fs.writeFileSync("C:/projeto_delegacia/app/images/" + dados.nome + ".png", base64Data, 'base64');
+
+    })
+
+    application.post('/salva-imagem5', (dados) => {
+        var dados = dados.body;
+
+        var base64Data = dados.imagem.replace(/^data:image\/png;base64,/, "");
+        const fs = require('fs')
+        fs.writeFileSync("C:/projeto_delegacia/app/images/" + dados.nome + ".png", base64Data, 'base64');
+
     })
 
     application.get('/consulta', (req, res) => {
@@ -74,5 +131,14 @@ module.exports = function(application){
 
     application.post('/uploads', (req,res) =>{
         res.send('ok');
+    })
+
+    application.get('/testeimg', (req, res) =>{
+        res.render('testeimg');
+    })
+
+    application.post('/uploadimg', (req, res) => {
+        console.log(req.body);
+        console.log(req.file);
     })
 }

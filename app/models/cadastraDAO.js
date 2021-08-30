@@ -134,84 +134,38 @@ cadastraDAO.prototype.insertUsuarios = function(dados, req, res){
 
 				imagem_principal = dados.imagem_principal_value;
 				imagem1 = dados.imagem1_value;
-				//imagem2 = dados.imagem2_value;
-				//imagem3 = dados.imagem3_value;
+				imagem2 = dados.imagem2_value;
+				imagem3 = dados.imagem3_value;
+				imagem4 = dados.imagem4_value;
+				imagem5 = dados.imagem5_value;
 
 				if(imagem_principal != ''){
-						var base64Data = imagem_principal.replace(/^data:image\/png;base64,/, "");
-				
-						require("fs").writeFile("app/images/imagem_principal_" + id + ".png", base64Data, 'base64', function(err) {
-						if(err){
-							console.log(err);
-						}else{
-							console.log('imagem principal salva!')
-							//res.render("index");
-						}
-					});
+					console.log(imagem_principal);
 				}
 
 				if(imagem1 != ''){
-						var base64Data = imagem1.replace(/^data:image\/png;base64,/, "");
-				
-						require("fs").writeFile("app/images/imagem1_" + id + ".png", base64Data, 'base64', function(err) {
-						if(err){
-							console.log(err);
-						}else{
-							console.log('imagem 1 salva!')
-							//res.render("index");
-						}
-					});
+					console.log(imagem1);
 				}
 
-				/*
-				if(imagem2 != ''){
-						var base64Data = imagem2.replace(/^data:image\/png;base64,/, "");
 				
-						require("fs").writeFile("app/images/imagem2_" + id + ".png", base64Data, 'base64', function(err) {
-						if(err){
-							console.log(err);
-						}else{
-							console.log('imagem 2 salva!')
-							//res.render("index");
-						}
-					});
+				if(imagem2 != ''){
+					console.log(imagem2);
 				}
 
 				if(imagem3 != ''){
-						var base64Data = imagem3.replace(/^data:image\/png;base64,/, "");
-					
-						require("fs").writeFile("app/images/imagem3_" + id + ".png", base64Data, 'base64', function(err) {
-						if(err){
-							console.log(err);
-						}else{
-							console.log('imagem 3 salva!')
-							//res.render("index");
-						}
-					});
+					console.log(imagem3);
 				}
 
 				if(imagem4 != ''){
-						var base64Data = imagem4.replace(/^data:image\/png;base64,/, "");
-					
-						require("fs").writeFile("app/images/imagem4_" + id + ".png", base64Data, 'base64', function(err) {
-						if(err){
-							console.log(err);
-						}else{
-							console.log('imagem 4 salva!')
-							//res.render("index");
-						}
-					});
+					console.log(imagem4);
 				}
-				*/
 
-				
-			})
+				if(imagem5 != ''){
+					console.log(imagem5);
+				}
+			
 		})
-
-
-
-
-
+	})
 
 	})
 }
