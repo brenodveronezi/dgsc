@@ -149,7 +149,7 @@ cadastraDAO.prototype.insertUsuarios = function(dados, req, res){
 
 				
 				if(imagem2 != ''){
-					console.log(imagem2);
+					console.log(imagem2); 
 				}
 
 				if(imagem3 != ''){
