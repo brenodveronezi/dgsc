@@ -73,6 +73,10 @@ module.exports = function(application){
         application.app.controllers.consulta.cadastroSuspeito(application, req, res);
     })
     
+    application.post('/gerarpdf', (req, res) => {
+        application.app.controllers.consulta.cadastroSuspeitoPDF(application, req, res);
+    })
+    
     application.post('/editaPessoais', (req, res) => {
         application.app.controllers.edita.editaSuspeitoPessoais(application, req, res);
     })

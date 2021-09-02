@@ -325,18 +325,26 @@
                     <button>Buscar</button>
                 </div>
             </form>
-
+            
         <%if(suspeito.length > 0){%>
             <%for(var i = 0; suspeito.length > i; i++){%>
                 <div class="suspeito"  
                     id="suspeito_"<%=suspeito[i].id%>>
+                    <form id=<%="pdf"+suspeito[i].id%> action=<%="/gerarpdf?id="+suspeito[i].id%> method="POST"></form>
                     <form id=<%="edita"+suspeito[i].id%> action=<%="/edita?id="+suspeito[i].id%> method="POST">
                         <label id="nome_"<%=suspeito[i].nome%>><%=suspeito[i].nome%></label>
                         <label id="cpf"<%=suspeito[i].cpf%>><%=suspeito[i].cpf%></label>
                         <button form=<%="edita"+suspeito[i].id%> type="submit">Visualizar Cadastro</button>
+                        <button form=<%="pdf"+suspeito[i].id%>> Gerar PDF</button>
                     </form>
                 </div>
             <%}%>
         <%}%>
+
+        <script>
+            function gerarPDF(){
+                $.post()
+            }
+        </script>
     </body>
 </HTML>

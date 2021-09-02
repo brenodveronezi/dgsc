@@ -17,6 +17,15 @@ module.exports.cadastroSuspeito = function(application, req, res){
 
 }
 
+module.exports.cadastroSuspeitoPDF = function(application, req, res){
+    const id = req.query.id;
+    var connection = application.config.dbConnection;
+	var cadastroSuspeitoPDFModel = new application.app.models.consultaDAO(connection);
+
+	cadastroSuspeitoPDFModel.cadastroSuspeitoPDF(id, application, req, res);
+
+}
+
 module.exports.consultaPersonalizada = function(application, req, res){
     //const dados = req.body;
 	const params = req.params;
