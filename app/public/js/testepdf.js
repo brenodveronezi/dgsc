@@ -135,25 +135,80 @@ doc.underline(55, 435, 490, 100, { color: '#000000' })
 
 
 doc.text(`
-ROSTO:
+ROSTO:                                                                              
 
-COSTAS:
+COSTAS (direita):                                                               
 
-PEITO:
+PEITO (direita):                                                                 
 
-BARRIGA:
+BARRIGA (direita):                                                            
 
-PERNA:
+PERNA (direita):                                                                 
 
-PÉ:
+PÉ (direita):                                                                       
 
-BRAÇO:
+BRAÇO (direita):                                                                
 
-MÃO:
+MÃO (direita):                                                                     
 `, 55, 545,  {
-    height: 350,
-    width: 700,
+    height: 500,
+    width: 400,
     align: 'left'
 });
+
+
+doc.text(`
+PESCOÇO:
+
+COSTAS (esquerda):
+
+PEITO (esquerda):
+
+BARRIGA (esquerda):
+
+PERNA (esquerda):
+
+PÉ (esquerda):
+
+BRAÇO (esquerda):
+
+ (esquerda):
+`, 320, 545,  {
+    height: 500,
+    width: 300,
+    align: 'left'
+});
+
+doc.addPage();
+
+doc.underline(55, -10, 490, 100, { color: '#000000' })
+
+doc.text(`                                                                  PASSAGENS
+`, 60, 100, {
+    height: 50,
+    width: 700,
+    align: 'left'
+})
+
+doc.underline(55, 18, 490, 100, { color: '#000000' })
+
+doc.text(`
+OCORRÊNCIA:
+
+HISTÓRICO:
+`, 55, 120, {
+    height: 200,
+    width: 400,
+    align: 'left'
+})
+
+doc.text(`
+DATA:
+`, 425, 120, {
+    height: 200,
+    width: 400,
+    align: 'left'
+})
+
 
 doc.end()
