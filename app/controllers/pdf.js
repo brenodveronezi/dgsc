@@ -1,5 +1,11 @@
-module.exports.pdf = function(result){
+module.exports.pdf = function(application, res, result, resultC, resultE, resultP, resultT, resultCT){
     var usuario = result[0];
+    var usuarioC = resultC[0];
+    var tatuagem = resultCT[0];
+    var enderecos = resultE[0];
+    var passagens = resultP[0];
+
+
 
     const PDFDocument = require('pdfkit');
     const fs = require('fs');
@@ -10,7 +16,7 @@ module.exports.pdf = function(result){
     
     // Pipe its output somewhere, like to a file or HTTP response
     // See below for browser usage
-    doc.pipe(fs.createWriteStream('output.pdf'));
+    doc.pipe(fs.createWriteStream("C:/projeto_delegacia/app/public/pdf/" + usuario.id + ".pdf"));
     
     // Embed a font, set the font size, and render some text
     //doc.moveUp(8);
@@ -22,7 +28,7 @@ module.exports.pdf = function(result){
     
     
     
-    doc.image('C:/projeto_delegacia/app/images/pmcv.png',{
+    doc.image('C:/projeto_delegacia/app/public/images/pmcv.png',{
         fit: [60, 120],
         align: 'left',
         valign: 'left',
@@ -66,28 +72,28 @@ module.exports.pdf = function(result){
     
     
       doc.fontSize(11)
-    doc.image('C:/projeto_delegacia/app/images/suspeito.png', 55, 170, {
+    doc.image('C:/projeto_delegacia/app/public/images/' + usuario.foto_principal + '.png', 55, 170, {
         align: 'left',
         height: 250,
         width: 150
     })
     
     .text(`
-            NOME:`+ usuario.nome +`
+            NOME: `+ usuario.nome +`
             
-            APELIDO:`+ usuario.apelido +`
+            APELIDO: `+ usuario.apelido +`
     
-            PAI:`+ usuario.nome_pai +`
+            PAI: `+ usuario.nome_pai +`
     
-            MÃE:`+ usuario.nome_mae + `
+            MÃE: `+ usuario.nome_mae + `
             
-            RG:`+ usuario.rg + `                              | CPF:`+ usuario.cpf + `
+            RG: `+ usuario.rg + `                              | CPF: `+ usuario.cpf + `
     
-            NATURALIDADE:`+ usuario.naturalidade + `
+            NATURALIDADE: `+ usuario.naturalidade + `
     
-            DATA DE NASCIMENTO:`+ usuario.dt_nascimento + `
+            DATA DE NASCIMENTO: `+ usuario.dt_nascimento + `
     
-            ENDEREÇO:`+  + `
+            ENDEREÇO: `+ enderecos.rua1 + enderecos.cidade1 + enderecos.estado1 + enderecos.complemento1 + `
     
             
     `
@@ -101,7 +107,7 @@ module.exports.pdf = function(result){
     
     
     //CUTIS
-    doc.text(`CUTIS:                              COR DOS OLHOS:                            TIPO DE CABELO:
+    doc.text(`COR DOS OLHOS: ` + usuarioC.cor_olhos + `                          TIPO DE CABELO: ` + usuarioC.tipo_cabelo + `
     
     `, 55, 440,  {
         height: 50,
@@ -110,7 +116,7 @@ module.exports.pdf = function(result){
     });
     
     //COR DOS CABELOS
-    doc.text(`COR DOS CABELOS:                                                                 COMPRIMENTO:
+    doc.text(`COR DOS CABELOS: ` + usuarioC.cor_cabelo + `                                                               COMPRIMENTO:
     
     `, 55, 465,  {
         height: 50,
@@ -118,7 +124,7 @@ module.exports.pdf = function(result){
         align: 'left'
     });
     
-    doc.text(`COMPLEIÇÃO:                              PESO:                                   ALTURA:
+    doc.text(`COMPLEIÇÃO:                              PESO: ` + usuarioC.peso + `                                  ALTURA: ` + usuarioC.altura + `
     
     `, 55, 490,  {
         height: 50,
@@ -139,21 +145,25 @@ module.exports.pdf = function(result){
     
     
     doc.text(`
-    ROSTO:                                                                              
+    ROSTO: ` + tatuagem.txtrosto + `                                                                             
     
-    COSTAS (direita):                                                               
+    COSTAS (direita): ` + tatuagem.txtcostas_d + `                                                            
     
-    PEITO (direita):                                                                 
+    PEITO (direita): ` + tatuagem.txtpeito_d + `                                                     
     
-    BARRIGA (direita):                                                            
+    BARRIGA (direita): ` + tatuagem.txtbarriga_d + `                                                            
     
-    PERNA (direita):                                                                 
+    PERNA (direita): ` + tatuagem.txtperna_d + `                                                                 
     
-    PÉ (direita):                                                                       
+    PÉ (direita): ` + tatuagem.txtpe_d + `                                                                      
     
-    BRAÇO (direita):                                                                
+    BRAÇO (direita): ` + tatuagem.txtbraco_d +  `
+
+    ANTEBRAÇO (direita) : ` + tatuagem.txtantebraco_d + `                                                            
     
-    MÃO (direita):                                                                     
+    MÃO (direita): ` + tatuagem.txtmao_d + `
+    
+    CICATRIZ: ` + tatuagem.txtcicatriz + `
     `, 55, 545,  {
         height: 500,
         width: 400,
@@ -162,21 +172,25 @@ module.exports.pdf = function(result){
     
     
     doc.text(`
-    PESCOÇO:
+    PESCOÇO: ` + tatuagem.txtpescoco_e + `
     
-    COSTAS (esquerda):
+    COSTAS (esquerda): ` + tatuagem.txtcostas_e + `
     
-    PEITO (esquerda):
+    PEITO (esquerda): ` + tatuagem.txtpeito_e + `
     
-    BARRIGA (esquerda):
+    BARRIGA (esquerda): ` + tatuagem.txtbarriga_e + `
     
-    PERNA (esquerda):
+    PERNA (esquerda): ` + tatuagem.txtperna_e + `
     
-    PÉ (esquerda):
+    PÉ (esquerda): ` + tatuagem.txtpe_e + `
     
-    BRAÇO (esquerda):
+    BRAÇO (esquerda): ` + tatuagem.txtbraco_e + `
+
+    ANTEBRAÇO (esquerda) : ` + tatuagem.txtantebraco_e + `     
     
-     (esquerda):
+    MÃO (esquerda): ` + tatuagem.txtmao_e + `
+
+    DEFORMIDADE: ` + tatuagem.txtdeformidade + `
     `, 320, 545,  {
         height: 500,
         width: 300,
@@ -197,9 +211,9 @@ module.exports.pdf = function(result){
     doc.underline(55, 18, 490, 100, { color: '#000000' })
     
     doc.text(`
-    OCORRÊNCIA:
+    OCORRÊNCIA: ` + passagens.artigo1 + passagens.lei1 + `
     
-    HISTÓRICO:
+    HISTÓRICO: ` + passagens.procedimento1 + `
     `, 55, 120, {
         height: 200,
         width: 400,
@@ -207,7 +221,7 @@ module.exports.pdf = function(result){
     })
     
     doc.text(`
-    DATA:
+    DATA: ` + passagens.data1 + `
     `, 425, 120, {
         height: 200,
         width: 400,
@@ -216,5 +230,17 @@ module.exports.pdf = function(result){
     
     
     doc.end()
-   
+
+
+    var pdf = "C:/projeto_delegacia/app/public/pdf/" + usuario.id + ".pdf"
+
+setTimeout(() =>     fs.readFile(pdf, function (err, data){
+
+                    res.contentType("application/pdf");
+                    if(err){
+                        console.log(err);
+                    }
+                    res.send(data);
+
+                }), 5000);
 }

@@ -87,46 +87,114 @@ input[type=number] {
 }
 
 .button-trash {
-  background-image: url('/icons/trash.svg');
+  background-image: url('/icons/trash-black.svg');
   background-repeat: no-repeat; 
-  background-position: 2,5px 2px;
-  background-size: 24.5px;
-  padding: 15px 15px;
-  background-color: #d91e3e;
-  border: 1px solid #ddd; 
+  background-position: 2,5px 5px;
+  background-size: 34px;
+  padding: 20px 20px;
+  background-color: #bba339;
 }
 
 .button-trash:hover {
-  background-image: url('/icons/trash.svg');
+  background-image: url('/icons/trash-black.svg');
   background-repeat: no-repeat; 
-  background-position: 2,5px 2px;
-  background-size: 25px;
-  padding: 15px 15px;
-  background-color: #d91e3e;
-  border: 1px solid #ddd; 
+  background-position: 2,5px 5px;
+  background-size: 34px;
+  padding: 20px 20px;
+  background-color: #bba339;
+  opacity: 0.7;
+}
+
+.button-pdf {
+  background-image: url('/icons/pdf-black.svg');
+  background-repeat: no-repeat; 
+  background-position: 3px 2px;
+  background-size: 34px;
+  padding: 20px 20px;
+  background-color: #bba339;
+}
+
+.button-pdf:hover {
+  background-image: url('/icons/pdf-black.svg');
+  background-repeat: no-repeat; 
+  background-position: 3px 2px;
+  background-size: 34px;
+  padding: 20px 20px;
+  background-color: #bba339;
   opacity: 0.7;
 }
 
 .button-pencil:hover {
-  background-image: url('/icons/pencil-square.svg');
+  background-image: url('/icons/pencil-black.svg');
   background-repeat: no-repeat; 
   background-position: 2,5px 2px;
-  background-size: 25px;
-  padding: 15px 15px;
-  background-color: #d91e3e;
-  border: 1px solid #ddd;
+  background-size: 34px;
+  padding: 20px 20px;
+  background-color: #bba339;
   opacity: 0.7;
 }
 
 .button-pencil {
-  background-image: url('/icons/pencil-square.svg');
+  background-image: url('/icons/pencil-black.svg');
   background-repeat: no-repeat; 
   background-position: 2,5px 2px;
-  background-size: 24.5px;
-  padding: 15px 15px;
-  background-color: #d91e3e;
-  border: 1px solid #ddd;
+  background-size: 34px;
+  padding: 20px 20px;
+  background-color: #bba339;
 }
+
+.button-search-index:hover {
+  background-image: url('/icons/search.svg');
+  background-repeat: no-repeat; 
+  background-position: 70px 20px;
+  background-size: 100px;
+  padding: 20px 20px;
+  background-color: #bba339;
+  border-radius: 10px;
+  opacity: 0.7;
+  font-style: bold;
+}
+
+.button-search-index {
+  background-image: url('/icons/search.svg');
+  background-repeat: no-repeat; 
+  background-position: 70px 20px;
+  background-size: 100px;
+  padding: 20px 20px;
+  background-color: #bba339;
+  border-radius: 10px;
+  width: 230px; 
+  height: 250px;
+  box-shadow: 6px 6px #bba3391e;
+  font-style: bold;
+}
+
+.button-add:hover {
+  background-image: url('/icons/addperson-black.svg');
+  background-repeat: no-repeat; 
+  background-position: 70px 20px;
+  background-size: 100px;
+  padding: 20px 20px;
+  background-color: #bba339;
+  border-radius: 10px;
+  opacity: 0.7;
+  font-style: bold;
+}
+
+.button-add {
+  background-image: url('/icons/addperson-black.svg');
+  background-repeat: no-repeat; 
+  background-position: 70px 20px;
+  background-size: 100px;
+  padding: 20px 20px;
+  background-color: #bba339;
+  border-radius: 10px;
+  width: 230px; 
+  height: 250px;
+  box-shadow: 6px 6px #bba3391e;
+  font-style: bold;
+}
+
 
 .borda-form {
   border-color: #080808;
@@ -148,7 +216,6 @@ input[type=number] {
 }
 
 
-
 .input-form {
   padding: 6px;
   width: 100%;
@@ -158,13 +225,26 @@ input[type=number] {
 }
 
 button {
-  background-color: #a17d07;
+  background-color: #bba339;
   color: #000000;
   border: none;
   padding: 10px 20px;
   font-size: 17px;
   font-family: bold Raleway;
   cursor: pointer;
+  border-radius: 2px;
+}
+
+button:hover {
+  background-color: #bba339;
+  color: #000000;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-family: bold Raleway;
+  cursor: pointer;
+  border-radius: 2px;
+  opacity: 0.7;
 }
 
 input.invalid {
@@ -212,11 +292,37 @@ input[type='radio']:checked:after {
   top: -2px;
   left: -1px;
   position: relative;
+  background-color: #ffffff;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 1px solid #a17d07;
+}
+
+input[type='checkbox']:after {
+  width: 15px;
+  height: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #ffffff;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 1px solid #a17d07;
+}
+
+input[type='checkbox']:checked:after {
+  width: 15px;
+  height: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
   background-color: #a17d07;
   content: '';
   display: inline-block;
   visibility: visible;
-  border: 2px solid white;
+  border: 1px solid #a17d07;
 }
 
 input[type='']:after {
@@ -249,19 +355,56 @@ input[type='']:checked:after {
 
 #DivLateral{
   position:relative;
+  padding-left: 20px;
   border-width:2px;
-  width:50%;
-  height: 100px;
-  background-color: peachpuff;
-  float: left;
+  width: 25%;
+  height: 1300px;
+  float: right;
 }
 
 #DivA{
   position: relative;
+  padding-left: 20px;
   border-width:2px;
-  width: 100px;
-  height: 100px;
-  left:0px;
-  background-color: red;
+  width: 25%;
+  height: 1300px;
   float: left;
+}
+
+#DivMeio{
+  position: relative;
+  border-width:2px;
+  width: 50%;
+  height: 250px;
+  float: left;
+  
+}
+
+
+#DivCadastro{
+  position: relative;
+  border-width: 2px;
+  width: 60%;
+  float: left;
+}
+
+#DivImagem{
+  position: relative;
+  border-width: 2px;
+  width: 25%;
+  float: left;
+}
+
+#DivPrincipal{
+  padding-top: 18px;
+  height: 200px;
+  border: 1px solid #bba339
+}
+
+#DivButtons{
+  padding-top: 5px;
+}
+
+#divButtonsPrincipal{
+  padding-left: 30px;
 }

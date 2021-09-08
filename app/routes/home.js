@@ -6,8 +6,8 @@ module.exports = function(application){
 
 
     application.post('/cadastro/salvar', (req, res) => {
-        console.log(req.body);
-        //application.app.controllers.cadastro.cadastra_user(application, req, res);
+        //console.log(req.body);
+        application.app.controllers.cadastro.cadastra_user(application, req, res);
     })
 
     application.post('/salva-imagem-principal', (dados) => {
@@ -124,8 +124,18 @@ module.exports = function(application){
 
 
 
-    application.get('/pdf', (req, res) => {
-        res.render('pdf')
+    application.post('/pdf', (res, id) => {
+        var pdf = "C:/projeto_delegacia/app/pdf/" + id + ".pdf"
+
+        fs.readFile(pdf, function (err, data){
+    
+            res.contentType("application/pdf");
+            if(err){
+                console.log(err);
+            }
+            res.send(data);
+    
+         });
     })
 
     

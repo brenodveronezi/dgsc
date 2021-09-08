@@ -55,6 +55,22 @@ cadastraDAO.prototype.insertUsuarios = function(dados, req, res){
 					}
 				})
 			})
+		}else{
+			const tattoos = {
+				text: 'INSERT INTO tatuagem_local(id_suspeito) VALUES ((SELECT MAX(id) FROM suspeitos))'
+			}
+
+			this._connection.connect((err, client, release) => {
+				if(err){
+					return console.log('Não conseguiu se conectar no BD:', err);
+				}
+				client.query(tattoos, (err, resultTattoos) => {
+					release();
+					if(err){
+						return console.log('Não conseguiu inserir no BD tattoos:', err);
+					}
+				})
+			})
 		}
 
 		if( key.match(/rua.*/) || key.match(/cidade.*/) || key.match(/estado.*/) || key.match(/numero.*/) || key.match(/complemento.*/)){
@@ -93,6 +109,22 @@ cadastraDAO.prototype.insertUsuarios = function(dados, req, res){
 					}
 				})
 			})
+		}else{
+			const caracteristicas_tatuagem = {
+				text: 'INSERT INTO caracteristicas_tatuagem(id_suspeito) VALUES((SELECT MAX(id) FROM suspeitos))'
+			}
+
+			this._connection.connect((err, client, release) => {
+				if(err){
+					return console.log('Erro ao conectar-se no BD:', err);
+				}
+				client.query(caracteristicas_tatuagem, (err, resultTatuagens) => {
+					release();
+					if(err){
+						return console.log('Erro ao inserir no BD, tatuagens:', err);
+					}
+				})
+			})
 		}
 
 		if(key.match(/data.*/) || key.match(/procedimento.*/) || key.match(/artigo.*/) || key.match(/lei.*/) || key.match(/historico.*/) ){
@@ -113,62 +145,78 @@ cadastraDAO.prototype.insertUsuarios = function(dados, req, res){
 				})
 			})
 		}
+	})
 
-		const consultaID = {
-			text:' SELECT MAX(id) FROM suspeitos'
-		}
+		var imagem_principal = dados.imagem_principal_value;
 
-		this._connection.connect((err, client, release) => {
-			if(err){
-				return console.log('Erro ao conectar-se no BD:', err)
+		if(imagem_principal != ''){
+				const consultaID = {
+					text:' SELECT MAX(id) FROM suspeitos'
+				}
+
+				this._connection.connect((err, client, release) => {
+					if(err){
+						return console.log('Erro ao conectar-se no BD:', err)
+					}
+					client.query(consultaID, (err, resultID) => {
+						release();
+						if(err){
+							return console.log('Erro ao consultar no BD, ID:', err)
+						}
+
+						var id = resultID.rows;
+						id = id[0]; id = id.max;
+						console.log(id);
+
+						
+						imagem1 = dados.imagem1_value;
+						imagem2 = dados.imagem2_value;
+						imagem3 = dados.imagem3_value;
+						imagem4 = dados.imagem4_value;
+						imagem5 = dados.imagem5_value;
+
+						console.log(imagem_principal);
+
+						if(imagem_principal != ''){
+							const query_imagem_principal = {
+								text:' INSERT INTO fotos_suspeito (id_suspeito, foto_principal) VALUES($1,$2)',
+								values: [id, imagem_principal]
+							}
+
+							client.query(query_imagem_principal, (err, result) => {
+								if(err){
+									return console.log('Erro ao inserir imagem_principal:', err)
+								}
+							})
+							console.log(imagem_principal);
+						}
+
+						/*
+						if(imagem1 != ''){
+							console.log(imagem1);
+						}
+
+						
+						if(imagem2 != ''){
+							console.log(imagem2); 
+						}
+
+						if(imagem3 != ''){
+							console.log(imagem3);
+						}
+
+						if(imagem4 != ''){
+							console.log(imagem4);
+						}
+
+						if(imagem5 != ''){
+							console.log(imagem5);
+						}
+					*/
+					})
+				})
 			}
-			client.query(consultaID, (err, resultID) => {
-				release();
-				if(err){
-					return console.log('Erro ao consultar no BD, ID:', err)
-				}
-
-				var id = resultID.rows;
-				id = id[0]; id = id.max;
-				console.log(id);
-
-				imagem_principal = dados.imagem_principal_value;
-				imagem1 = dados.imagem1_value;
-				imagem2 = dados.imagem2_value;
-				imagem3 = dados.imagem3_value;
-				imagem4 = dados.imagem4_value;
-				imagem5 = dados.imagem5_value;
-
-				if(imagem_principal != ''){
-					console.log(imagem_principal);
-				}
-
-				if(imagem1 != ''){
-					console.log(imagem1);
-				}
-
-				
-				if(imagem2 != ''){
-					console.log(imagem2); 
-				}
-
-				if(imagem3 != ''){
-					console.log(imagem3);
-				}
-
-				if(imagem4 != ''){
-					console.log(imagem4);
-				}
-
-				if(imagem5 != ''){
-					console.log(imagem5);
-				}
-			
-		})
-	})
-
-	})
-}
+	}
 
 module.exports = function(){
 	return cadastraDAO;

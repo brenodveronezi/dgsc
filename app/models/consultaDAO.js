@@ -7,7 +7,8 @@ consultaDAO.prototype.exibeSuspeitos = function(params, req, res){
 
     if(Object.keys(params).length === 0){
         const exibe = {
-            text: 'SELECT id,nome,cpf FROM suspeitos ORDER BY nome ASC;'
+            text: 'SELECT suspeitos.id, suspeitos.nome, suspeitos.cpf,suspeitos.apelido,TO_CHAR(suspeitos.dt_nascimento, \'DD-MM-YYYY\') dt_nascimento,fotos_suspeito.foto_principal FROM suspeitos INNER JOIN fotos_suspeito ON fotos_suspeito.id_suspeito = suspeitos.id'
+            //text: 'SELECT id,nome,cpf FROM suspeitos ORDER BY nome ASC;'
             //text: 'SELECT s.id,s.nome,s.cpf,t.ckrosto,t.ckcostas_d,t.ckpeito_d,t.ckbarriga_d,t.ckperna_d,t.ckperna_d,t.ckpe_d,t.ckbraco_d,t.ckantebraco_d,t.ckmao_d,t.ckpescoco_d,t.ckcostas_e,t.ckpeito_e,t.ckbarriga_e,t.ckperna_e,t.ckpe_e,t.ckbraco_e,t.ckantebraco_e,t.ckmao_e,t.ckpescoco_e,t.ckcicatriz,t.ckdeformidade FROM suspeitos s, tatuagem_local t WHERE s.id = t.id_suspeito ORDER BY s.nome ASC;'
         }
 
@@ -147,7 +148,7 @@ consultaDAO.prototype.cadastroSuspeito = function(id, req, res){
 consultaDAO.prototype.cadastroSuspeitoPDF = function(id, application, req, res){
     const consulta = {
         mode: 'array',
-        text: 'SELECT * FROM suspeitos WHERE id = $1',
+        text: 'SELECT s.id,s.nome,s.cpf,s.rg,s.dt_nascimento,s.nome_pai,s.nome_mae,s.naturalidade,f.foto_principal FROM suspeitos s, fotos_suspeito f WHERE s.id = f.id_suspeito AND s.id = $1',
         values: [id],
     }
 
@@ -205,7 +206,7 @@ consultaDAO.prototype.cadastroSuspeitoPDF = function(id, application, req, res){
                                                         return console.log('Erro ao consultar no BD:', err)
                                                     }else{
  
-                                                        application.app.controllers.pdf.pdf(result.rows);
+                                                        application.app.controllers.pdf.pdf(application, res, result.rows, resultC.rows, resultE.rows, resultP.rows, resultT.rows, resultCT.rows);
                                                     }
                                                 })
                                             }

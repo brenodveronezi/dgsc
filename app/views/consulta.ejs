@@ -1,7 +1,7 @@
+<%- include('include/head'); %>
 <HTML>
     <head>
         <meta charset="UTF-8">
-        <a href="/"><input class="" type="button" value="Página Inicial"></a>
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.css" integrity="sha512-jO9KUHlvIF4MH/OTiio0aaueQrD38zlvFde9JoEA+AQaCNxIJoX4Kjse3sO2kqly84wc6aCtdm9BIUpYdvFYoA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.js" integrity="sha512-1bpfZkKJ+WlmJN/I2KLm79dSiuOos0ymwL5IovsUVARyzcaf9rSXsVO2Cdg4qlKNOQXh8fd1d0vKeY9Ru3bQDw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -10,6 +10,8 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="js/jquery-3.5.1.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+
 
     </head>
     <body>
@@ -17,29 +19,68 @@
                     <%console.log('o params é' , params)%>
                     <%console.log(Object.keys(params).length)%>
 
-                            <div>
-                                <input value="off" class="" id="ckrosto" name="ckrosto" type="checkbox"> <label for="ckrosto">Tatuagem rosto</label>
-                                <input value="off" class="" id="ckcostas_d" name="ckcostas_d" type="checkbox"> <label for="ckcostas_d">Tatuagem nas costas (Direita)</label>
-                                <input value="off" class="" id="ckpeito_d" name="ckpeito_d" type="checkbox"> <label for="ckpeito_d">Tatuagem no peito (Direita)</label>
-                                <input value="off" class="" id="ckbarriga_d" name="ckbarriga_d" type="checkbox"> <label for="ckbarriga_d">Tatuagem na barriga (Direita)</label>
-                                <input value="off" class="" id="ckperna_d" name="ckperna_d" type="checkbox"> <label for="ckperna_d">Tatuagem perna (Direita)</label>
-                                <input value="off" class="" id="ckpe_d" name="ckpe_d" type="checkbox"> <label for="ckpe_d">Tatuagem pé (Direita)</label>
-                                <input value="off" class="" id="ckbraco_d" name="ckbraco_d" type="checkbox"> <label for="ckbraço_d">Tatuagem braço (Direita)</label>
-                                <input value="off" class="" id="ckantebraco_d" name="ckantebraco_d" type="checkbox"> <label for="ckantebraco_d">Tatuagem antebraço (Direita)</label>
-                                <input value="off" class="" id="ckmao_d" name="ckmao_d" type="checkbox"> <label for="ckmao_d">Tatuagem Mão (Direita)</label>
-                                <input value="off" class="" id="ckpescoco_d" name="ckpescoco_d" type="checkbox"> <label for="ckpescoco_d">Tatuagem Pescoço (Direita)</label>
-                            </div>
+                            <div id="divA">
+                                <div>
+                                    <input value="off" class="" id="ckrosto" name="ckrosto" type="checkbox"> <label for="ckrosto">Tatuagem rosto</label>
+                                </div>
+                                <div>   
+                                    <input value="off" class="" id="ckcostas_d" name="ckcostas_d" type="checkbox"> <label for="ckcostas_d">Tatuagem nas costas (Direita)</label>
+                                </div>
+                                <div>    
+                                    <input value="off" class="" id="ckpeito_d" name="ckpeito_d" type="checkbox"> <label for="ckpeito_d">Tatuagem no peito (Direita)</label>
+                                </div>
+                                <div>
+                                    <input value="off" class="" id="ckbarriga_d" name="ckbarriga_d" type="checkbox"> <label for="ckbarriga_d">Tatuagem na barriga (Direita)</label>
+                                </div>
+                                <div>
+                                    <input value="off" class="" id="ckperna_d" name="ckperna_d" type="checkbox"> <label for="ckperna_d">Tatuagem perna (Direita)</label>
+                                </div>
+                                <div>
+                                    <input value="off" class="" id="ckpe_d" name="ckpe_d" type="checkbox"> <label for="ckpe_d">Tatuagem pé (Direita)</label>
+                                </div>
+                                <div>
+                                    <input value="off" class="" id="ckbraco_d" name="ckbraco_d" type="checkbox"> <label for="ckbraço_d">Tatuagem braço (Direita)</label>
+                                </div>
+                                <div>
+                                    <input value="off" class="" id="ckantebraco_d" name="ckantebraco_d" type="checkbox"> <label for="ckantebraco_d">Tatuagem antebraço (Direita)</label>
+                                </div>
+                                <div>
+                                    <input value="off" class="" id="ckmao_d" name="ckmao_d" type="checkbox"> <label for="ckmao_d">Tatuagem Mão (Direita)</label>
+                                </div>
+                                <div>
+                                    <input value="off" class="" id="ckpescoco_d" name="ckpescoco_d" type="checkbox"> <label for="ckpescoco_d">Tatuagem Pescoço (Direita)</label>
+                                </div>
 
-                            <div>
-                                <input value="off" class="" id="ckcostas_e" name="ckcostas_e" type="checkbox"> <label for="ckcostas_e">Tatuagem nas costas (Esquerda)</label>
-                                <input value="off" class="" id="ckpeito_e" name="ckpeito_e" type="checkbox"> <label for="ckpeito_e">Tatuagem no peito (Esquerda)</label>
-                                <input value="off" class="" id="ckbarriga_e" name="ckbarriga_e" type="checkbox"> <label for="ckbarriga_e">Tatuagem na barriga (Esquerda)</label>
-                                <input value="off" class="" id="ckperna_e" name="ckperna_e" type="checkbox"> <label for="ckperna_e">Tatuagem perna (Esquerda)</label>
-                                <input value="off" class="" id="ckpe_e" name="ckpe_e" type="checkbox"> <label for="ckpe_e">Tatuagem pé (Esquerda)</label>
-                                <input value="off" class="" id="ckbraco_e" name="ckbraco_e" type="checkbox"> <label for="ckbraço_e">Tatuagem braço (Esquerda)</label>
-                                <input value="off" class="" id="ckantebraco_e" name="ckantebraco_e" type="checkbox"> <label for="ckantebraco_e">Tatuagem antebraço (Esquerda)</label>
-                                <input value="off" class="" id="ckmao_e" name="ckmao_e" type="checkbox"> <label for="ckmao_e">Tatuagem Mão (Esquerda)</label>
-                                <input value="off" class="" id="ckpescoco_e" name="ckpescoco_e" type="checkbox"> <label for="ckpescoco_e">Tatuagem Pescoço (Esquerda)</label>
+                                </div>
+
+                                <div id="divLateral">
+                                <div>
+                                    <input value="off" class="" id="ckcostas_e" name="ckcostas_e" type="checkbox"> <label for="ckcostas_e">Tatuagem nas costas (Esquerda)</label>
+                                </div>
+                                <div>
+                                    <input value="off" class="" id="ckpeito_e" name="ckpeito_e" type="checkbox"> <label for="ckpeito_e">Tatuagem no peito (Esquerda)</label>
+                                </div>
+                                <div>
+                                    <input value="off" class="" id="ckbarriga_e" name="ckbarriga_e" type="checkbox"> <label for="ckbarriga_e">Tatuagem na barriga (Esquerda)</label>
+                                </div>
+                                <div>
+                                    <input value="off" class="" id="ckperna_e" name="ckperna_e" type="checkbox"> <label for="ckperna_e">Tatuagem perna (Esquerda)</label>
+                                </div>
+                                <div>
+                                    <input value="off" class="" id="ckpe_e" name="ckpe_e" type="checkbox"> <label for="ckpe_e">Tatuagem pé (Esquerda)</label>
+                                </div>
+                                <div>
+                                    <input value="off" class="" id="ckbraco_e" name="ckbraco_e" type="checkbox"> <label for="ckbraço_e">Tatuagem braço (Esquerda)</label>
+                                </div>
+                                <div>
+                                    <input value="off" class="" id="ckantebraco_e" name="ckantebraco_e" type="checkbox"> <label for="ckantebraco_e">Tatuagem antebraço (Esquerda)</label>
+                                </div>
+                                <div>
+                                    <input value="off" class="" id="ckmao_e" name="ckmao_e" type="checkbox"> <label for="ckmao_e">Tatuagem Mão (Esquerda)</label>
+                                </div>
+                                <div>
+                                    <input value="off" class="" id="ckpescoco_e" name="ckpescoco_e" type="checkbox"> <label for="ckpescoco_e">Tatuagem Pescoço (Esquerda)</label>
+                                </div>
                             </div>
 
 
@@ -292,9 +333,6 @@
 
                 </script>
 
-
-              <label style="font-size:12px;">
-                <input type="checkbox" name="fl-colour" value="red" id="red" /> Red</label>
               <br>
             <form action="/consultaPersonalizada" method="POST">
                 <div>
@@ -328,14 +366,54 @@
             
         <%if(suspeito.length > 0){%>
             <%for(var i = 0; suspeito.length > i; i++){%>
-                <div class="suspeito"  
+                <div id="divMeio" class="suspeito"  
                     id="suspeito_"<%=suspeito[i].id%>>
                     <form id=<%="pdf"+suspeito[i].id%> action=<%="/gerarpdf?id="+suspeito[i].id%> method="POST"></form>
                     <form id=<%="edita"+suspeito[i].id%> action=<%="/edita?id="+suspeito[i].id%> method="POST">
-                        <label id="nome_"<%=suspeito[i].nome%>><%=suspeito[i].nome%></label>
-                        <label id="cpf"<%=suspeito[i].cpf%>><%=suspeito[i].cpf%></label>
-                        <button form=<%="edita"+suspeito[i].id%> type="submit">Visualizar Cadastro</button>
-                        <button form=<%="pdf"+suspeito[i].id%>> Gerar PDF</button>
+ 
+                                        
+                    <div id="divPrincipal">
+
+                        <div id="divImagem">
+                            <img src=<%="images/"+suspeito[i].foto_principal+'.png'%>>
+                        </div>
+                        
+                        <div id="divCadastro">
+                            <label id="nome_"<%=suspeito[i].nome%>>Nome:  <%=suspeito[i].nome%></label>
+                        </div>
+
+                        <div id="divCadastro">
+                            <label id="cpf"<%=suspeito[i].cpf%>>CPF:  <%=suspeito[i].cpf%></label>
+                        </div>
+
+                        <div id="divCadastro">
+                            <label id="dt_nascimento"<%=suspeito[i].cpf%>>DATA NASCIMENTO: <%=suspeito[i].dt_nascimento%></label>
+                        </div>
+
+                        <div id="divCadastro">
+                            <label id="cpf"<%=suspeito[i].apelido%>>APELIDO:  <%=suspeito[i].apelido%></label>
+                        </div>
+
+
+                        <div id="divButtonsPrincipal">
+                            <div id="divButtons">
+                                <button class="button-pdf" form=<%="pdf"+suspeito[i].id%>></button>
+                            </div>
+    
+                            <div id="divButtons">
+                                <button class="button-pencil" form=<%="edita"+suspeito[i].id%> type="submit"></button>
+                            </div>
+    
+                            <div id="divButtons">
+                                <button class="button-trash" form=<%="deleta"+suspeito[i].id%>></button>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                                            
+  
                     </form>
                 </div>
             <%}%>
