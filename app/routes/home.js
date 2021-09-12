@@ -6,7 +6,6 @@ module.exports = function(application){
 
 
     application.post('/cadastro/salvar', (req, res) => {
-        //console.log(req.body);
         application.app.controllers.cadastro.cadastra_user(application, req, res);
     })
 
@@ -17,7 +16,6 @@ module.exports = function(application){
         const fs = require('fs')
         fs.writeFileSync("C:/projeto_delegacia/app/images/" + dados.nome + ".png", base64Data, 'base64');
     })
-
 
 
     application.post('/salva-imagem1', (dados) => {
@@ -69,6 +67,18 @@ module.exports = function(application){
         application.app.controllers.consulta.consultaSuspeitos(application, req, res);
     })
 
+    application.post('/consultaPersonalizada', (req, res) => {
+        application.app.controllers.consulta.consultaPersonalizada(application, req, res);
+    })
+
+    application.post('/consultaPersonalizadaIs', (req, res) => {
+        application.app.controllers.consulta.consultaPersonalizadaIs(application, req, res);
+    })
+
+    application.get('/identificarSuspeitos', (req, res) => {
+        application.app.controllers.consulta.identificarSuspeitos(application, req, res);
+    })
+
     application.post('/edita', (req, res) => {
         application.app.controllers.consulta.cadastroSuspeito(application, req, res);
     })
@@ -116,13 +126,6 @@ module.exports = function(application){
     application.post('/editaPassagem4', (req, res) => {
         application.app.controllers.edita.editaPassagem1(application, req, res);
     })
-
-    application.post('/consultaPersonalizada', (req, res) => {
-        application.app.controllers.consulta.consultaPersonalizada(application, req, res);
-    })
-
-
-
 
     application.post('/pdf', (res, id) => {
         var pdf = "C:/projeto_delegacia/app/pdf/" + id + ".pdf"

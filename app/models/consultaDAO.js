@@ -7,7 +7,7 @@ consultaDAO.prototype.exibeSuspeitos = function(params, req, res){
 
     if(Object.keys(params).length === 0){
         const exibe = {
-            text: 'SELECT suspeitos.id, suspeitos.nome, suspeitos.cpf,suspeitos.apelido,TO_CHAR(suspeitos.dt_nascimento, \'DD-MM-YYYY\') dt_nascimento,fotos_suspeito.foto_principal FROM suspeitos INNER JOIN fotos_suspeito ON fotos_suspeito.id_suspeito = suspeitos.id'
+            text: 'SELECT suspeitos.id, suspeitos.nome, suspeitos.cpf,suspeitos.apelido,TO_CHAR(suspeitos.dt_nascimento, \'DD/MM/YYYY\') dt_nascimento,fotos_suspeito.foto_principal FROM suspeitos INNER JOIN fotos_suspeito ON fotos_suspeito.id_suspeito = suspeitos.id'
             //text: 'SELECT id,nome,cpf FROM suspeitos ORDER BY nome ASC;'
             //text: 'SELECT s.id,s.nome,s.cpf,t.ckrosto,t.ckcostas_d,t.ckpeito_d,t.ckbarriga_d,t.ckperna_d,t.ckperna_d,t.ckpe_d,t.ckbraco_d,t.ckantebraco_d,t.ckmao_d,t.ckpescoco_d,t.ckcostas_e,t.ckpeito_e,t.ckbarriga_e,t.ckperna_e,t.ckpe_e,t.ckbraco_e,t.ckantebraco_e,t.ckmao_e,t.ckpescoco_e,t.ckcicatriz,t.ckdeformidade FROM suspeitos s, tatuagem_local t WHERE s.id = t.id_suspeito ORDER BY s.nome ASC;'
         }
@@ -60,7 +60,72 @@ consultaDAO.prototype.exibeSuspeitos = function(params, req, res){
                 if(err){
                     return console.log('Erro ao consultar BD:', err)
                 }else{
-                        res.render('consulta', {suspeito: result.rows, params:params});
+                    res.render('consulta', {suspeito: result.rows, params:params});
+                }
+            })
+        })
+    }
+}
+
+consultaDAO.prototype.identificarSuspeitos = function(params, req, res){
+    console.log('o param', params.value);
+
+    if(Object.keys(params).length === 0){
+        const exibe = {
+            text: 'SELECT suspeitos.id, suspeitos.nome, suspeitos.cpf,suspeitos.apelido,TO_CHAR(suspeitos.dt_nascimento, \'DD/MM/YYYY\') dt_nascimento,fotos_suspeito.foto_principal FROM suspeitos INNER JOIN fotos_suspeito ON fotos_suspeito.id_suspeito = suspeitos.id'
+            //text: 'SELECT id,nome,cpf FROM suspeitos ORDER BY nome ASC;'
+            //text: 'SELECT s.id,s.nome,s.cpf,t.ckrosto,t.ckcostas_d,t.ckpeito_d,t.ckbarriga_d,t.ckperna_d,t.ckperna_d,t.ckpe_d,t.ckbraco_d,t.ckantebraco_d,t.ckmao_d,t.ckpescoco_d,t.ckcostas_e,t.ckpeito_e,t.ckbarriga_e,t.ckperna_e,t.ckpe_e,t.ckbraco_e,t.ckantebraco_e,t.ckmao_e,t.ckpescoco_e,t.ckcicatriz,t.ckdeformidade FROM suspeitos s, tatuagem_local t WHERE s.id = t.id_suspeito ORDER BY s.nome ASC;'
+        }
+
+        this._connection.connect((err, client, release) => {
+            if(err){
+                return console.log('Erro ao conectar-se ao BD:', err)
+            }
+            client.query(exibe, (err, result) => {
+                if(err){
+                    return console.log('Erro ao consultar BD:', err)
+                }else{
+                    console.log(result.rows);
+                    res.render('identificarSuspeitos', {suspeito: result.rows, params: {}});
+                }
+            })
+        })
+
+    }else{
+        var consulta = [];
+        Object.entries(params).forEach(([key, value]) => {
+            if(value == 'on'){
+                consulta.push(key);
+                console.log(consulta);
+            }
+
+        })
+
+        var consultaTatuagem = '';
+        if(consulta.length >= 0){
+            for(var i = 0; consulta.length > i; i++){
+                if(i == consulta.length -1){
+                    console.log(consulta[i]);
+                    consultaTatuagem += consulta[i] + " = '1'";
+                }else{
+                    console.log(consulta[i] + ',');
+                    consultaTatuagem += consulta[i] + " = '1' " + 'AND' + ' ';
+                }
+
+            }
+        }
+
+        consultaTatuagem = 'SELECT s.id,s.nome,s.cpf FROM suspeitos s, tatuagem_local t WHERE s.id = t.id_suspeito AND ' + consultaTatuagem;
+
+        this._connection.connect((err, client, release) => {
+            if(err){
+                return console.log('Erro ao conectar-se ao BD:', err)
+            }
+            client.query(consultaTatuagem, (err, result) => {
+                if(err){
+                    return console.log('Erro ao consultar BD:', err)
+                }else{
+                    res.render('identificarSuspeitos', {suspeito: result.rows, params:params});
                 }
             })
         })
@@ -72,7 +137,7 @@ consultaDAO.prototype.exibeSuspeitos = function(params, req, res){
 
 consultaDAO.prototype.cadastroSuspeito = function(id, req, res){
     const consulta = {
-        text: 'SELECT * FROM suspeitos WHERE id = $1',
+        text: 'SELECT id,nome,apelido,cpf,rg,TO_CHAR(dt_nascimento, \'DD/MM/YYYY\') as dt_nascimento,nome_pai,nome_mae,naturalidade FROM suspeitos WHERE id = $1',
         values: [id],
     }
 
@@ -148,7 +213,7 @@ consultaDAO.prototype.cadastroSuspeito = function(id, req, res){
 consultaDAO.prototype.cadastroSuspeitoPDF = function(id, application, req, res){
     const consulta = {
         mode: 'array',
-        text: 'SELECT s.id,s.nome,s.cpf,s.rg,s.dt_nascimento,s.nome_pai,s.nome_mae,s.naturalidade,f.foto_principal FROM suspeitos s, fotos_suspeito f WHERE s.id = f.id_suspeito AND s.id = $1',
+        text: 'SELECT s.id,s.nome,s.cpf,s.rg,TO_CHAR(s.dt_nascimento, \'DD/MM/YYYY\'),s.nome_pai,s.nome_mae,s.naturalidade,f.foto_principal FROM suspeitos s, fotos_suspeito f WHERE s.id = f.id_suspeito AND s.id = $1',
         values: [id],
     }
 

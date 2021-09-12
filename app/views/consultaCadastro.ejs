@@ -1,8 +1,14 @@
 <HTML>
     <head>
         <meta charset="UTF-8">
-        <a href="/consulta"><input class="" type="button" value="voltar"></a>
         <script src="js/jquery-3.5.1.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.css" integrity="sha512-jO9KUHlvIF4MH/OTiio0aaueQrD38zlvFde9JoEA+AQaCNxIJoX4Kjse3sO2kqly84wc6aCtdm9BIUpYdvFYoA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.js" integrity="sha512-1bpfZkKJ+WlmJN/I2KLm79dSiuOos0ymwL5IovsUVARyzcaf9rSXsVO2Cdg4qlKNOQXh8fd1d0vKeY9Ru3bQDw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+        <%- include('include/head'); %>
     </head>
 
     <body>
@@ -17,7 +23,7 @@
                     </div>
                     <div>
                         <label>Apelido:</label>
-                        <input id="apelido" name="apelido" value="<%=dados[i].nome%>"></input>
+                        <input id="apelido" name="apelido" value="<%=dados[i].apelido%>"></input>
                     </div>
                     <div>
                         <label>CPF:</label>
@@ -29,16 +35,16 @@
                     </div>
                     <div>
                         <label>Data de Nascimento:</label>
-                        <input type="date" id="dt_nascimento" name="dt_nascimento" value="<%=dados[i].dt_nascimento%>"></input>
+                        <input id="dt_nascimento" name="dt_nascimento" value="<%=dados[i].dt_nascimento%>"></input>
+                                                <!-- para trazer a data tem q ser em dd-mm-YYYY -->
                     </div>
                     <div>
                         <label>Nome pai:</label>
-                        <!-- para trazer a data tem q ser em YYYY-DD-MM -->
                         <input id="nome_pai" name="nome_pai" value="<%=dados[i].nome_pai%>"></input>
                     </div>
                     <div>
                         <label>Nome mãe:</label>
-                        <input id="nome_mae" name="nome_mae" value="<%=dados[i].nome_mãe%>"></input>
+                        <input id="nome_mae" name="nome_mae" value="<%=dados[i].nome_mae%>"></input>
                     </div>  
                     <div>
                         <label>Naturalidade:</label>

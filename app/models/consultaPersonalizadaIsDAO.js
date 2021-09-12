@@ -1,8 +1,8 @@
-function consultaPersonalizadaDAO(connection){
+function consultaPersonalizadaIsDAO(connection){
 	this._connection = connection;
 }
 
-consultaPersonalizadaDAO.prototype.consultaPersonalizadaSuspeito = function(dados, req, res){
+consultaPersonalizadaIsDAO.prototype.consultaPersonalizadaIs = function(dados, req, res){
 
     const id_suspeitos = {
         //rowMode: 'array',
@@ -44,11 +44,11 @@ consultaPersonalizadaDAO.prototype.consultaPersonalizadaSuspeito = function(dado
                 }
                 console.log(result.rows);
                 //res.render('consultaPersonalizada', {suspeito: result.rows, localTatuagem: {}, descricaoTatuagem: {}, ckrosto: dados.ckrosto, ckcostas_d : dados.ckcostas_d, ckpeito_d : dados.ckpeito_d, ckbarriga_d : dados.ckbarriga_d})
-                res.render('consulta', {suspeito: result.rows, params: {}});
+                res.render('identificarSuspeitos', {suspeito: result.rows, params: {}});
             })
         })
     }
 
 module.exports = function(){
-    return consultaPersonalizadaDAO;
+    return consultaPersonalizadaIsDAO;
 }

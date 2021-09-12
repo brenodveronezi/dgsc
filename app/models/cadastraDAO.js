@@ -1,3 +1,5 @@
+const { release } = require("os");
+
 function cadastraDAO(connection){
 	this._connection = connection;
 }
@@ -33,6 +35,17 @@ cadastraDAO.prototype.insertUsuarios = function(dados, req, res){
 				})
 			}
 		})
+	})
+
+	const tattoos_id = {
+		text: 'INSERT INTO tatuagem_local (id_suspeito) VALUES(SELECT(MAX(id) FROM suspeitos)'
+	}
+
+	client.query(tattoos_id, (err, resultadoTattoosID) => {
+		release();
+		if(err){
+			return console.log('Erro ao inserir ID tattoo no BD:', err)
+		}
 	})
 
 	

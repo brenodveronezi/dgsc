@@ -3,19 +3,16 @@
     <head>
         <meta charset="UTF-8">
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.css" integrity="sha512-jO9KUHlvIF4MH/OTiio0aaueQrD38zlvFde9JoEA+AQaCNxIJoX4Kjse3sO2kqly84wc6aCtdm9BIUpYdvFYoA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.js" integrity="sha512-1bpfZkKJ+WlmJN/I2KLm79dSiuOos0ymwL5IovsUVARyzcaf9rSXsVO2Cdg4qlKNOQXh8fd1d0vKeY9Ru3bQDw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="js/jquery-3.5.1.js"></script>
+        <script src="js/bootstrap/bootstrap.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
         <link rel="stylesheet" href="css/style.css">
 
 
     </head>
     <body>
-        <h1>Consulta Suspeitos</h1>
+        <h1>Identificar Suspeitos</h1>
                     <%console.log('o params é' , params)%>
                     <%console.log(Object.keys(params).length)%>
 
@@ -317,24 +314,20 @@
     
                 $('input[type="checkbox"]').click(function(){
                 if($(this).is(":checked")){
-                    //input element where you put value
                     $(this).val("on");
 
                     var id = $(this).value;
-                    console.log(id);
-
                     
                 }
                 else if($(this).is(":not(:checked)")){
                     $(this).val("");
-                    //  console.log( $("#isClicked").val());
                 }
                 });
 
                 </script>
 
               <br>
-            <form action="/consultaPersonalizada" method="POST">
+            <form action="/consultaPersonalizadaIs" method="POST">
                 <div>
                     <label for="local_tatuagem">Selecione o local da tatuagem:</label>
 
@@ -363,61 +356,60 @@
                     <button>Buscar</button>
                 </div>
             </form>
-            
-        <%if(suspeito.length > 0){%>
-            <%for(var i = 0; suspeito.length > i; i++){%>
-                <div id="DivMeioConsulta" class="suspeito"  
-                    id="suspeito_"<%=suspeito[i].id%>>
-                    <form id=<%="pdf"+suspeito[i].id%> action=<%="/gerarpdf?id="+suspeito[i].id%> method="POST"></form>
-                    <form id=<%="edita"+suspeito[i].id%> action=<%="/edita?id="+suspeito[i].id%> method="POST">
- 
-                                        
-                    <div id="divPrincipal">
 
-                        <div id="divImagem">
-                            <img src=<%="images/"+suspeito[i].foto_principal+'.png'%>>
-                        </div>
-                        
-                        <div id="divCadastro">
-                            <label id="nome_"<%=suspeito[i].nome%>>Nome:  <%=suspeito[i].nome%></label>
-                        </div>
+            <%if(suspeito.length > 0){%>
+                    
+                <%for(var i = 0; suspeito.length > i; i++){%>
+                            <form id=<%="pdf"+suspeito[i].id%> action=<%="/gerarpdf?id="+suspeito[i].id%> method="POST"></form>
+                            <%if(i == 0){%>
+                        <div id="DivMeio">
+                            <div id="carouselExampleControls" class="carousel"  data-ride="carousel">
+                                <div class="carousel-item active" style=" height: 100%; width: 100%;">
+                                    <img class="" style="height: 100%; width: 100%;"  src=<%="images/"+suspeito[i].foto_principal+'.png'%> alt="slide">
 
-                        <div id="divCadastro">
-                            <label id="cpf"<%=suspeito[i].cpf%>>CPF:  <%=suspeito[i].cpf%></label>
-                        </div>
-
-                        <div id="divCadastro">
-                            <label id="dt_nascimento"<%=suspeito[i].cpf%>>DATA NASCIMENTO: <%=suspeito[i].dt_nascimento%></label>
-                        </div>
-
-                        <div id="divCadastro">
-                            <label id="cpf"<%=suspeito[i].apelido%>>APELIDO:  <%=suspeito[i].apelido%></label>
-                        </div>
-
-
-                        <div id="divButtonsPrincipal">
-                            <div id="divButtons">
-                                <button class="button-pdf" form=<%="pdf"+suspeito[i].id%>></button>
-                            </div>
-    
-                            <div id="divButtons">
-                                <button class="button-pencil" form=<%="edita"+suspeito[i].id%> type="submit"></button>
-                            </div>
-    
-                            <div id="divButtons">
-                                <button class="button-trash" form=<%="deleta"+suspeito[i].id%>></button>
-                            </div>
-                        </div>
-
-
-                    </div>
-
+                                    <button class="" form=<%="pdf"+suspeito[i].id%>>GERAR PDF</button>
                                             
+
+                                </div>
+
+                            <%}else{%>
+                                <div class="carousel-item" style=" height: 100%; width: 100%;">
+                                    <img class="" style="height: 100%; width: 100%;"   src=<%="images/"+suspeito[i].foto_principal+'.png'%> alt="slide">
+
+                                    <button class="" form=<%="pdf"+suspeito[i].id%>>GERAR PDF</button>
+                                </div>
   
-                    </form>
-                </div>
+                            <%}%>
+
+
+                            <%if( i === suspeito.length - 1){%>   
+                                <a onclick="prev()" class="carousel-control-prev" style="background-color: rgba(223, 223, 223, 0.575)"  role="button" data-slide="prev">
+                                    <span onclick="prev()" class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a onclick="prev()" class="carousel-control-next" style="background-color: rgba(223, 223, 223, 0.575)"  role="button" data-slide="next">
+                                    <span onclick="next()" class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div> 
+                        </div>
+                            <script language="JavaScript" type="text/javascript">
+                                function next(){
+                                    $('.carousel').carousel('next')
+                                    .carousel('pause')
+                                }
+                    
+                                function prev(){
+                                    $('.carousel').carousel('prev')
+                                    .carousel('pause')
+                                }
+                    
+                            </script>
+                            </div>
+                            <%}%>
+                                            
+                <%}%>
             <%}%>
-        <%}%>
 
         <script>
             function gerarPDF(){

@@ -355,9 +355,9 @@ input[type='']:checked:after {
 
 #DivLateral{
   position:relative;
-  padding-left: 20px;
+  padding-right: 20px;
   border-width:2px;
-  width: 25%;
+
   height: 1300px;
   float: right;
 }
@@ -375,11 +375,16 @@ input[type='']:checked:after {
   position: relative;
   border-width:2px;
   width: 50%;
-  height: 250px;
+  height: 70%;
   float: left;
-  
 }
 
+#DivMeioConsulta{
+  position: relative;
+  border-width:2px;
+  width: 50%;
+  float: left;
+}
 
 #DivCadastro{
   position: relative;
@@ -396,7 +401,7 @@ input[type='']:checked:after {
 }
 
 #DivPrincipal{
-  padding-top: 18px;
+  padding-top: 10px;
   height: 200px;
   border: 1px solid #bba339
 }
