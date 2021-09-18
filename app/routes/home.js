@@ -14,7 +14,7 @@ module.exports = function(application){
 
         var base64Data = dados.imagem.replace(/^data:image\/png;base64,/, "");
         const fs = require('fs')
-        fs.writeFileSync("C:/projeto_delegacia/app/images/" + dados.nome + ".png", base64Data, 'base64');
+        fs.writeFileSync("C:/projeto_delegacia/app/public/images/" + dados.nome + ".png", base64Data, 'base64');
     })
 
 

@@ -67,14 +67,14 @@ module.exports.pdf = function(application, res, result, resultC, resultE, result
       doc.underline(220, 237, 325 , 126, { color: '#000000' })
     
       //FAIXA APÓS IMAGEM
-      doc.underline(55, 328, 490, 100, { color: '#000000' })
+      doc.underline(55, 315, 490, 100, { color: '#000000' })
     
     
     
       doc.fontSize(11)
-    doc.image('C:/projeto_delegacia/app/public/images/' + usuario.foto_principal + '.png', 55, 170, {
+    doc.image('C:/projeto_delegacia/app/public/images/' + usuario.foto_principal + '.png', 65, 170, {
         align: 'left',
-        height: 250,
+        height: 230,
         width: 150
     })
     
@@ -107,7 +107,7 @@ module.exports.pdf = function(application, res, result, resultC, resultE, result
     
     
     //CUTIS
-    doc.text(`COR DOS OLHOS: ` + usuarioC.cor_olhos + `                          TIPO DE CABELO: ` + usuarioC.tipo_cabelo + `
+    doc.text(`    COR DOS OLHOS: ` + usuarioC.cor_olhos + `                                 TIPO DE CABELO: ` + usuarioC.tipo_cabelo + `
     
     `, 55, 440,  {
         height: 50,
@@ -116,7 +116,7 @@ module.exports.pdf = function(application, res, result, resultC, resultE, result
     });
     
     //COR DOS CABELOS
-    doc.text(`COR DOS CABELOS: ` + usuarioC.cor_cabelo + `                                                               COMPRIMENTO:
+    doc.text(`    COR DOS CABELOS: ` + usuarioC.cor_cabelo + `
     
     `, 55, 465,  {
         height: 50,
@@ -124,7 +124,7 @@ module.exports.pdf = function(application, res, result, resultC, resultE, result
         align: 'left'
     });
     
-    doc.text(`COMPLEIÇÃO:                              PESO: ` + usuarioC.peso + `                                  ALTURA: ` + usuarioC.altura + `
+    doc.text(`    PESO: ` + usuarioC.peso + `                                             ALTURA: ` + usuarioC.altura + `
     
     `, 55, 490,  {
         height: 50,
@@ -134,7 +134,7 @@ module.exports.pdf = function(application, res, result, resultC, resultE, result
     
     doc.underline(55, 415, 490, 100, { color: '#000000' })
     
-    doc.text(`                                                              TATUAGENS:
+    doc.text(`                                                                      TATUAGENS:
     `, 55, 520,  {
         height: 30,
         width: 700,
@@ -144,6 +144,8 @@ module.exports.pdf = function(application, res, result, resultC, resultE, result
     doc.underline(55, 435, 490, 100, { color: '#000000' })
     
     
+    doc.underline(55, 475, 490, 100, { color: '#000000' })
+
     doc.text(`
     ROSTO: ` + tatuagem.txtrosto + `                                                                             
     
@@ -169,6 +171,8 @@ module.exports.pdf = function(application, res, result, resultC, resultE, result
         width: 400,
         align: 'left'
     });
+
+    doc.rect(doc.x, 45, 490, doc.y).stroke();
     
     
     doc.text(`
@@ -198,9 +202,13 @@ module.exports.pdf = function(application, res, result, resultC, resultE, result
     });
     
     doc.addPage();
-    
+
     doc.underline(55, -10, 490, 100, { color: '#000000' })
     
+
+    
+
+
     doc.text(`                                                                  PASSAGENS
     `, 60, 100, {
         height: 50,
@@ -227,7 +235,7 @@ module.exports.pdf = function(application, res, result, resultC, resultE, result
         width: 400,
         align: 'left'
     })
-    
+    doc.rect(55, 89, 490, 120).stroke();
     
     doc.end()
 

@@ -358,7 +358,7 @@ input[type='']:checked:after {
   padding-right: 20px;
   border-width:2px;
 
-  height: 1300px;
+  height: 2000px;
   float: right;
 }
 
@@ -367,7 +367,7 @@ input[type='']:checked:after {
   padding-left: 20px;
   border-width:2px;
   width: 25%;
-  height: 1300px;
+  height: 2000px;
   float: left;
 }
 
@@ -375,7 +375,7 @@ input[type='']:checked:after {
   position: relative;
   border-width:2px;
   width: 50%;
-  height: 70%;
+  height: 100%;
   float: left;
 }
 
@@ -391,6 +391,8 @@ input[type='']:checked:after {
   border-width: 2px;
   width: 60%;
   float: left;
+  padding-left: 20px;
+  padding-top: 8px;
 }
 
 #DivImagem{
@@ -398,6 +400,8 @@ input[type='']:checked:after {
   border-width: 2px;
   width: 25%;
   float: left;
+  padding-left: 10px;
+  padding-top: 8px;
 }
 
 #DivPrincipal{
@@ -412,4 +416,5 @@ input[type='']:checked:after {
 
 #divButtonsPrincipal{
   padding-left: 30px;
+  padding-top: 8px;
 }

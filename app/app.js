@@ -16,11 +16,12 @@ app.set("view engine", "ejs");
 
 
 app.use(express.static('./app/public'));
+express({limit: '4000kb'});
 //app.use(favicon(path.join(__dirname, 'public', 'civilsp.ico')));
 app.use(logger("dev"));
-app.use(express.json({limit: "50mb"}));
-app.use(express.urlencoded({limit: "50mb", parameterLimit: 50000, extended: true}));
-app.use(express.text({limit: "50mb"}));
+app.use(express.json({limit: '5000kb'}));
+app.use(express.urlencoded({limit: '5000kb', extended: true}));
+app.use(express.text({limit: '50000kb'}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 

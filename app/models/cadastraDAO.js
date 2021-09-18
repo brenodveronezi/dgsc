@@ -35,19 +35,18 @@ cadastraDAO.prototype.insertUsuarios = function(dados, req, res){
 				})
 			}
 		})
-	})
+	
 
 	const tattoos_id = {
 		text: 'INSERT INTO tatuagem_local (id_suspeito) VALUES(SELECT(MAX(id) FROM suspeitos)'
 	}
 
-	client.query(tattoos_id, (err, resultadoTattoosID) => {
-		release();
+	client.query(tattoos_id, (err, resultadoTattoosID) => {;
 		if(err){
 			return console.log('Erro ao inserir ID tattoo no BD:', err)
 		}
 	})
-
+})
 	
 
 	Object.entries(dados).forEach(([key, value]) => {
@@ -68,7 +67,7 @@ cadastraDAO.prototype.insertUsuarios = function(dados, req, res){
 					}
 				})
 			})
-		}else{
+		}/*else{
 			const tattoos = {
 				text: 'INSERT INTO tatuagem_local(id_suspeito) VALUES ((SELECT MAX(id) FROM suspeitos))'
 			}
@@ -85,6 +84,7 @@ cadastraDAO.prototype.insertUsuarios = function(dados, req, res){
 				})
 			})
 		}
+		*/
 
 		if( key.match(/rua.*/) || key.match(/cidade.*/) || key.match(/estado.*/) || key.match(/numero.*/) || key.match(/complemento.*/)){
 			const enderecos = {
@@ -122,7 +122,8 @@ cadastraDAO.prototype.insertUsuarios = function(dados, req, res){
 					}
 				})
 			})
-		}else{
+		}
+		/*else{
 			const caracteristicas_tatuagem = {
 				text: 'INSERT INTO caracteristicas_tatuagem(id_suspeito) VALUES((SELECT MAX(id) FROM suspeitos))'
 			}
@@ -139,6 +140,7 @@ cadastraDAO.prototype.insertUsuarios = function(dados, req, res){
 				})
 			})
 		}
+		*/
 
 		if(key.match(/data.*/) || key.match(/procedimento.*/) || key.match(/artigo.*/) || key.match(/lei.*/) || key.match(/historico.*/) ){
 			const passagens_suspeito = {

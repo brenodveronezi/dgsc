@@ -213,8 +213,8 @@ consultaDAO.prototype.cadastroSuspeito = function(id, req, res){
 consultaDAO.prototype.cadastroSuspeitoPDF = function(id, application, req, res){
     const consulta = {
         mode: 'array',
-        text: 'SELECT s.id,s.nome,s.cpf,s.rg,TO_CHAR(s.dt_nascimento, \'DD/MM/YYYY\'),s.nome_pai,s.nome_mae,s.naturalidade,f.foto_principal FROM suspeitos s, fotos_suspeito f WHERE s.id = f.id_suspeito AND s.id = $1',
-        values: [id],
+        text: 'SELECT s.id,s.nome,s.cpf,s.rg,TO_CHAR(s.dt_nascimento, \'DD/MM/YYYY\') AS dt_nascimento,s.nome_pai,s.nome_mae,s.naturalidade,f.foto_principal FROM suspeitos s, fotos_suspeito f WHERE s.id = f.id_suspeito AND s.id = $1',
+        values: [id], 
     }
 
     const caracteristicas_suspeito = {
@@ -228,7 +228,7 @@ consultaDAO.prototype.cadastroSuspeitoPDF = function(id, application, req, res){
     }
 
     const passagens = {
-        text: 'SELECT * FROM passagens_suspeito WHERE id_suspeito = $1',
+        text: 'SELECT id_suspeito,TO_CHAR(ps.data1, \'DD/MM/YYYY\') AS data1,procedimento1,artigo1,lei1,historico1,TO_CHAR(ps.data2, \'DD/MM/YYYY\') AS data2,procedimento2,artigo2,lei2,historico2,TO_CHAR(ps.data3, \'DD/MM/YYYY\') AS data3,procedimento3,artigo3,lei3,historico3,TO_CHAR(ps.data4, \'DD/MM/YYYY\') AS data4,procedimento4,artigo4,lei4,historico4 FROM passagens_suspeito ps WHERE id_suspeito = $1',
         values: [id],
     }
 
