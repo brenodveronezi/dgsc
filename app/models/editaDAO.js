@@ -193,6 +193,54 @@ editaDAO.prototype.editaSuspeitoPassagem3 = function(dados, req, res){
     })
 }
 
+editaDAO.prototype.editaTatuagens = function(application, dados, req, res){
+    const editaTatuagensLocal = {
+        text: `
+               UPDATE tatuagem_local SET ckrosto = $1, ckcostas_d = $2, ckpeito_d = $3, ckbarriga_d = $4, ckperna_d = $5, ckpe_d = $6, ckbraco_d = $7, ckantebraco_d = $8,
+               ckmao_d = $9, ckpescoco_d = $10, ckcostas_e = $11, ckpeito_e = $12, ckbarriga_e = $13, ckperna_e = $14, ckpe_e = $15, ckbraco_e = $16, ckantebraco_e = $17,
+               ckmao_e = $18, ckpescoco_e = $19, ckcicatriz = $20, ckdeformidade = $21 WHERE id_suspeito = $22
+               `,
+        values:[
+                dados.ckrosto,dados.ckcostas_d,dados.ckpeito_d,dados.ckbarriga_d,dados.ckperna_d,dados.ckpe_d,dados.ckbraco_d,dados.ckantebraco_d,dados.ckmao_d,dados.ckpescoco_d,
+                dados.ckcocstas_e,dados.ckpeito_e,dados.ckbarriga_e,dados.ckperna_e,dados.ckpe_e,dados.braco_e,dados.antebraco_e,dados.ckmao_e,dados.ckpescoco_e,dados.ckcicatriz,
+                dados.ckdeformidade, dados.id
+               ]
+    }
+
+    const editaTatuagensCaracteristicas = {
+        text: `
+                UPDATE caracteristicas_tatuagem SET txtrosto = $1, txtcostas_d = $2, txtpeito_d = $3, txtbarriga_d = $4, txtperna_d = $5, txtpe_d = $6, txtbraco_d = $7, txtantebraco_d = $8,
+                txtmao_d = $9, txtpescoco_d = $10, txtcostas_e = $11, txtpeito_e = $12, txtbarriga_e = $13, txtperna_e = $14, txtpe_e = $15, txtbraco_e = $16, txtantebraco_e = $17,
+                txtmao_e = $18, txtpescoco_e = $19, txtcicatriz = $20, txtdeformidade = $21 WHERE id_suspeito = $22
+              `,
+        values:[
+                dados.txtrosto,dados.txtcostas_d,dados.txtpeito_d,dados.txtbarriga_d,dados.txtperna_d,dados.txtpe_d,dados.txtbraco_d,dados.txtantebraco_d,dados.txtmao_d,dados.txtpescoco_d,
+                dados.txtcostas_e,dados.txtpeito_e,dados.txtbarriga_e,dados.txtperna_e,dados.txtpe_e,dados.txtbraco_e,dados.txtantebraco_e,dados.txtmao_e,dados.txtpescoco_e,dados.txtcicatriz,
+                dados.txtdeformidade,dados.id
+               ]
+    }
+
+    this._connection.connect((err, client, release) => {
+        if(err){
+            return console.log('Erro ao conectar-se no BD', err)
+        }
+        client.query(editaTatuagensLocal, (err, result) => {
+            if(err){
+                return console.log('Erro ao realizar update editaTatuagensLocal', err)
+            }
+            client.query(editaTatuagensCaracteristicas, (err, result) => {
+                if(err){
+                    return console.log('Erro ao realizar update editaTatuagensCaracteristicas', err)
+                }
+                var connection = application.config.dbConnection;
+                var cadastroSuspeitoModel = new application.app.models.consultaDAO(connection);
+            
+                cadastroSuspeitoModel.cadastroSuspeito(dados.id, req, res);
+            })
+        })
+    })
+}
+
 module.exports = function(){
     return editaDAO;
 }

@@ -57,20 +57,56 @@ module.exports.pdf = function(application, res, result, resultC, resultE, result
       doc.underline(220, 110, 325 , 126, { color: '#000000' })
       //MAE
       doc.underline(220, 135, 325 , 126, { color: '#000000' })
-      //RG
-      doc.underline(220, 162, 325 , 126, { color: '#000000' })
-      //NATURALIDADE
-      doc.underline(220, 187, 325 , 126, { color: '#000000' })
-      //DATA DE NASCIMENTO
-      doc.underline(220, 212, 325 , 126, { color: '#000000' })
-      //ENDEREÇO
-      doc.underline(220, 237, 325 , 126, { color: '#000000' })
+
     
       //FAIXA APÓS IMAGEM
-      doc.underline(55, 315, 490, 100, { color: '#000000' })
+      doc.underline(55, 316, 490, 100, { color: '#000000' })
     
+      //NOME
+      doc.rect(220, 159, 325, 26).stroke();
+
+
+      //APELIDO
+      doc.rect(220, 185, 325, 25).stroke();
+
+      //PAI
+      doc.rect(220, 210, 325, 25).stroke();
+
+      //MAE
+      doc.rect(220, 235, 325, 25).stroke();
+
+      //RG
+      doc.rect(220, 260, 325, 25).stroke();
+
+      //NATURALIDADE
+      doc.rect(220, 285, 325, 26).stroke();
+
+      //DATA DE NASCIMENTO
+      doc.rect(220, 311, 325, 25).stroke();
+
+      //ENDERECO
+      doc.rect(220, 336, 325, 79).stroke();
+
+      //COR OLHOS
+      doc.rect(55, 430, 245, 25).stroke();
+      
+      //TIPO DE CABELO
+      doc.rect(300, 430, 245, 25).stroke();
     
-    
+      //COR DOS CABELOS
+      doc.rect(55, 455, 245, 25).stroke();
+      
+      //
+      doc.rect(300, 455, 245, 25).stroke();
+
+      //PESO
+      doc.rect(55, 480, 245, 25).stroke();
+      
+      //ALTURA
+      doc.rect(300, 480, 245, 25).stroke()      
+
+
+
       doc.fontSize(11)
     doc.image('C:/projeto_delegacia/app/public/images/' + usuario.foto_principal + '.png', 65, 170, {
         align: 'left',
@@ -107,7 +143,7 @@ module.exports.pdf = function(application, res, result, resultC, resultE, result
     
     
     //CUTIS
-    doc.text(`    COR DOS OLHOS: ` + usuarioC.cor_olhos + `                                 TIPO DE CABELO: ` + usuarioC.tipo_cabelo + `
+    doc.text(`    COR DOS OLHOS: ` + usuarioC.cor_olhos + `                                    TIPO DE CABELO: ` + usuarioC.tipo_cabelo + `
     
     `, 55, 440,  {
         height: 50,
@@ -124,7 +160,7 @@ module.exports.pdf = function(application, res, result, resultC, resultE, result
         align: 'left'
     });
     
-    doc.text(`    PESO: ` + usuarioC.peso + `                                             ALTURA: ` + usuarioC.altura + `
+    doc.text(`    PESO: ` + usuarioC.peso + `                                                   ALTURA: ` + usuarioC.altura + `
     
     `, 55, 490,  {
         height: 50,
@@ -132,19 +168,70 @@ module.exports.pdf = function(application, res, result, resultC, resultE, result
         align: 'left'
     });
     
-    doc.underline(55, 415, 490, 100, { color: '#000000' })
+    //doc.underline(55, 415, 490, 100, { color: '#000000' })
     
-    doc.text(`                                                                      TATUAGENS:
-    `, 55, 520,  {
+    doc.text(`                                                                    TATUAGENS:
+    `, 55, 525,  {
         height: 30,
         width: 700,
         align: 'left'
     });
     
-    doc.underline(55, 435, 490, 100, { color: '#000000' })
+    //doc.underline(55, 435, 490, 100, { color: '#000000' })
     
     
-    doc.underline(55, 475, 490, 100, { color: '#000000' })
+    //doc.underline(55, 475, 490, 100, { color: '#000000' })
+
+    //ROSTO / PESCOCO
+    doc.rect(55, 550, 245, 25).stroke() 
+
+    doc.rect(300, 550, 245, 25).stroke()  
+
+    //COSTAS
+    doc.rect(55, 575, 245, 25).stroke() 
+
+    doc.rect(300, 575, 245, 25).stroke()  
+
+    //PEITO
+    doc.rect(55, 600, 245, 25).stroke() 
+
+    doc.rect(300, 600, 245, 25).stroke()  
+
+    //BARRIGA
+    doc.rect(55, 625, 245, 25).stroke() 
+
+    doc.rect(300, 625, 245, 25).stroke()  
+    
+    //PERNA
+    doc.rect(55, 650, 245, 25).stroke() 
+
+    doc.rect(300, 650, 245, 25).stroke() 
+
+    //PE
+    doc.rect(55, 675, 245, 25).stroke() 
+
+    doc.rect(300, 675, 245, 25).stroke() 
+
+    //BRACO
+    doc.rect(55, 700, 245, 25).stroke() 
+
+    doc.rect(300, 700, 245, 25).stroke() 
+
+    //ANTEBRACO
+    doc.rect(55, 725, 245, 25).stroke() 
+
+    doc.rect(300, 725, 245, 25).stroke() 
+
+    //MAO
+    doc.rect(55, 750, 245, 25).stroke() 
+
+    doc.rect(300, 750, 245, 25).stroke() 
+
+    //CICATRIZ / DEFORMIDADE
+    doc.rect(55, 775, 245, 25).stroke() 
+
+    doc.rect(300, 775, 245, 25).stroke() 
+
 
     doc.text(`
     ROSTO: ` + tatuagem.txtrosto + `                                                                             
@@ -172,7 +259,7 @@ module.exports.pdf = function(application, res, result, resultC, resultE, result
         align: 'left'
     });
 
-    doc.rect(doc.x, 45, 490, doc.y).stroke();
+    doc.rect(doc.x, 45, 490, 780).stroke();
     
     
     doc.text(`
@@ -218,11 +305,16 @@ module.exports.pdf = function(application, res, result, resultC, resultE, result
     
     doc.underline(55, 18, 490, 100, { color: '#000000' })
     
+    // OCORRENCIA / DATA
+    doc.rect(55, 117, 245, 33).stroke() 
+
+    doc.rect(300, 117, 245, 33).stroke() 
+
     doc.text(`
     OCORRÊNCIA: ` + passagens.artigo1 + passagens.lei1 + `
     
     HISTÓRICO: ` + passagens.procedimento1 + `
-    `, 55, 120, {
+    `, 55, 118, {
         height: 200,
         width: 400,
         align: 'left'
@@ -230,7 +322,7 @@ module.exports.pdf = function(application, res, result, resultC, resultE, result
     
     doc.text(`
     DATA: ` + passagens.data1 + `
-    `, 425, 120, {
+    `, 300, 118, {
         height: 200,
         width: 400,
         align: 'left'

@@ -16,41 +16,55 @@
             <%for(var i = 0; dados.length > i; i ++){%>
                 <div>
                     <h4>Informações pessoais:</h4>
-                    <input id="id" name="id" value="<%=dados[i].id%>">
-                    <div>
-                        <label>Nome:</label>
-                        <input id="nome" name="nome" value="<%=dados[i].nome%>"></input>
+                    <input id="id" name="id" value="<%=dados[i].id%>" type="hidden">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Nome:</label>
+                            <input class="form-control" id="nome" name="nome" value="<%=dados[i].nome%>"></input>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Apelido:</label>
+                            <input class="form-control" id="apelido" name="apelido" value="<%=dados[i].apelido%>"></input>
+                        </div>
                     </div>
-                    <div>
-                        <label>Apelido:</label>
-                        <input id="apelido" name="apelido" value="<%=dados[i].apelido%>"></input>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>CPF:</label>
+                            <input class="form-control" id="cpf" name="cpf" value="<%=dados[i].cpf%>"></input>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>RG:</label>
+                            <input class="form-control" id="rg" name="rg" value="<%=dados[i].rg%>"></input>
+                        </div>
                     </div>
-                    <div>
-                        <label>CPF:</label>
-                        <input id="cpf" name="cpf" value="<%=dados[i].cpf%>"></input>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Nome pai:</label>
+                            <input class="form-control" id="nome_pai" name="nome_pai" value="<%=dados[i].nome_pai%>"></input>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Nome mãe:</label>
+                            <input class="form-control" id="nome_mae" name="nome_mae" value="<%=dados[i].nome_mae%>"></input>
+                        </div> 
                     </div>
-                    <div>
-                        <label>RG:</label>
-                        <input id="rg" name="rg" value="<%=dados[i].rg%>"></input>
+ 
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Data de Nascimento:</label>
+                            <input class="form-control" id="dt_nascimento" name="dt_nascimento" value="<%=dados[i].dt_nascimento%>"></input>
+                                                    <!-- para trazer a data tem q ser em dd-mm-YYYY -->
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Naturalidade:</label>
+                            <input class="form-control" id="naturalidade" name="naturalidade" value="<%=dados[i].naturalidade%>"></input>
+                        </div>
                     </div>
-                    <div>
-                        <label>Data de Nascimento:</label>
-                        <input id="dt_nascimento" name="dt_nascimento" value="<%=dados[i].dt_nascimento%>"></input>
-                                                <!-- para trazer a data tem q ser em dd-mm-YYYY -->
-                    </div>
-                    <div>
-                        <label>Nome pai:</label>
-                        <input id="nome_pai" name="nome_pai" value="<%=dados[i].nome_pai%>"></input>
-                    </div>
-                    <div>
-                        <label>Nome mãe:</label>
-                        <input id="nome_mae" name="nome_mae" value="<%=dados[i].nome_mae%>"></input>
-                    </div>  
-                    <div>
-                        <label>Naturalidade:</label>
-                        <input id="naturalidade" name="naturalidade" value="<%=dados[i].naturalidade%>"></input>
-                    </div>
-                    <button onclick="salvaPessoais()">Salvar alterações</button>
+
+
+
+                    <button style="width: 100%" onclick="salvaPessoais()">Salvar alterações</button>
                 </div>
             <%}%>
         <%}%>
@@ -77,33 +91,39 @@
                     <h4>Caracteristicas:</h4>
                     <div>
                         <label>Estado Cívil:</label>
-                        <input id="estado_civil" name="estado_civil" value="<%=caracteristicas[i].estado_civil%>"></input>
+                        <input  class="form-control" id="estado_civil" name="estado_civil" value="<%=caracteristicas[i].estado_civil%>"></input>
                     </div>
-                    <div>
-                        <label>Cor pele:</label>
-                        <input id="cor_pele" name="cor_pele" value="<%=caracteristicas[i].cor_pele%>"></input>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Cor pele:</label>
+                            <input class="form-control " id="cor_pele" name="cor_pele" value="<%=caracteristicas[i].cor_pele%>"></input>
+                        </div>
+                        <div class="form-group col-md-6">   
+                            <label>Cor olhos:</label>
+                            <input class="form-control" id="cor_olhos" name="cor_olhos" value="<%=caracteristicas[i].cor_olhos%>"></input>
+                        </div>
                     </div>
-                    <div>   
-                        <label>Cor olhos:</label>
-                        <input id="cor_olhos" name="cor_olhos" value="<%=caracteristicas[i].cor_olhos%>"></input>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Tipo cabelo:</label>
+                            <input class="form-control" id="tipo_cabelo" name="tipo_cabelo" value="<%=caracteristicas[i].tipo_cabelo%>"></input>
+                        </div class="form-group col-md-6">
+                        <div>
+                            <label> Cor cabelo:</label>
+                            <input class="form-control" id="cor_cabelo" name="cor_cabelo" value="<%=caracteristicas[i].cor_cabelo%>"></input>
+                        </div>
                     </div>
-                    <div>
-                        <label>Tipo cabelo:</label>
-                        <input id="tipo_cabelo" name="tipo_cabelo" value="<%=caracteristicas[i].tipo_cabelo%>"></input>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Peso:</label>
+                            <input class="form-control" id="peso" name="peso" value="<%=caracteristicas[i].peso%>"></input>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Altura:</label>
+                            <input class="form-control" id="altura" name="altura" value="<%=caracteristicas[i].altura%>"></input>
+                        </div>
                     </div>
-                    <div>
-                        <label> Cor cabelo:</label>
-                        <input id="cor_cabelo" name="cor_cabelo" value="<%=caracteristicas[i].cor_cabelo%>"></input>
-                    </div>
-                    <div>
-                        <label>Peso:</label>
-                        <input id="peso" name="peso" value="<%=caracteristicas[i].peso%>"></input>
-                    </div>
-                    <div>
-                        <label>Altura:</label>
-                        <input id="altura" name="altura" value="<%=caracteristicas[i].altura%>"></input>
-                    </div>
-                    <button onclick="salvaCaracteristicas();" type="button">Salvar alterações</button>
+                    <button style="width: 100%" onclick="salvaCaracteristicas();" type="button">Salvar alterações</button>
                 </div>
             <%}%>
         <%}%>
@@ -130,27 +150,31 @@
                     <h4>Endereços:</h4>
                     <div>
                         <h4>Endereço 1:</h4>
-                        <div>
-                            <label>Rua:</label>
-                            <input id="rua1" value="<%=endereco[i].rua1%>"></input>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Rua:</label>
+                                <input class="form-control" id="rua1" value="<%=endereco[i].rua1%>"></input>
+                            </div>
+                            <div class="form-group col-md-6">   
+                                <label>Cidade:</label>
+                                <input class="form-control" id="cidade1" value="<%=endereco[i].cidade1%>"></input>
+                            </div>
                         </div>
-                        <div>   
-                            <label>Cidade:</label>
-                            <input id="cidade1" value="<%=endereco[i].cidade1%>"></input>
-                        </div>
-                        <div>
-                            <label>Estado:</label>
-                            <input id="estado1" value="<%=endereco[i].estado1%>"></input>
-                        </div>
-                        <div>
-                            <label>Número:</label>
-                            <input id="numero1" value="<%=endereco[i].numero1%>"></input>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Estado:</label>
+                                <input class="form-control" id="estado1" value="<%=endereco[i].estado1%>"></input>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Número:</label>
+                                <input class="form-control" id="numero1" value="<%=endereco[i].numero1%>"></input>
+                            </div>
                         </div>
                         <div>
                             <label>Complemento:</label>
-                            <input id="complemento1" value="<%=endereco[i].complemento1%>"></input>
+                            <input class="form-control" id="complemento1" value="<%=endereco[i].complemento1%>"></input>
                         </div>
-                        <button onclick="editaEndereco1();" type="button">Salvar alterações</button>
+                        <button style="width: 100%" onclick="editaEndereco1();" type="button">Salvar alterações</button>
                     </div>
 
                     <script>
@@ -171,27 +195,31 @@
 
                     <div>
                         <h4>Endereço 2:</h4>
-                        <div>
-                            <label>Rua:</label>
-                            <input id="rua2" value="<%=endereco[i].rua2%>"></input>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Rua:</label>
+                                <input class="form-control" id="rua2" value="<%=endereco[i].rua2%>"></input>
+                            </div>
+                            <div class="form-group col-md-6">   
+                                <label>Cidade:</label>
+                                <input class="form-control" id="cidade2" value="<%=endereco[i].cidade2%>"></input>
+                            </div>
                         </div>
-                        <div>   
-                            <label>Cidade:</label>
-                            <input id="cidade2" value="<%=endereco[i].cidade2%>"></input>
-                        </div>
-                        <div>
-                            <label>Estado:</label>
-                            <input id="estado2" value="<%=endereco[i].estado2%>"></input>
-                        </div>
-                        <div>
-                            <label>Número:</label>
-                            <input id="numero2" value="<%=endereco[i].numero2%>"></input>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Estado:</label>
+                                <input class="form-control" id="estado2" value="<%=endereco[i].estado2%>"></input>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Número:</label>
+                                <input class="form-control" id="numero2" value="<%=endereco[i].numero2%>"></input>
+                            </div>
                         </div>
                         <div>
                             <label>Complemento:</label>
-                            <input id="complemento2" value="<%=endereco[i].complemento2%>"></input>
+                            <input class="form-control" id="complemento2" value="<%=endereco[i].complemento2%>"></input>
                         </div>
-                        <button onclick="editaEndereco2();" type="button">Salvar alterações</button>
+                        <button style="width: 100%" onclick="editaEndereco2();" type="button">Salvar alterações</button>
                     </div>
 
                     <script>
@@ -211,27 +239,31 @@
 
                     <div>
                         <h4>Endereço 3:</h4>
-                        <div>
-                            <label>Rua:</label>
-                            <input id="rua3" value="<%=endereco[i].rua3%>"></input>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Rua:</label>
+                                <input class="form-control" id="rua3" value="<%=endereco[i].rua3%>"></input>
+                            </div>
+                            <div class="form-group col-md-6">   
+                                <label>Cidade:</label>
+                                <input class="form-control" id="cidade3" value="<%=endereco[i].cidade3%>"></input>
+                            </div>
                         </div>
-                        <div>   
-                            <label>Cidade:</label>
-                            <input id="cidade3" value="<%=endereco[i].cidade3%>"></input>
-                        </div>
-                        <div>
-                            <label>Estado:</label>
-                            <input id="estado3" value="<%=endereco[i].estado3%>"></input>
-                        </div>
-                        <div>
-                            <label>Número:</label>
-                            <input id="numero3" value="<%=endereco[i].numero3%>"></input>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Estado:</label>
+                                <input class="form-control" id="estado3" value="<%=endereco[i].estado3%>"></input>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Número:</label>
+                                <input class="form-control" class="form-control" id="numero3" value="<%=endereco[i].numero3%>"></input>
+                            </div>
                         </div>
                         <div>
                             <label>Complemento:</label>
-                            <input id="complemento3" value="<%=endereco[i].complemento3%>"></input>
+                            <input class="form-control" id="complemento3" value="<%=endereco[i].complemento3%>"></input>
                         </div>
-                        <button onclick="editaEndereco3();" type="button">Salvar alterações</button>
+                        <button style="width: 100%" onclick="editaEndereco3();" type="button">Salvar alterações</button>
                     </div>
 
                     <script>
@@ -251,27 +283,31 @@
 
                     <div>
                         <h4>Endereço 4:</h4>
-                        <div>
-                            <label>Rua:</label>
-                            <input id="rua4" value="<%=endereco[i].rua4%>"></input>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Rua:</label>
+                                <input class="form-control" id="rua4" value="<%=endereco[i].rua4%>"></input>
+                            </div>
+                            <div class="form-group col-md-6">   
+                                <label>Cidade:</label>
+                                <input class="form-control" id="cidade4" value="<%=endereco[i].cidade4%>"></input>
+                            </div>
                         </div>
-                        <div>   
-                            <label>Cidade:</label>
-                            <input id="cidade4" value="<%=endereco[i].cidade4%>"></input>
-                        </div>
-                        <div>
-                            <label>Estado:</label>
-                            <input id="estado4" value="<%=endereco[i].estado4%>"></input>
-                        </div>
-                        <div>
-                            <label>Número:</label>
-                            <input id="numero4" value="<%=endereco[i].numero4%>"></input>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Estado:</label>
+                                <input class="form-control" id="estado4" value="<%=endereco[i].estado4%>"></input>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Número:</label>
+                                <input class="form-control" id="numero4" value="<%=endereco[i].numero4%>"></input>
+                            </div>
                         </div>
                         <div>
                             <label>Complemento:</label>
-                            <input id="complemento4" value="<%=endereco[i].complemento4%>"></input>
+                            <input class="form-control" id="complemento4" value="<%=endereco[i].complemento4%>"></input>
                         </div>
-                        <button onclick="editaEndereco4();" type="button">Salvar alterações</button>
+                        <button style="width: 100%" onclick="editaEndereco4();" type="button">Salvar alterações</button>
                     </div>
                 </div>
 
@@ -297,27 +333,31 @@
                     <h4>Passagens:</h4>
                     <div>
                         <h4>Passagem 1:</h4>
-                        <div>
-                            <label>Data:</label>
-                            <input id="data1" value="<%=passagem[i].data1%>"></input>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Data:</label>
+                                <input class="form-control" id="data1" value="<%=passagem[i].data1%>"></input>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Procedimento:</label>
+                                <input class="form-control" id="procedimento1" value="<%=passagem[i].procedimento1%>"></input>
+                            </div>
                         </div>
-                        <div>
-                            <label>Procedimento:</label>
-                            <input id="procedimento1" value="<%=passagem[i].procedimento1%>"></input>
-                        </div>
-                        <div>
-                            <label>Artigo:</label>
-                            <input id="artigo1" value="<%=passagem[i].artigo1%>"></input>
-                        </div>
-                        <div>
-                            <label>Lei:</label>
-                            <input id="lei1" value="<%=passagem[i].lei1%>"></input>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Artigo:</label>
+                                <input class="form-control" id="artigo1" value="<%=passagem[i].artigo1%>"></input>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Lei:</label>
+                                <input class="form-control" id="lei1" value="<%=passagem[i].lei1%>"></input>
+                            </div>
                         </div>
                         <div>
                             <label>Histórico:</label>
-                            <input id="historico1" value="<%=passagem[i].historico1%>"></input>
+                            <input class="form-control" id="historico1" value="<%=passagem[i].historico1%>"></input>
                         </div>
-                        <button onclick="editaPassagem1();">Salvar Alterações</button>
+                        <button style="width: 100%" onclick="editaPassagem1();">Salvar Alterações</button>
                     </div>
 
                     <script>
@@ -338,27 +378,31 @@
                         <h4>Passagens:</h4>
                         <div>
                             <h4>Passagem 2:</h4>
-                            <div>
-                                <label>Data:</label>
-                                <input id="data2" value="<%=passagem[i].data2%>"></input>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Data:</label>
+                                    <input class="form-control" id="data2" value="<%=passagem[i].data2%>"></input>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Procedimento:</label>
+                                    <input class="form-control" id="procedimento2" value="<%=passagem[i].procedimento2%>"></input>
+                                </div>
                             </div>
-                            <div>
-                                <label>Procedimento:</label>
-                                <input id="procedimento2" value="<%=passagem[i].procedimento2%>"></input>
-                            </div>
-                            <div>
-                                <label>Artigo:</label>
-                                <input id="artigo2" value="<%=passagem[i].artigo2%>"></input>
-                            </div>
-                            <div>
-                                <label>Lei:</label>
-                                <input id="lei2" value="<%=passagem[i].lei2%>"></input>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Artigo:</label>
+                                    <input class="form-control" id="artigo2" value="<%=passagem[i].artigo2%>"></input>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Lei:</label>
+                                    <input class="form-control" id="lei2" value="<%=passagem[i].lei2%>"></input>
+                                </div>
                             </div>
                             <div>
                                 <label>Histórico:</label>
-                                <input id="historico2" value="<%=passagem[i].historico2%>"></input>
+                                <input class="form-control" id="historico2" value="<%=passagem[i].historico2%>"></input>
                             </div>
-                            <button onclick="editaPassagem2()" type="button">Salvar alterações</button>
+                            <button style="width: 100%" onclick="editaPassagem2()" type="button">Salvar alterações</button>
                     </div>
 
                     <script>
@@ -377,27 +421,31 @@
 
                     <div>
                         <h4>Passagem 3:</h4>
-                        <div>
-                            <label>Data:</label>
-                            <input id="data3" value="<%=passagem[i].data3%>"></input>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Data:</label>
+                                <input class="form-control" id="data3" value="<%=passagem[i].data3%>"></input>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Procedimento:</label>
+                                <input class="form-control" id="procedimento3" value="<%=passagem[i].procedimento3%>"></input>
+                            </div>
                         </div>
-                        <div>
-                            <label>Procedimento:</label>
-                            <input id="procedimento3" value="<%=passagem[i].procedimento3%>"></input>
-                        </div>
-                        <div>
-                            <label>Artigo:</label>
-                            <input id="artigo3" value="<%=passagem[i].artigo3%>"></input>
-                        </div>
-                        <div>
-                            <label>Lei:</label>
-                            <input id="lei3" value="<%=passagem[i].lei3%>"></input>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Artigo:</label>
+                                <input class="form-control" id="artigo3" value="<%=passagem[i].artigo3%>"></input>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Lei:</label>
+                                <input class="form-control" id="lei3" value="<%=passagem[i].lei3%>"></input>
+                            </div>
                         </div>
                         <div>
                             <label>Histórico:</label>
-                            <input id="historico3" value="<%=passagem[i].historico3%>"></input>
+                            <input class="form-control" id="historico3" value="<%=passagem[i].historico3%>"></input>
                         </div>
-                        <button onclick="editaPassagem3();" type="button">Salvar alterações</button>
+                        <button style="width: 100%" onclick="editaPassagem3();" type="button">Salvar alterações</button>
                     </div>
 
                     <script>
@@ -416,27 +464,31 @@
 
                     <div>
                         <h4>Passagem 4:</h4>
-                        <div>
-                            <label>Data:</label>
-                            <input id="data4" value="<%=passagem[i].data4%>"></input>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Data:</label>
+                                <input class="form-control" id="data4" value="<%=passagem[i].data4%>"></input>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Procedimento:</label>
+                                <input class="form-control" id="procedimento4" value="<%=passagem[i].procedimento4%>"></input>
+                            </div>
                         </div>
-                        <div>
-                            <label>Procedimento:</label>
-                            <input id="procedimento4" value="<%=passagem[i].procedimento4%>"></input>
-                        </div>
-                        <div>
-                            <label>Artigo:</label>
-                            <input id="artigo4" value="<%=passagem[i].artigo4%>"></input>
-                        </div>
-                        <div>
-                            <label>Lei:</label>
-                            <input id="lei4" value="<%=passagem[i].lei4%>"></input>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Artigo:</label>
+                                <input class="form-control" id="artigo4" value="<%=passagem[i].artigo4%>"></input>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Lei:</label>
+                                <input class="form-control" id="lei4" value="<%=passagem[i].lei4%>"></input>
+                            </div>
                         </div>
                         <div>
                             <label>Histórico:</label>
-                            <input id="historico4" value="<%=passagem[i].historico4%>"></input>
+                            <input class="form-control" id="historico4" value="<%=passagem[i].historico4%>"></input>
                         </div>
-                        <button onclick="editaPassagem4()">Salvar alterações</button>
+                        <button style="width: 100%" onclick="editaPassagem4()">Salvar alterações</button>
                     </div>
                 </div>
                 
@@ -460,138 +512,233 @@
         <%if(tatuagem_local.length > 0){%>
             <%for(var i = 0; tatuagem_local.length > i; i++){%>
                 <%for(var x = 0; tatuagem_caracteristicas.length > x; x++){%>
-                <div>
-                    <h4>Tatuagens:</h4>
-                    <label>Rosto:</label>
-                    <input id="ckrosto" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckrosto%>"></input>
-                    <input id="txtrosto" type="input" class="caracteristicas_tatuagem" value="<%=tatuagem_caracteristicas[x].txtrosto%>">
-                </div>
+                    <div>
+                        <h4>Tatuagens:</h4>
+                    </div>
+                    
+                    <form action="editaTatuagens" method="POST">
+                        <input id="id" name="id" value="<%=tatuagem_local[i].id_suspeito%>" type="hidden">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label>Rosto:</label>
+                            <input id="ckrosto" name="ckrosto" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckrosto%>"></input>
+                            <input class="form-control" id="txtrosto" name="txtrosto" type="input" class="caracteristicas_tatuagem" value="<%=tatuagem_caracteristicas[x].txtrosto%>">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Cicatriz:</label>
+                            <input id="ckcicatriz" name="ckcicatriz" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckcicatriz%>">
+                            <input class="form-control" id="txtcicatriz" name="txtcicatriz" type="input" value="<%=tatuagem_caracteristicas[x].txtcicatriz%>">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Deformidade:</label>
+                            <input id="ckdeformidade" name="ckdeformidade" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckdeformidade%>">
+                            <input class="form-control" id="txtdeformidade" name="txtdeformidade" type="input" value="<%=tatuagem_caracteristicas[x].txtdeformidade%>">
+                        </div>
+                    </div>
 
-                <div>
-                    <label>Costas (Direita):</label>
-                    <input id="ckcostas_d" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckcostas_d%>">
-                    <input id="txtcostas_d" type="input" class="caracteristicas_tatuagem" value="<%=tatuagem_caracteristicas[x].txtcostas_d%>">
-                </div>
 
-                <div>
-                    <label>Peito (Direita):</label>
-                    <input id="ckpeito_d" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckpeito_d%>">
-                    <input id="txtpeito_d" type="input" class="caracteristicas_tatuagem" value="<%=tatuagem_caracteristicas[x].txtpeito_d%>">
-                </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Costas (Direita):</label>
+                            <input id="ckcostas_d" name="ckcostas_d" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckcostas_d%>">
+                            <input class="form-control" id="txtcostas_d" name="txtcostas_d" type="input" class="caracteristicas_tatuagem" value="<%=tatuagem_caracteristicas[x].txtcostas_d%>">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Costas (Esquerda):</label>
+                            <input id="ckcostas_e" name="ckcostas_e" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckcostas_e%>">
+                            <input class="form-control" id="txtcostas_e" name="txtcostas_e" type="input" value="<%=tatuagem_caracteristicas[x].txtcostas_e%>">
+                        </div>
+                    </div>
 
-                <div>
-                    <label>Barriga (Direita):</label>
-                    <input id="ckbarriga_d" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckbarriga_d%>">
-                    <input id="txtbarriga_d" type="input" class="caracteristicas_tatuagem" value="<%=tatuagem_caracteristicas[x].txtbarriga_d%>">
-                </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Peito (Direita):</label>
+                            <input id="ckpeito_d" name="ckpeito_d" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckpeito_d%>">
+                            <input class="form-control" id="txtpeito_d" name="txtpeito_d" type="input" class="caracteristicas_tatuagem" value="<%=tatuagem_caracteristicas[x].txtpeito_d%>">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Peito (Esquerda):</label>
+                            <input id="ckpeito_e" name="ckpeito_e" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckpeito_e%>">
+                            <input class="form-control" id="txtpeito_e" name="txtpeito_e" type="input" value="<%=tatuagem_caracteristicas[x].txtpeito_e%>">
+                        </div>
+                    </div>
 
-                <div>
-                    <label>Perna (Direita):</label>
-                    <input id="ckperna_d" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckperna_d%>">
-                    <input id="txtperna_d" type="input" value="<%=tatuagem_caracteristicas[x].txtperna_d%>">
-                </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Barriga (Direita):</label>
+                            <input id="ckbarriga_d" name="ckbarriga_d" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckbarriga_d%>">
+                            <input class="form-control" id="txtbarriga_d" name="txtbarriga_d" type="input" class="caracteristicas_tatuagem" value="<%=tatuagem_caracteristicas[x].txtbarriga_d%>">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Barriga (Esquerda):</label>
+                            <input id="ckbarriga_e" name="ckbarriga_e" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckbarriga_e%>">
+                            <input class="form-control" id="txtbarriga_e" name="txtbarriga_e" type="input" value="<%=tatuagem_caracteristicas[x].txtbarriga_e%>">
+                        </div>
+                    </div>
 
-                <div>
-                    <label>Pé (Direita):</label>
-                    <input id="ckpe_d" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckpe_d%>">
-                    <input id="txtpe_d" type="input" value="<%=tatuagem_caracteristicas[x].txtpe_d%>">
-                </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Perna (Direita):</label>
+                            <input id="ckperna_d" name="ckperna_d" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckperna_d%>">
+                            <input class="form-control" id="txtperna_d" name="txtperna_d" type="input" value="<%=tatuagem_caracteristicas[x].txtperna_d%>">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Perna (Esquerda):</label>
+                            <input id="ckperna_e" name="ckperna_e" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckperna_e%>">
+                            <input class="form-control" id="txtperna_e" name="txtperna_e" type="input" value="<%=tatuagem_caracteristicas[x].txtperna_e%>"> 
+                        </div>
+                    </div>
 
-                <div>
-                    <label>Braço (Direita):</label>
-                    <input id="ckbraco_d" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckbraco_d%>">
-                    <input id="txtbraco_d" type="input" value="<%=tatuagem_caracteristicas[x].txtbraco_d%>">
-                </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Pé (Direita):</label>
+                            <input id="ckpe_d" name="ckpe_d" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckpe_d%>">
+                            <input class="form-control" id="txtpe_d" name="txtpe_d" type="input" value="<%=tatuagem_caracteristicas[x].txtpe_d%>">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Pé (Esquerda):</label>
+                            <input id="ckpe_e" name="ckpe_e" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckpe_e%>">
+                            <input class="form-control" id="txtpe_e" name="txtpe_e" type="input" value="<%=tatuagem_caracteristicas[x].txtpe_e%>">
+                        </div>
+                    </div>
 
-                <div>
-                    <label>AnteBraço (Direita):</label>
-                    <input id="ckantebraco_d" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckantebraco_d%>">
-                    <input id="txtantebraco_d" type="input" value="<%=tatuagem_caracteristicas[x].txtantebraco_d%>">
-                </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Braço (Direita):</label>
+                            <input id="ckbraco_d" name="ckbraco_d" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckbraco_d%>">
+                            <input class="form-control" id="txtbraco_d" name="txtbraco_d" type="input" value="<%=tatuagem_caracteristicas[x].txtbraco_d%>">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Braço (Esquerda):</label>
+                            <input id="ckbraco_e" name="ckbraco_e" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckbraco_e%>">
+                            <input class="form-control" id="txtbraco_e" name="txtbraco_e" type="input" value="<%=tatuagem_caracteristicas[x].txtbraco_e%>">
+                        </div>
+                    </div>
 
-                <div>
-                    <label>Mão (Direita):</label>
-                    <input id="ckmao_d" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckmao_d%>">
-                    <input id="txtmao_d" type="input" value="<%=tatuagem_caracteristicas[x].txtmao_d%>">
-                </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>AnteBraço (Direita):</label>
+                            <input id="ckantebraco_d" name="ckantebraco_d" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckantebraco_d%>">
+                            <input class="form-control" id="txtantebraco_d" name="txtantebraco_d" type="input" value="<%=tatuagem_caracteristicas[x].txtantebraco_d%>">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>AnteBraço (Esquerda):</label>
+                            <input id="ckantebraco_e" name="ckantebraco_e" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckantebraco_e%>">
+                            <input class="form-control" id="txtantebraco_e" name="txtantebraco_e" type="input" value="<%=tatuagem_caracteristicas[x].txtantebraco_e%>">
+                        </div>
+                    </div>
 
-                <div>
-                    <label>Pescoço (Direita):</label>
-                    <input id="ckpescoco_d" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckpescoco_d%>">
-                    <input id="txtpescoco_d" type="input" value="<%=tatuagem_caracteristicas[x].txtpescoco_d%>">
-                </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Mão (Direita):</label>
+                            <input id="ckmao_d" name="ckmao_d" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckmao_d%>">
+                            <input class="form-control" id="txtmao_d" name="txtmao_d" type="input" value="<%=tatuagem_caracteristicas[x].txtmao_d%>">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Mão (Esquerda):</label>
+                            <input id="ckmao_e" name="ckmao_e" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckmao_e%>">
+                            <input class="form-control" id="txtmao_e" name="txtmao_e" type="input" value="<%=tatuagem_caracteristicas[x].txtmao_e%>">
+                        </div>
+                    </div>
 
-                <!-- INICIO ESQUERDDA-->
-
-                <div>
-                    <label>Costas (Esquerda):</label>
-                    <input id="ckcostas_e" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckcostas_e%>">
-                    <input id="txtcostas_e" type="input" value="<%=tatuagem_caracteristicas[x].txtcostas_e%>">
-                </div>
-
-                <div>
-                    <label>Peito (Esquerda):</label>
-                    <input id="ckpeito_e" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckpeito_e%>">
-                    <input id="txtpeito_e" type="input" value="<%=tatuagem_caracteristicas[x].txtpeito_e%>">
-                </div>
-
-                <div>
-                    <label>Barriga (Esquerda):</label>
-                    <input id="ckbarriga_e" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckbarriga_e%>">
-                    <input id="txtbarriga_e" type="input" value="<%=tatuagem_caracteristicas[x].txtbarriga_e%>">
-                </div>
-
-                <div>
-                    <label>Perna (Esquerda):</label>
-                    <input id="ckperna_e" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckperna_e%>">
-                    <input id="txtperna_e" type="input" value="<%=tatuagem_caracteristicas[x].txtperna_e%>"> 
-                </div>
-
-                <div>
-                    <label>Pé (Esquerda):</label>
-                    <input id="ckpe_e" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckpe_e%>">
-                    <input id="txtpe_e" type="input" value="<%=tatuagem_caracteristicas[x].txtpe_e%>">
-                </div>
-
-                <div>
-                    <label>Braço (Esquerda):</label>
-                    <input id="ckbraco_e" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckbraco_e%>">
-                    <input id="txtbraco_e" type="input" value="<%=tatuagem_caracteristicas[x].txtbraco_e%>">
-                </div>
-
-                <div>
-                    <label>AnteBraço (Esquerda):</label>
-                    <input id="ckantebraco_e" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckantebraco_e%>">
-                    <input id="txtantebraco_e" type="input" value="<%=tatuagem_caracteristicas[x].txtantebraco_e%>">
-                </div>
-
-                <div>
-                    <label>Mão (Esquerda):</label>
-                    <input id="ckmao_e" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckmao_e%>">
-                    <input id="txtmao_e" type="input" value="<%=tatuagem_caracteristicas[x].txtmao_e%>">
-                </div>
-
-                <div>
-                    <label>Pescoço (Esquerda):</label>
-                    <input id="ckpescoco_e" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckpescoco_e%>">
-                    <input id="txtpescoco_e" type="input" value="<%=tatuagem_caracteristicas[x].txtpescoco_e%>">
-                </div>
-
-                <div>
-                    <label>Cicatriz:</label>
-                    <input id="ckcicatriz" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckcicatriz%>">
-                    <input id="txtcicatriz" type="input" value="<%=tatuagem_caracteristicas[x].txtcicatriz%>">
-                </div>
-
-                <div>
-                    <label>Deformidade:</label>
-                    <input id="ckdeformidade" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckdeformidade%>">
-                    <input id="txtdeformidade" type="input" value="<%=tatuagem_caracteristicas[x].txtdeformidade%>">
-                </div>
-
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Pescoço (Direita):</label>
+                            <input id="ckpescoco_d" name="ckpescoco_d" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckpescoco_d%>">
+                            <input class="form-control"  id="txtpescoco_d" name="txtpescoco_e" type="input" value="<%=tatuagem_caracteristicas[x].txtpescoco_d%>">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Pescoço (Esquerda):</label>
+                            <input id="ckpescoco_e" name="ckpescoco_e" type="checkbox" class="local_tatuagem" value="<%=tatuagem_local[i].ckpescoco_e%>">
+                            <input class="form-control" id="txtpescoco_e" name="txtpescoco_e" type="input" value="<%=tatuagem_caracteristicas[x].txtpescoco_e%>">
+                        </div>
+                    </div>
+                    <button style="width: 100%">Salvar alterações</button>
+                    </form>
+                    
                 <%}%>
             <%}%>
         <%}%>
+                
+        <script>
+            function editaTatuagens(){
+                var ckrosto = document.getElementById('ckrosto').value;
+                var txtrosto = document.getElementById('txtrosto').value;
+                
+                var ckcicatriz = document.getElementById('ckcicatriz').value;
+                var txtcicatriz = document.getElementById('txtcicatriz').value;
+
+                var ckdeformidade = document.getElementById('ckdeformidade').value;
+                var txtdeformidade = document.getElementById('txtdeformidade').value;
+
+                var ckcostas_d = document.getElementById('ckcostas_d').value;
+                var txtcostas_d = document.getElementById('txtcostas_d').value;
+
+                var ckcostas_e = document.getElementById('ckcostas_e').value;
+                var txtcostas_e = document.getElementById('txtcostas_e').value;
+
+                var ckpeito_d = document.getElementById('ckpeito_d').value;
+                var txtpeito_d = document.getElementById('txtpeito_d').value;
+
+                var ckpeito_e = document.getElementById('ckpeito_e').value;
+                var txtpeito_e = document.getElementById('txtpeito_e').value;
+
+                var ckbarriga_d = document.getElementById('ckbarriga_e').value;
+                var txtbarriga_e = document.getElementById('txtbarriga_e').value;
+
+                var ckbarriga_e = document.getElementById('ckbarriga_e').value;
+                var txtbarriga_e = document.getElementById('txtbarriga_e').value;
+
+                var ckperna_d = document.getElementById('ckperna_d').value;
+                var txtperna_d = document.getElementById('txtperna_d').value;
+
+                var ckperna_e = document.getElementById('ckperna_e').value;
+                var txtperna_e = document.getElementById('txtperna_e').value;
+
+                var ckpe_d = document.getElementById('ckpe_d').value;
+                var txtpe_d = document.getElementById('txtpe_d').value;
+
+                var ckpe_e = document.getElementById('ckpe_e').value;
+                var txtpe_e = document.getElementById('txtpe_e').value;
+
+                var ckbraco_d = document.getElementById('ckbraco_d').value;
+                var txtbraco_d = document.getElementById('txtbraco_d').value;
+
+                var ckbraco_e = document.getElementById('ckbraco_e').value;
+                var txtbraco_e = document.getElementById('txtbraco_e').value;
+
+                var ckantebraco_d = document.getElementById('ckantebraco_d').value;
+                var txtantebraco_d = document.getElementById('txtantebraco_d').value;
+
+                var ckantebraco_e = document.getElementById('ckantebraco_e').value;
+                var txtantebraco_e = document.getElementById('txtantebraco_e').value;
+
+                var ckmao_d = document.getElementById('ckmao_d').value;
+                var txtmao_d = document.getElementById('txtmao_d').value;
+
+                var ckmao_e = document.getElementById('ckmao_e').value;
+                var txtmao_e = document.getElementById('txtmao_e').value;
+
+                var ckpescoco_d = document.getElementById('ckpescoco_d').value;
+                var txtpescoco_d = document.getElementById('txtpescoco_d').value;
+
+                var ckpescoco_e = document.getElementById('ckpescoco_e').value;
+                var txtpescoco_e = document.getElementById('txtpescoco_e').value;
+
+/*
+               $.post('/editaTatuagens', {id : id, ckrosto : ckrosto, txtrosto : txtrosto, ckcicatriz : ckcicatriz, txtcicatriz : txtcicatriz, ckdeformidade : ckdeformidade,
+                txtdeformidade : txtdeformidade ckcostas_d : ckcostas_d, txtcostas_d : txtcostas_d, ckcostas_e : ckcostas_e, txtcostas_e : txtcostas_e, ckpeito_d : ckpeito_d,
+                txtpeito_d : txtpeito_d, ckpeito_e : ckpeito_e, txtpeito_e : txtpeito_e, ckbarriga_d : ckbarriga_d, txtbarriga_d : txtbarriga_d, ckbarriga_e : ckbarriga_e,
+                txtbarriga_e : txtbarriga_e, ckperna_d : ckperna_d, txtperna_d, txtperna_d, ckperna_e : ckperna_e, txtperna_e : txtperna_e, ckpe_d : ckpe_d, txtpe_d : txtpe_d,
+                ckpe_e : ckpe_e, txtpe_e : txtpe_e, ckbraco_d : ckbraco_d, txtbraco_d : txtbraco_d, ckbraco_e : ckbraco_e, txtbraco_e : txtbraco_e, ckantebraco_d : ckantebraco_d,
+                txtantebraco_d : txtantebraco_d, ckantebraco_e : ckantebraco_e, txtantebraco_e : txtantebraco_e, ckmao_d : ckmao_d, txtmao_d : txtmao_d, ckmao_e : ckmao_e,
+                txtmao_e : txtmao_e, ckpescoco_d : ckpescoco_d, txtpescoco_d : txtpescoco_d, ckpescoco_e : ckpescoco_e, txtpescoco_e : txtpescoco_e})
+               // alert('Alteraçõe salvas!')
+*/              
+            }
+        </script>
+                
+
 
         <script>
             $('.local_tatuagem').each(function(e){
@@ -603,14 +750,9 @@
             //COSTAS DIREITA
             function costasDireita(){
                 var ckcostas_d = document.getElementById('ckcostas_d');
-                console.log(ckcostas_d.value);
                 if(ckcostas_d.value == 0){
                     var txtcostas_d = document.getElementById('txtcostas_d').setAttribute("disabled","disabled");
                 }
-
-                //ckcostas_d.onchange = function() {
-                //txtcostas_d.disabled = !this.checked;
-            //};
             }
 
             document.addEventListener('DOMContentLoaded', function() {
@@ -618,254 +760,342 @@
                 //ROSTO
 
                 var ckcostas_d = document.getElementById('ckrosto');
-                console.log(ckcostas_d.value);
                 if(ckcostas_d.value == 0){
                     var txtcostas_d = document.getElementById('txtrosto').setAttribute("disabled","disabled");
                 }
 
                 ckcostas_d.onchange = function() {
                 document.getElementById('txtrosto').disabled = !this.checked;
+                if(!this.checked){
+                    document.getElementById('ckrosto').value = 0;
+                }else{
+                    document.getElementById('ckrosto').value = 1;
+                }
+
                 };
 
 
                 //COSTAS DIREITA
 
                 var ckcostas_d = document.getElementById('ckcostas_d');
-                console.log(ckcostas_d.value);
                 if(ckcostas_d.value == 0){
                     var txtcostas_d = document.getElementById('txtcostas_d').setAttribute("disabled","disabled");
                 }
 
                 ckcostas_d.onchange = function() {
                 document.getElementById('txtcostas_d').disabled = !this.checked;
+                if(!this.checked){
+                    document.getElementById('ckcostas_d').value = 0;
+                }else{
+                    document.getElementById('ckcostas_d').value = 1;
+                }
+
                 };
 
                 //PEITO DIREITA
 
                 var ckcostas_d = document.getElementById('ckpeito_d');
-                console.log(ckcostas_d.value);
                 if(ckcostas_d.value == 0){
                     var txtcostas_d = document.getElementById('txtpeito_d').setAttribute("disabled","disabled");
                 }
 
                 ckcostas_d.onchange = function() {
                 document.getElementById('txtpeito_d').disabled = !this.checked;
+                if(!this.checked){
+                    document.getElementById('ckpeito_d').value = 0;
+                }else{
+                    document.getElementById('ckpeito_d').value = 1;
+                }
+
                 };
 
                 //BARRIGA DIREITA
 
                 var ckcostas_d = document.getElementById('ckbarriga_d');
-                console.log(ckcostas_d.value);
                 if(ckcostas_d.value == 0){
                     var txtcostas_d = document.getElementById('txtbarriga_d').setAttribute("disabled","disabled");
                 }
 
                 ckcostas_d.onchange = function() {
                 document.getElementById('txtbarriga_d').disabled = !this.checked;
+                if(!this.checked){
+                    document.getElementById('ckbarriga_d').value = 0;
+                }else{
+                    document.getElementById('ckbarriga_d').value = 1;
+                }
+
                 };
 
                 //PERNA DIREITA
 
                 var ckcostas_d = document.getElementById('ckperna_d');
-                console.log(ckcostas_d.value);
                 if(ckcostas_d.value == 0){
                     var txtcostas_d = document.getElementById('txtperna_d').setAttribute("disabled","disabled");
                 }
 
                 ckcostas_d.onchange = function() {
                 document.getElementById('txtperna_d').disabled = !this.checked;
+                if(!this.checked){
+                    document.getElementById('ckperna_d').value = 0;
+                }else{
+                    document.getElementById('ckperna_d').value = 1;
+                }
                 };
 
                 //PÉ DIREITA
 
                 var ckcostas_d = document.getElementById('ckpe_d');
-                console.log(ckcostas_d.value);
                 if(ckcostas_d.value == 0){
                     var txtcostas_d = document.getElementById('txtpe_d').setAttribute("disabled","disabled");
                 }
 
                 ckcostas_d.onchange = function() {
                 document.getElementById('txtpe_d').disabled = !this.checked;
+                if(!this.checked){
+                    document.getElementById('ckpe_d').value = 0;
+                }else{
+                    document.getElementById('ckpe_d').value = 1;
+                }
                 };
 
                 //BRAÇO DIREITA
 
                 var ckcostas_d = document.getElementById('ckbraco_d');
-                console.log(ckcostas_d.value);
                 if(ckcostas_d.value == 0){
                     var txtcostas_d = document.getElementById('txtbraco_d').setAttribute("disabled","disabled");
                 }
 
                 ckcostas_d.onchange = function() {
                 document.getElementById('txtbraco_d').disabled = !this.checked;
+                if(!this.checked){
+                    document.getElementById('ckbraco_d').value = 0;
+                }else{
+                    document.getElementById('ckbraco_d').value = 1;
+                }
                 };
 
                 //ANTEBRAÇO DIREITA
 
                 var ckcostas_d = document.getElementById('ckantebraco_d');
-                console.log(ckcostas_d.value);
                 if(ckcostas_d.value == 0){
                     var txtcostas_d = document.getElementById('txtantebraco_d').setAttribute("disabled","disabled");
                 }
 
                 ckcostas_d.onchange = function() {
                 document.getElementById('txtantebraco_d').disabled = !this.checked;
+                if(!this.checked){
+                    document.getElementById('ckantebraco_d').value = 0;
+                }else{
+                    document.getElementById('ckantebraco_d').value = 1;
+                }
                 };
 
                 //MÃO DIREITA
 
                 var ckcostas_d = document.getElementById('ckmao_d');
-                console.log(ckcostas_d.value);
                 if(ckcostas_d.value == 0){
                     var txtcostas_d = document.getElementById('txtmao_d').setAttribute("disabled","disabled");
                 }
 
                 ckcostas_d.onchange = function() {
                 document.getElementById('txtmao_d').disabled = !this.checked;
+                if(!this.checked){
+                    document.getElementById('ckmao_d').value = 0;
+                }else{
+                    document.getElementById('ckmao_d').value = 1;
+                }
                 };
 
                 //PESCOÇO DIREITA
 
                 var ckcostas_d = document.getElementById('ckpescoco_d');
-                console.log(ckcostas_d.value);
                 if(ckcostas_d.value == 0){
                     var txtcostas_d = document.getElementById('txtpescoco_d').setAttribute("disabled","disabled");
                 }
 
                 ckcostas_d.onchange = function() {
                 document.getElementById('txtpescoco_d').disabled = !this.checked;
+                if(!this.checked){
+                    document.getElementById('ckpescoco_d').value = 0;
+                }else{
+                    document.getElementById('ckpescoco_d').value = 1;
+                }
                 };
 
                 //COSTAS ESQUERDA
 
                 var ckcostas_d = document.getElementById('ckcostas_e');
-                console.log(ckcostas_d.value);
                 if(ckcostas_d.value == 0){
                     var txtcostas_d = document.getElementById('txtcostas_e').setAttribute("disabled","disabled");
                 }
 
                 ckcostas_d.onchange = function() {
                 document.getElementById('txtcostas_e').disabled = !this.checked;
+                if(!this.checked){
+                    document.getElementById('ckcostas_e').value = 0;
+                }else{
+                    document.getElementById('ckcostas_e').value = 1;
+                }
                 };
 
                 //PEITO ESQUERDA
 
                 var ckcostas_d = document.getElementById('ckpeito_e');
-                console.log(ckcostas_d.value);
                 if(ckcostas_d.value == 0){
                     var txtcostas_d = document.getElementById('txtpeito_e').setAttribute("disabled","disabled");
                 }
 
                 ckcostas_d.onchange = function() {
                 document.getElementById('txtpeito_e').disabled = !this.checked;
+                if(!this.checked){
+                    document.getElementById('ckpeito_e').value = 0;
+                }else{
+                    document.getElementById('ckpeito_e').value = 1;
+                }
                 };
 
                 //BARRIGA ESQUERDA
 
                 var ckcostas_d = document.getElementById('ckbarriga_e');
-                console.log(ckcostas_d.value);
                 if(ckcostas_d.value == 0){
                     var txtcostas_d = document.getElementById('txtbarriga_e').setAttribute("disabled","disabled");
                 }
 
                 ckcostas_d.onchange = function() {
                 document.getElementById('txtbarriga_e').disabled = !this.checked;
+                if(!this.checked){
+                    document.getElementById('ckbarriga_e').value = 0;
+                }else{
+                    document.getElementById('ckbarriga_e').value = 1;
+                }
                 };
 
                 //PERNA ESQUERDA
 
                 var ckcostas_d = document.getElementById('ckperna_e');
-                console.log(ckcostas_d.value);
                 if(ckcostas_d.value == 0){
                     var txtcostas_d = document.getElementById('txtperna_e').setAttribute("disabled","disabled");
                 }
 
                 ckcostas_d.onchange = function() {
                 document.getElementById('txtperna_e').disabled = !this.checked;
+                if(!this.checked){
+                    document.getElementById('ckperna_e').value = 0;
+                }else{
+                    document.getElementById('ckperna_e').value = 1;
+                }
                 };
 
                 //PÉ ESQUERDA
 
                 var ckcostas_d = document.getElementById('ckpe_e');
-                console.log(ckcostas_d.value);
                 if(ckcostas_d.value == 0){
                     var txtcostas_d = document.getElementById('txtpe_e').setAttribute("disabled","disabled");
                 }
 
                 ckcostas_d.onchange = function() {
                 document.getElementById('txtpe_e').disabled = !this.checked;
+                if(!this.checked){
+                    document.getElementById('ckpe_e').value = 0;
+                }else{
+                    document.getElementById('ckpe_e').value = 1;
+                }
                 };
 
                 //BRAÇO ESQUERDA
 
                 var ckcostas_d = document.getElementById('ckbraco_e');
-                console.log(ckcostas_d.value);
                 if(ckcostas_d.value == 0){
                     var txtcostas_d = document.getElementById('txtbraco_e').setAttribute("disabled","disabled");
                 }
 
                 ckcostas_d.onchange = function() {
                 document.getElementById('txtbraco_e').disabled = !this.checked;
+                if(!this.checked){
+                    document.getElementById('ckbraco_e').value = 0;
+                }else{
+                    document.getElementById('ckbraco_e').value = 1;
+                }
                 };
 
                 //ANTEBRAÇO ESQUERDA
 
                 var ckcostas_d = document.getElementById('ckantebraco_e');
-                console.log(ckcostas_d.value);
                 if(ckcostas_d.value == 0){
                     var txtcostas_d = document.getElementById('txtantebraco_e').setAttribute("disabled","disabled");
                 }
 
                 ckcostas_d.onchange = function() {
                 document.getElementById('txtantebraco_e').disabled = !this.checked;
+                if(!this.checked){
+                    document.getElementById('ckantebraco_e').value = 0;
+                }else{
+                    document.getElementById('ckantebraco_e').value = 1;
+                }
                 };
 
                 //MÃO ESQUERDA
 
                 var ckcostas_d = document.getElementById('ckmao_e');
-                console.log(ckcostas_d.value);
                 if(ckcostas_d.value == 0){
                     var txtcostas_d = document.getElementById('txtmao_e').setAttribute("disabled","disabled");
                 }
 
                 ckcostas_d.onchange = function() {
                 document.getElementById('txtmao_e').disabled = !this.checked;
+                if(!this.checked){
+                    document.getElementById('ckmao_e').value = 0;
+                }else{
+                    document.getElementById('ckmao_e').value = 1;
+                }
                 };
 
                 //PESCOÇO ESQUERDA
 
                 var ckcostas_d = document.getElementById('ckpescoco_e');
-                console.log(ckcostas_d.value);
                 if(ckcostas_d.value == 0){
                     var txtcostas_d = document.getElementById('txtpescoco_e').setAttribute("disabled","disabled");
                 }
 
                 ckcostas_d.onchange = function() {
                 document.getElementById('txtpescoco_e').disabled = !this.checked;
+                if(!this.checked){
+                    document.getElementById('ckpescoco_e').value = 0;
+                }else{
+                    document.getElementById('ckpescoco_e').value = 1;
+                }
                 };
 
                 //CICATRIZ
 
                 var ckcostas_d = document.getElementById('ckcicatriz');
-                console.log(ckcostas_d.value);
                 if(ckcostas_d.value == 0){
                     var txtcostas_d = document.getElementById('txtcicatriz').setAttribute("disabled","disabled");
                 }
 
                 ckcostas_d.onchange = function() {
                 document.getElementById('txtcicatriz').disabled = !this.checked;
+                if(!this.checked){
+                    document.getElementById('ckcicatriz').value = 0;
+                }else{
+                    document.getElementById('ckcicatriz').value = 1;
+                }
                 };
 
                 //DEFORMIDADE
 
                 var ckcostas_d = document.getElementById('ckdeformidade');
-                console.log(ckcostas_d.value);
                 if(ckcostas_d.value == 0){
                     var txtcostas_d = document.getElementById('txtdeformidade').setAttribute("disabled","disabled");
                 }
 
                 ckcostas_d.onchange = function() {
                 document.getElementById('txtdeformidade').disabled = !this.checked;
+                if(!this.checked){
+                    document.getElementById('ckdeformidade').value = 0;
+                }else{
+                    document.getElementById('ckdeformidade').value = 1;
+                }
                 };
 
 

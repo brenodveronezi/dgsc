@@ -82,6 +82,16 @@ module.exports = function(application){
     application.post('/edita', (req, res) => {
         application.app.controllers.consulta.cadastroSuspeito(application, req, res);
     })
+
+    application.post('/deleta', (req, res) => {
+        console.log(req.query.id);
+        
+        //application.app.controllers.consulta.cadastroSuspeito(application, req, res);
+    })
+
+    application.post('/editaTatuagens', (req, res) => {
+       application.app.controllers.edita.editaTatuagens(application, req, res);
+    })
     
     application.post('/gerarpdf', (req, res) => {
         application.app.controllers.consulta.cadastroSuspeitoPDF(application, req, res);

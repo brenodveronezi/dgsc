@@ -98,3 +98,13 @@ module.exports.editaPassagem4 = function(application, req, res){
 
     editaModel.editaSuspeitoPassagem4(dados, req, res);
 }
+
+module.exports.editaTatuagens = function(application, req, res){
+    dados = req.body;
+    console.log(dados);
+
+    var connection = application.config.dbConnection;
+    var editaModel = new application.app.models.editaDAO(connection);
+
+    editaModel.editaTatuagens(application, dados, req, res);
+}

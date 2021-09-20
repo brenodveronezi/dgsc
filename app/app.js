@@ -16,7 +16,6 @@ app.set("view engine", "ejs");
 
 
 app.use(express.static('./app/public'));
-express({limit: '4000kb'});
 //app.use(favicon(path.join(__dirname, 'public', 'civilsp.ico')));
 app.use(logger("dev"));
 app.use(express.json({limit: '5000kb'}));
