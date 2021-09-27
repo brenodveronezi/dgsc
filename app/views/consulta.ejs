@@ -16,6 +16,7 @@
     </head>
     <body>
         <h1>Consulta Suspeitos</h1>
+        <!--
                     <%console.log('o params é' , params)%>
                     <%console.log(Object.keys(params).length)%>
 
@@ -332,117 +333,133 @@
                 });
 
                 </script>
-
+-->
               <br>
             <form action="/consultaPersonalizada" method="POST">
-                <div>
-                    <label for="local_tatuagem">Selecione o local da tatuagem:</label>
+                <div id="divMeioFiltro">
+                    <div>
+                        <label for="local_tatuagem">Selecione o local da tatuagem:</label>
+    
+                        <select name="local_tatuagem" id="local_tatuagem">
+                            <option name="selecione" value="nenhum">Selecione</option>
+                            <option name="txtrosto" value="txtrosto">Rosto</option>
+                            <option name="txtcostas_d" value="txtcostas_d">Costas (Direita)</option>
+                            <option name="txtpeito_d" value="txtpeito_d">Peito (Direita)</option>
+                            <option name="txtbarriga_d" value="txtbarriga_d">Barriga (Direita)</option>
+                            <option name="txtperna_d" value="txtperna_d">Perna (Direita)</option>
+                            <option name="txtpe_d" value="txtpe_d">Pé (Direita)</option>
+                            <option name="txtbraço_d" value="txtbraço_d">Braço (Direita)</option>
+                            <option name="txtantebraco_d" value="txtantebraco_d">Antebraço (Direita)</option>
+                            <option name="txtmao_d" value="txtmao_d">Mão (Direita)</option>
+                            <option name="txtpescoco_e" value="txtpescoco_e">Pescoço (Direita)</option>
+                            <option name="txtcostas_e" value="txtcostas_e">Costas (Esquerda)</option>
+                            <option name="txtpeito_e" value="txtpeito_e">Peito (Esquerda)</option>
+                            <option name="txtbarriga_e" value="txtbarriga_e">Barriga (Esquerda)</option>
+                            <option name="txtperna_e" value="txtperna_e">Perna (Esquerda)</option>
+                            <option name="txtpe_e" value="txtpe_e">Pé (Esquerda)</option>
+                            <option name="txtbraco_e" value="txtbraco_e">Braço (Esquerda)</option>
+                            <option name="txtantebraco_e" value="txtantebraco_e">Antebraço (Esquerda)</option>
+                            <option name="txtmao_e" value="txtmao_e">Mão (Esquerda)</option>
+                            <option name="txtpescoco_e" value="txtpescoco_e">Pescoço (Esquerda)</option>
+                        </select>
+                        <input id="descricaoTatuagem" name="descricaoTatuagem" placeholder="descrição tatuagem" type="text">
+                        
+                    </div>
+                    <div class="form-row">
+                        <div >
+                            <div >
+                                <label for="idade">Idade:</label>
+                            </div>
+                            <select name="idade">
+                                <option value="nenhum">Selecione</option>
+                                <option value="15-20">15-20</option>
+                                <option value="20-25">20-25</option>
+                                <option value="25-30">25-30</option>
+                                <option value="30-35">30-35</option>
+                                <option value="35-40">35-40</option>
+                                <option value="40-45">40-45</option>
+                                <option value="45-50">45-50</option>
+                                <option value="50-55">50-55</option>
+                                <option value="55-60">55-60</option>
+                            </select>
+                        </div>
+    
+                        <div >
+                            <div >
+                                <label for="altura">Altura:</label>
+                            </div>
+                            <select name="altura">
+                                <option value="nenhum">Selecione</option>
+                                <option value="150-155">150-155</option>
+                                <option value="155-160">155-160</option>
+                                <option value="160-165">160-165</option>
+                                <option value="165-170">165-170</option>
+                                <option value="170-175">170-175</option>
+                                <option value="175-180">175-180</option>
+                                <option value="180-185">180-185</option>
+                                <option value="185-190">185-190</option>
+                            </select>
+                        </div>
+    
+                        <div >
+                            <div >
+                                <label for="cor_pele">Cor Pele:</label>
+                            </div>
+                            <select name="cor_pele">
+                                <option value="nenhum">Selecione</option>
+                                <option value="Amarelo">Amarelo</option>
+                                <option value="Branco">Branco</option>
+                                <option value="Pardo">Pardo</option>
+                                <option value="Negro">Negro</option>
+                                <option value="Vermelho">Vermelho</option>
+                            </select>
+                        </div>
+    
+                        <div >
+                            <div >
+                                <label for="cor_olhos">Cor Olhos:</label>
+                            </div>
+                            <select name="cor_olhos">
+                                <option value="nenhum">Selecione</option>
+                                <option value="Azul">Azul</option>
+                                <option value="Verde">Verde</option>
+                                <option value="Castanho">Castanho</option>
+                                <option value="Preto">Preto</option>
+                            </select>
+                        </div>
+    
+                        <div >
+                            <div >
+                                <label for="tipo_cabelo">Tipo Cabelo:</label>
+                            </div>
+                            <select name="tipo_cabelo">
+                                <option value="nenhum">Selecione</option>
+                                <option value="Calvo">Calvo</option>
+                                <option value="Ondulado">Ondulado</option>
+                                <option value="Encaracolado">Encaracolado</option>
+                                <option value="Liso">Liso</option>
+                                <option value="Carapinha">Carapinha</option>
+                            </select>
+                        </div>
+    
+                        <div >
+                            <div >
+                                <label for="cor_cabelo">Cor Cabelo:</label>
+                            </div>
+                            <select name="cor_cabelo">
+                                <option value="nenhum">Selecione</option>
+                                <option value="Ruivo">Ruivo</option>
+                                <option value="Loiro">Loiro</option>
+                                <option value="Castanho">Castanho</option>
+                                <option value="Preto">Preto</option>
+                                <option value="Grisalho">Grisalho</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button>Buscar</button>
+                </div>
+                
 
-                    <select name="local_tatuagem" id="local_tatuagem">
-                        <option name="selecione" value="nenhum">Selecione</option>
-                        <option name="txtrosto" value="txtrosto">Rosto</option>
-                        <option name="txtcostas_d" value="txtcostas_d">Costas (Direita)</option>
-                        <option name="txtpeito_d" value="txtpeito_d">Peito (Direita)</option>
-                        <option name="txtbarriga_d" value="txtbarriga_d">Barriga (Direita)</option>
-                        <option name="txtperna_d" value="txtperna_d">Perna (Direita)</option>
-                        <option name="txtpe_d" value="txtpe_d">Pé (Direita)</option>
-                        <option name="txtbraço_d" value="txtbraço_d">Braço (Direita)</option>
-                        <option name="txtantebraco_d" value="txtantebraco_d">Antebraço (Direita)</option>
-                        <option name="txtmao_d" value="txtmao_d">Mão (Direita)</option>
-                        <option name="txtpescoco_e" value="txtpescoco_e">Pescoço (Direita)</option>
-                        <option name="txtcostas_e" value="txtcostas_e">Costas (Esquerda)</option>
-                        <option name="txtpeito_e" value="txtpeito_e">Peito (Esquerda)</option>
-                        <option name="txtbarriga_e" value="txtbarriga_e">Barriga (Esquerda)</option>
-                        <option name="txtperna_e" value="txtperna_e">Perna (Esquerda)</option>
-                        <option name="txtpe_e" value="txtpe_e">Pé (Esquerda)</option>
-                        <option name="txtbraco_e" value="txtbraco_e">Braço (Esquerda)</option>
-                        <option name="txtantebraco_e" value="txtantebraco_e">Antebraço (Esquerda)</option>
-                        <option name="txtmao_e" value="txtmao_e">Mão (Esquerda)</option>
-                        <option name="txtpescoco_e" value="txtpescoco_e">Pescoço (Esquerda)</option>
-                    </select>
-                    <input id="descricaoTatuagem" name="descricaoTatuagem" placeholder="descrição tatuagem" type="text">
-                    
-                </div>
-                <div>
-                    <label for="idade">Idade:</label>
-                     <select name="idade">
-                         <option value="nenhum">Selecione</option>
-                         <option value="15-20">15-20</option>
-                         <option value="20-25">20-25</option>
-                         <option value="25-30">25-30</option>
-                         <option value="30-35">30-35</option>
-                         <option value="35-40">35-40</option>
-                         <option value="40-45">40-45</option>
-                         <option value="45-50">45-50</option>
-                         <option value="50-55">50-55</option>
-                         <option value="55-60">55-60</option>
-                         <option value="60">60+</option>
-                     </select>
-                </div>
-
-                <div>
-                    <label for="altura">Altura:</label>
-                     <select name="altura">
-                         <option value="nenhum">Selecione</option>
-                         <option value="150-155">150-155</option>
-                         <option value="155-160">155-160</option>
-                         <option value="160-165">160-165</option>
-                         <option value="165-170">165-170</option>
-                         <option value="170-175">170-175</option>
-                         <option value="175-180">175-180</option>
-                         <option value="180-185">180-185</option>
-                         <option value="185-190">185-190</option>
-                         <option value="190">190+</option>
-                     </select>
-                </div>
-
-                <div>
-                    <label for="cor_pele">Cor Pele:</label>
-                     <select name="cor_pele">
-                         <option value="nenhum">Selecione</option>
-                         <option value="Amarelo">Amarelo</option>
-                         <option value="Branco">Branco</option>
-                         <option value="Pardo">Pardo</option>
-                         <option value="Negro">Negro</option>
-                         <option value="Vermelho">Vermelho</option>
-                     </select>
-                </div>
-
-                <div>
-                    <label for="cor_olhos">Cor Olhos:</label>
-                     <select name="cor_olhos">
-                         <option value="nenhum">Selecione</option>
-                         <option value="Azul">Azul</option>
-                         <option value="Verde">Verde</option>
-                         <option value="Castanho">Castanho</option>
-                         <option value="Preto">Preto</option>
-                     </select>
-                </div>
-
-                <div>
-                    <label for="tipo_cabelo">Tipo Cabelo:</label>
-                     <select name="tipo_cabelo">
-                         <option value="nenhum">Selecione</option>
-                         <option value="Calvo">Calvo</option>
-                         <option value="Ondulado">Ondulado</option>
-                         <option value="Encaracolado">Encaracolado</option>
-                         <option value="Liso">Liso</option>
-                         <option value="Carapinha">Carapinha</option>
-                     </select>
-                </div>
-
-                <div>
-                    <label for="cor_cabelo">Cor Cabelo:</label>
-                     <select name="cor_cabelo">
-                         <option value="nenhum">Selecione</option>
-                         <option value="Ruivo">Ruivo</option>
-                         <option value="Loiro">Loiro</option>
-                         <option value="Castanho">Castanho</option>
-                         <option value="Preto">Preto</option>
-                         <option value="Grisalho">Grisalho</option>
-                     </select>
-                </div>
-                <button>Buscar</button>
             </form>
             
         <%if(suspeito.length > 0){%>

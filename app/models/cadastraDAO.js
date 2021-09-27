@@ -7,8 +7,8 @@ function cadastraDAO(connection){
 cadastraDAO.prototype.insertUsuarios = function(dados, req, res){
 	
 	const suspeito = {
-		text:'INSERT INTO suspeitos(nome,apelido,cpf,rg,dt_nascimento,nome_pai,nome_mae, naturalidade) VALUES($1, $2, $3, $4, $5, $6, $7, $8)',
-		values: [dados.nome, dados.apelido, dados.cpf, dados.rg, dados.dt_nascimento, dados.nome_pai, dados.nome_mae, dados.naturalidade],
+		text:'INSERT INTO suspeitos(nome,apelido,cpf,rg,dt_nascimento,nome_pai,nome_mae, naturalidade, idade) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9)',
+		values: [dados.nome, dados.apelido, dados.cpf, dados.rg, dados.dt_nascimento, dados.nome_pai, dados.nome_mae, dados.naturalidade, dados.idade],
 	}
 
 	
@@ -67,9 +67,9 @@ cadastraDAO.prototype.insertUsuarios = function(dados, req, res){
 					}
 				})
 			})
-		}/*else{
+		}else{
 			const tattoos = {
-				text: 'INSERT INTO tatuagem_local(id_suspeito) VALUES ((SELECT MAX(id) FROM suspeitos))'
+				text: 'INSERT INTO tatuagem_local(id_suspeito) VALUES ((SELECT MAX(id) FROM suspeitos)) ON CONFLICT (id_suspeito) DO NOTHING'
 			}
 
 			this._connection.connect((err, client, release) => {
@@ -84,7 +84,7 @@ cadastraDAO.prototype.insertUsuarios = function(dados, req, res){
 				})
 			})
 		}
-		*/
+	
 
 		if( key.match(/rua.*/) || key.match(/cidade.*/) || key.match(/estado.*/) || key.match(/numero.*/) || key.match(/complemento.*/)){
 			const enderecos = {
@@ -123,9 +123,9 @@ cadastraDAO.prototype.insertUsuarios = function(dados, req, res){
 				})
 			})
 		}
-		/*else{
+		else{
 			const caracteristicas_tatuagem = {
-				text: 'INSERT INTO caracteristicas_tatuagem(id_suspeito) VALUES((SELECT MAX(id) FROM suspeitos))'
+				text: 'INSERT INTO caracteristicas_tatuagem(id_suspeito) VALUES((SELECT MAX(id) FROM suspeitos)) ON CONFLICT (id_suspeito) DO NOTHING'
 			}
 
 			this._connection.connect((err, client, release) => {
@@ -140,7 +140,7 @@ cadastraDAO.prototype.insertUsuarios = function(dados, req, res){
 				})
 			})
 		}
-		*/
+		
 
 		if(key.match(/data.*/) || key.match(/procedimento.*/) || key.match(/artigo.*/) || key.match(/lei.*/) || key.match(/historico.*/) ){
 			const passagens_suspeito = {
